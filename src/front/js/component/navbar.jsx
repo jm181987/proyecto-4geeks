@@ -1,22 +1,25 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-
+import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png"
 export const Navbar = () => {
 	const [links, setLinks] = useState ([
     {text: "Artistas", href: "/artistas" },
     {text: "Quienes somos", href: "/quienes"}, 
     {text: "Caracteristicas", href: "/caracteristicas"},
-    {text: "Terminos y Condiciones", href: "/terms"},
+    {text: "Terminos y Condiciones", href: "/terminos"},
     {text: "Inicio de sesion", href: "/login"},
   ])
 	
   
   
   return (
-		<nav className="navbar navbar-light bg-light mb-3">
-		<nav className="navbar navbar-expand-md bg-light">
+		<nav className="navbar navbar-dark bg-dark mb-3">
+		<nav className="navbar navbar-expand-md bg-dark">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Artistas 24/7</a>
+    <div id="logo" >
+    <img src={logo} />
+    </div>
+    <a className="navbar-brand " href="#"></a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -27,19 +30,8 @@ export const Navbar = () => {
 	<Link className="nav-link" to={link.href}>
   {link.text}</Link>
 </li>
-
-
 	   ))}
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+        
       </ul>
     </div>
   </div>

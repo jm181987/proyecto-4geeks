@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Artistas } from "./pages/artistas.jsx";
 import { Caracteristicas } from "./pages/caracteristicas.jsx";
 import { Quienes } from "./pages/quienes.jsx";
-import { Terminos } from "./pages/terms.jsx";
+import  Terminos  from "./pages/terminos.jsx";
 import { Home } from "./pages/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
