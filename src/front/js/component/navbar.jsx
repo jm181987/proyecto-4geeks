@@ -11,14 +11,13 @@ export const Navbar = () => {
   ]);
 
   return (
-    <nav className="navbar navbar-dark bg-dark mb-3">
-      <a className="navbar-brand" href="#"></a>
+    <nav className="navbar navbar-dark bg-dark mb-3 ">
+      <a className="navbar-brand" href="#" ><img src={logo} /></a>
+      
       <nav className="navbar navbar-expand-md bg-dark">
-        <div className="container-fluid">
+        <div className="container-fluid ">
           <a className="navbar-brand" href="#"></a>
-          <div id="logo">
-            <img src={logo} />
-          </div>
+          
           <button
             className="navbar-toggler "
             type="button"
@@ -33,7 +32,7 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ">
               {links.map((link, index) => (
-                <li className="nav-item" key={index}>
+                <li className="nav-item"  key={index}>
                   <Link className="nav-link" to={link.href}>
                     {link.text}
                   </Link>
