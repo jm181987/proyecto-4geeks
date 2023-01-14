@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
-import "../../styles/home.css";
+import "/workspace/proyecto-4geeks/src/front/styles/home.css";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png"
 
 
@@ -30,9 +30,9 @@ export const Home = () => {
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 			</div>
 			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
+				Contactenos Via {" "}
+				<a  href="https://api.whatsapp.com/send?phone=59893867429"> <img className="whatlogo" src="https://i.imgur.com/9HKrmqj.png" alt="w"/>
+					
 				</a>
 			</p>
 		
