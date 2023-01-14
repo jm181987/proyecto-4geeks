@@ -10,9 +10,10 @@ export const Home = () => {
   return (
     <div className="text-center">
       <div>
-        <section id="sect1" class="sect">
-          <video className="banner vw-100 vh-150 my-0 py-0" 
-            src="https://carontestudio.com/img/f4.mp4"
+      <section id="sect1" class="sect">
+          <video
+            className="banner vw-100 vh-150 my-0 py-0"
+            src="https://drive.google.com/u/0/uc?id=1ns0hg4L0PF1jyXBWl1e2dZioBb4uk4Vp&export=download"
             autoplay="true"
             muted="true"
             loop="true"
