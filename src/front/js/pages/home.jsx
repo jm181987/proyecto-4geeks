@@ -1,17 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+
 import "../../styles/home.css";
-import { useAuth0 } from "@auth0/auth0-react";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png"
 
 
 
-const LoginButton = () => {
-	const { loginWithRedirect } = useAuth0();
-  
-	return <button onClick={() => loginWithRedirect()}>Log In</button>;
-  };
   
 
 
@@ -47,4 +41,3 @@ export const Home = () => {
 		
 	);
 };
-export default LoginButton;
