@@ -19,13 +19,22 @@ export const Home = () => {
             loop="true"
             poster="https://carontestudio.com/img/contacto.jpg"
           ></video>
-          <h1>texto</h1>
-        </section>
+          <div>
+            <h1>
+            Reserva Tu Artista Favorito
+            </h1>
+          </div>
+          <div class="about-us">
+          <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+               para tu fiesta de cumpelaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p> 
+          
+          <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
+          </div>
+
+          </section>
         
           
-          <p>
-            <img src={logo} />
-          </p>
+          
         
       </div>
       <div className="alert alert-info">

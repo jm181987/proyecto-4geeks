@@ -5,9 +5,69 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+:root {
+  background-color: black;
+}
+
 .whatlogo {
   width: 40px;
-  }
- .nav-item {
+}
+.nav-item {
   margin-right: 80px;
- }
+}
+
+h1 {
+  font-family: ;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #b046b4;
+  text-shadow: 0 0 2px rgba(75, 0, 98, 0.5), 0 0 4px rgba(75, 0, 98, 0.5),
+    0 0 6px rgba(75, 0, 98, 0.5);
+}
+
+.about-us {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-us p {
+  float: left;
+  width: 50%;
+  color: white;
+  font-weight: bold;
+  text-align: justify;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.about-us img {
+  float: right;
+  width: 500px;
+  height: 350px;
+  border-radius: 50px;
+}
+
+.shadow__btn {
+  margin-top: 50px;
+  margin-left: 150px;
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: #b046b4;
+  box-shadow: 0 0 25px rgb(144, 0, 255);
+}
+
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(144, 0, 255), 0 0 25px rgb(144, 0, 255),
+    0 0 50px rgb(144, 0, 255), 0 0 100px rgb(144, 0, 255);
+}
