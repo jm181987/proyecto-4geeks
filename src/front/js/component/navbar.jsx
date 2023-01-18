@@ -8,11 +8,12 @@ export const Navbar = () => {
     { text: "Caracteristicas", href: "/caracteristicas" },
     { text: "Terminos y Condiciones", href: "/terminos" },
     { text: "Inicio de sesion", href: "/login" },
+    { text: " ", href: "/" },
   ]);
 
   return (
     <nav className="navbar navbar-dark bg-dark mb-3 ">
-      <a className="navbar-brand" href="#" ><img src={logo} /></a>
+      <a className="navbar-brand" href="/" ><img src={logo} /></a>
       
       <nav className="navbar navbar-expand-md bg-dark">
         <div className="container-fluid ">
