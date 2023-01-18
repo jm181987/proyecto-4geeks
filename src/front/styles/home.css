@@ -5,3 +5,9 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+.whatlogo {
+  width: 40px;
+  }
+ .nav-item {
+  margin-right: 80px;
+ }
