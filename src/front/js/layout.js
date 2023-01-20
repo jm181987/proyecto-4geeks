@@ -9,6 +9,8 @@ import  Terminos  from "./pages/terminos.jsx";
 import { Home } from "./pages/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Login } from "./pages/login.jsx";
+import { Signup } from "./pages/signup.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -32,6 +34,8 @@ const Layout = () => {
                         <Route element={<Quienes />} path="/quienes" />
                         <Route element={<Terminos />} path="/terminos" />
                         <Route element={<Demo />} path="/demo" />
+                        <Route element={<Login />} path="/login" />
+                        <Route element={<Signup />} path="/signup" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

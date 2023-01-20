@@ -1,7 +1,7 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-from flask import Flask, request, jsonify, url_for, Blueprint
+from flask import Flask, request, jsonify, url_for, Blueprint, render_template
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
@@ -16,3 +16,22 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/artist', methods=['POST'])
+def create_artist():
+    request_data = request.get_json()
+    new_artist = {"name": request_data["name"], }
+    return 
+
+@api.route('/artist', methods=['GET'])
+def show_artist():
+    return 
+
+
+@api.route('/artist/<string:name>')
+def create_artist(name):
+    pass
+
+@api.route('/login')
+def login():
+    return render_template('')
