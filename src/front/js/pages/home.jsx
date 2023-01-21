@@ -19,30 +19,61 @@ export const Home = () => {
             loop="true"
             poster="https://carontestudio.com/img/contacto.jpg"
           ></video>
+        </section>
+      </div>
+
+      <div className="Info">
           <div>
-            <h1>
-            Reserva Tu Artista Favorito
+            <h1 className="nosotros">
+            Sobre Nosotros
             </h1>
           </div>
-          <div class="about-us">
-          <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+          <div className="about-us">
+            <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
                para tu fiesta de cumpelaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p> 
           
-          <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
+            <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
           </div>
-
-          </section>
-        
-          
-          
-        
       </div>
+
+      <div className="Info">
+          <div>
+            <h1 className="artistas">
+            Nuestros Artistas
+            </h1>
+          </div>
+          <div className="nuestros-artistas">
+            <p>Aqui puedes reservar a tu artista favorito<br></br></p>
+          </div>
+          <div className="cards">
+            <div className="card">
+            </div>
+            <div className="card3">
+            </div>
+            <div className="card4">
+            </div>
+            <div className="card5">
+            </div>
+          </div>
+          
+            
+            <button class="shadow__btn1" href="" >Ver Artistas</button>
+          
+      </div>
+
+
+          
+        
+          
+          
+        
+     
       <div className="alert alert-info">
         {store.message ||
           "Loading message from the backend (make sure your python backend is running)..."}
       </div>
       <p>
-        Contactenos Via{" "}
+        Contactenos Via {" "}
         <a href="https://api.whatsapp.com/send?phone=59893867429">
           {" "}
           <img
