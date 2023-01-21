@@ -9,12 +9,22 @@ import  Terminos  from "./pages/terminos.jsx";
 import { Home } from "./pages/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { Login } from "./pages/login.jsx";
-import { Signup } from "./pages/signup.jsx";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer";
+
+//componentes de acceso
+import { Login } from "./auth/login.jsx";
+import { SignUp } from "./auth/signup.jsx";
+import { Reset } from "./auth/reset.jsx";
+import { Recovery } from "./auth/recovery.jsx";
+import { Profile } from "./auth/profile.jsx";
+import { Password } from "./auth/password.jsx";
+import { Logout } from "./auth/logout.jsx";
+import PageNotFound from "./component/PageNotFound.jsx";
+
 
 //create your first component
 const Layout = () => {
@@ -35,7 +45,13 @@ const Layout = () => {
                         <Route element={<Terminos />} path="/terminos" />
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Login />} path="/login" />
-                        <Route element={<Signup />} path="/signup" />
+                        <Route element={<Logout />} path="/logout" />
+                        <Route element={<SignUp />} path="/signup" />
+                        <Route element={<Reset />} path="/reset" />
+                        <Route element={<Recovery />} path="/recovery" />
+                        <Route element={<Profile />} path="/profile" />
+                        <Route element={<Password />} path="/password" />
+                        <Route element={<PageNotFound />} path="*" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
