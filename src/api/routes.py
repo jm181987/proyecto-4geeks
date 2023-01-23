@@ -7,12 +7,12 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager, create_access_token,create_refresh_token, jwt_required, get_jwt_identity,get_jwt
+from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity,get_jwt
 from flask_sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
 api = Blueprint('api', __name__)
-bcrypt = Bcrypt(Flask(__name__))
-jwt = JWTManager(Flask(__name__))
+bcrypt = Bcrypt(app)
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -76,3 +76,13 @@ def destroyToken():
     db.session.commit()
     return jsonify(msg="Access token revoked")
 
+@api.route('/updatepassword', methods = ['PATCH'])
+@jwt_required()
+def patch_user_pass():
+    new_password = request.json.get('password')
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    user.password = bcrypt.generate_password_hash(new_password).decode("utf-8")
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({"msg": "Clave actualizada"}), 200

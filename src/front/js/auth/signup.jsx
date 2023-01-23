@@ -2,10 +2,14 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import { Toaster, toast } from "react-hot-toast";
+
 
 import { Card, Row, Container, Column } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+const notify = () => toast.success('Registro exitoso!');
 
 export const SignUp = () => {
   const { store, actions } = useContext(Context);
@@ -28,13 +32,17 @@ export const SignUp = () => {
     }
     if (!check) {
       console.error("El usuario no acepto los terminos");
+      toast.error("El usuario no acepto los terminos");
       return;
     }
 
     actions
       .signUp(email, password, phoneNumber)
       .then((resp) => {
-        if (resp.code == 201) navigate("/login");
+        if (resp.code == 201){
+          notify()
+          setTimeout(()=> navigate("/login"), 2500)
+          }
         else console.log("Problema en el registro de usuario: ", resp);
       })
       .catch((error) => {
@@ -49,64 +57,65 @@ export const SignUp = () => {
           <h1>Registro</h1>
           <Form onSubmit={signUpUser}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>E-mail</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="Correo electrónico"
                 name="email"
                 required
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="Contraseña"
                 name="password"
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Confirm Password</Form.Label>
+              <Form.Label>Confirmar contraseña</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Confirme su contraseña"
                 name="confirm"
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Phone Number</Form.Label>
+              <Form.Label># WhatsApp</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Phone Number"
+                placeholder="Su número de WhatsApp"
                 name="phone-number"
               />
               <Form.Text className="text-muted">
-                We'll never share your phone Number with anyone else.
+                No compartiremos ninguno de sus datos con terceros.
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check
                 type="checkbox"
-                label="I accept the terms"
+                label="Acepto los terminos y condiciones"
                 required
                 name="check"
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={() => actions.signUp(email, password, phoneNumber)}>
-              Submit
+            <Button variant="primary" type="submit">
+              Registrarse
             </Button>
           </Form>
         </Card>
       </Row>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </Container>
   );
 };
