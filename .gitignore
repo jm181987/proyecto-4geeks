@@ -1,6 +1,9 @@
 # ignore all files starting with .
 .*
 
+#Credenciales firebase
+firebase-credentials.json
+
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
 !.github

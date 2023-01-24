@@ -24,6 +24,7 @@ flask-wtf = "*"
 wtforms = "*"
 email-validator = "*"
 flask-jwt-extended = "*"
+firebase-admin = "*"
 
 [requires]
 python_version = "3.10"

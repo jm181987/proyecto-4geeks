@@ -86,3 +86,46 @@ def patch_user_pass():
     db.session.add(user)
     db.session.commit()
     return jsonify({"msg": "Clave actualizada"}), 200
+
+@api.route('/uploadphoto', methods = ['POST'])
+@jwt_required()
+def uploadphoto():
+    #Verificamos si el usuario existe
+    user = User.query.get(get_jwt_identity())
+    if user is None:
+            return "Usuario no encontrado", 403
+    #Recibe un archivo en la peticion
+    file = request.files['profilePic']
+    #Extraemos la extension del archivo
+    extension = file.filename.split(".")[1]
+    #Guarda el archivo recibido en un archivo temporal
+    temp = tempfile.NamedTemporalyFile(delete=False)
+    file.save(temp.name)
+    #Subir el archivo a firebase
+    #Se llama al bucket
+    bucket = storage.bucket(name="geeks-e71e0.appspot.com")
+    #Se genera el nombre del archivo con el id y la extension
+    filename = "profiles/" + str(get_jwt_identity()) + "." + extension
+    ##Se hace referencia al espacio dentro del bucket
+    resource = bucket.blob(filename)
+    ##Se sube el archivo temporal al espacio designado en el bucket
+    #Se debe de especificar el tipo de contenido en base a la extension
+    resource.upload_from_filename(temp.name, content_type="image/" + extension)
+
+    #Guardar la imagen en la base de datos si no existe previamente
+    if Imagen.query.filter(resource_path = filename).get() is None:
+        new_image = Imagen(resource_path=filename, description="Profile photo user " + user.id)
+        db.session.add(new_image)
+        #Procesar las operaciones de la base de datos, pero sin cerrarla para poder ejecutar mas operaciones posteriormete
+        db.session.flush()
+
+
+        
+        #si se encuentra el usuario se actualiza el espacio de la foto 
+        user.profile_picture_id = new_image.id
+        #como todo es correcto, ya se puede crear el registro en la base de datos
+        db.session.add(user)
+        db.session.commit()
+
+        return "OK", 200
+    
