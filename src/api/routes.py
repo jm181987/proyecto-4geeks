@@ -128,4 +128,80 @@ def uploadphoto():
         db.session.commit()
 
         return "OK", 200
-    
+
+@api.route('/getphoto', methods = ['GET'])
+@jwt_required()
+def getphoto():
+    user_id = get_jwt_identity()
+    #Recibe un archivo en la peticion
+    file = request.files['profilePic']
+    #Extraemos la extension del archivo
+    extension = file.filename.split(".")[1]
+    #Guarda el archivo recibido en un archivo temporal
+    temp = tempfile.NamedTemporaryFile(delete=False)
+    file.save(temp.name)
+    #Subir el archivo a firebase
+    #Se llama al bucket
+    bucket = storage.bucket(name="geeks-e71e0.appspot.com")
+    #Se genera el nombre del archivo con el id y la extension
+    filename = "profiles/" + str(user_id) + "." + extension
+    ##Se hace referencia al espacio dentro del bucket
+    resource = bucket.blob(filename)
+    ##Se sube el archivo temporal al espacio designado en el bucket
+    #Se debe de especificar el tipo de contenido en base a la extension
+    resource.upload_from_filename(temp.name, content_type="image/" + extension)
+
+    #Verificamos si el usuario existe
+    user = User.query.get(user_id)
+    if user is None:
+        return "Usuario no encontrado", 403
+    #Guardar la imagen en la base de datos si no existe previamente
+    if Imagen.query.filter(Imagen.resource_path == filename).first() is None:
+        new_image = Imagen(resource_path=filename, description="Profile photo user " + str(user_id))
+        db.session.add(new_image)
+        #Procesar las operaciones de la base de datos, pero sin cerrarla para poder ejecutar mas operaciones posteriormete
+        db.session.flush()
+        #si se encuentra el usuario se actualiza el espacio de la foto 
+        user.profile_picture_id = new_image.id
+        #como todo es correcto, ya se puede crear el registro en la base de datos
+        db.session.add(user)
+        db.session.commit()
+
+        return "OK", 200  
+
+@api.route('/helloprotected', methods=['GET'])
+@jwt_required()
+def handle_hello_protected():
+    claims=get_jwt()
+    user = User.query.get(get_jwt_identity())
+    response_body = {
+        "message": "token válido",
+        "user_id": get_jwt_identity(),
+        "role":claims["role"],
+        "user_email": user.email
+    }
+
+    return jsonify(user.serialize()), 200
+
+
+@api.route('/getphoto', methods=['GET'])
+@jwt_required()
+def getPhoto():
+    #Buscamos el usuario en la BD partiendo del id del token
+    user = User.query.get(get_jwt_identity())
+    if user is None:
+        return "Usuario no encontrado", 403
+   
+    # Subir el archivo a firebase
+    ## Se llama al bucket
+    bucket=storage.bucket(name="geeks-e71e0.appspot.com")
+    ## Se hace referencia al espacio dentro del bucket
+    blob = bucket.blob(user.profile_picture_id)
+    ## Se sube el archivo temporal al espacio designado en el bucket
+    url=blob.generate_signed_url(version="v4",
+        # This URL is valid for 15 minutes
+        expiration=timedelta(minutes=15),
+        # Allow GET requests using this URL.
+        method="GET")
+        
+    return jsonify({"pictureUrl":url}), 200

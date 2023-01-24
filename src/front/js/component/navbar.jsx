@@ -12,7 +12,20 @@ export const Navbar = () => {
     {text: "Cerrar sesion", href: "/logout"}
   ])
 	
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Add code to handle login here
+    setIsLoggedIn(true);
+    setUsername('John Doe');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername('');
+  };
   
   return (
 		<nav className="navbar navbar-dark bg-dark mb-3">
