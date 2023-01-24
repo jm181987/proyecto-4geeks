@@ -4,11 +4,13 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 import os
 from datetime import datetime, timezone, timedelta
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, TokenBlockedList
+from api.models import db, User, TokenBlockedList, Imagen
 from api.utils import generate_sitemap, APIException
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity,get_jwt
 from flask_sqlalchemy import SQLAlchemy
+from firebase_admin import storage
+import tempfile
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
@@ -53,8 +55,8 @@ def login():
     if not clave_valida:
         raise APIException("Clave invalida", status_code=401)
     # Se genera un token y se retorna como respuesta
-    token=create_access_token(email)
-    refreshToken=create_refresh_token(email)
+    token=create_access_token(identity=newUser.id)
+    refreshToken=create_refresh_token(identity=newUser.id)
     return jsonify({"token":token, "refreshToken":refreshToken}), 200
 
 # Validar: endpoint que reciba un token y retorna si este es valido o no
@@ -90,37 +92,35 @@ def patch_user_pass():
 @api.route('/uploadphoto', methods = ['POST'])
 @jwt_required()
 def uploadphoto():
-    #Verificamos si el usuario existe
-    user = User.query.get(get_jwt_identity())
-    if user is None:
-            return "Usuario no encontrado", 403
+    user_id = get_jwt_identity()
     #Recibe un archivo en la peticion
     file = request.files['profilePic']
     #Extraemos la extension del archivo
     extension = file.filename.split(".")[1]
     #Guarda el archivo recibido en un archivo temporal
-    temp = tempfile.NamedTemporalyFile(delete=False)
+    temp = tempfile.NamedTemporaryFile(delete=False)
     file.save(temp.name)
     #Subir el archivo a firebase
     #Se llama al bucket
     bucket = storage.bucket(name="geeks-e71e0.appspot.com")
     #Se genera el nombre del archivo con el id y la extension
-    filename = "profiles/" + str(get_jwt_identity()) + "." + extension
+    filename = "profiles/" + str(user_id) + "." + extension
     ##Se hace referencia al espacio dentro del bucket
     resource = bucket.blob(filename)
     ##Se sube el archivo temporal al espacio designado en el bucket
     #Se debe de especificar el tipo de contenido en base a la extension
     resource.upload_from_filename(temp.name, content_type="image/" + extension)
 
+    #Verificamos si el usuario existe
+    user = User.query.get(user_id)
+    if user is None:
+        return "Usuario no encontrado", 403
     #Guardar la imagen en la base de datos si no existe previamente
-    if Imagen.query.filter(resource_path = filename).get() is None:
-        new_image = Imagen(resource_path=filename, description="Profile photo user " + user.id)
+    if Imagen.query.filter(Imagen.resource_path == filename).first() is None:
+        new_image = Imagen(resource_path=filename, description="Profile photo user " + str(user_id))
         db.session.add(new_image)
         #Procesar las operaciones de la base de datos, pero sin cerrarla para poder ejecutar mas operaciones posteriormete
         db.session.flush()
-
-
-        
         #si se encuentra el usuario se actualiza el espacio de la foto 
         user.profile_picture_id = new_image.id
         #como todo es correcto, ya se puede crear el registro en la base de datos
