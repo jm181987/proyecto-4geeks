@@ -18,12 +18,14 @@ gunicorn = "*"
 cloudinary = "*"
 flask-admin = "*"
 typing-extensions = "*"
+
 flask-bcrypt = "*"
 flask-login = "*"
 flask-wtf = "*"
 wtforms = "*"
 email-validator = "*"
 flask-jwt-extended = "*"
+
 firebase-admin = "*"
 
 [requires]

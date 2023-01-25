@@ -74,9 +74,14 @@
 		]
 	},
 	"dependencies": {
+
 		"@headlessui/react": "^1.7.7",
 		"@heroicons/react": "^2.0.13",
 		"bootstrap": "^5.2.3",
+
+		"@auth0/auth0-react": "^1.12.1",
+		"firebase": "^9.15.0",
+
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^2.7.0",

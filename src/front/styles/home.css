@@ -5,3 +5,178 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+:root {
+  background-color: black;
+}
+
+.whatlogo {
+  width: 40px;
+}
+.nav-item {
+  margin-right: 80px;
+  
+}
+
+
+h1 {
+  
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: #b046b4;
+  text-shadow: 0 0 25px rgb(144, 0, 255);
+}
+
+.about-us {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.about-us p {
+  float: left;
+  width: 50%;
+  color: white;
+  font-weight: bold;
+  text-align: justify;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.about-us img {
+  float: right;
+  width: 500px;
+  height: 350px;
+  border-radius: 50px;
+}
+
+.shadow__btn {
+  margin-top: 50px;
+  margin-left: 150px;
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: #b046b4;
+  box-shadow: 0 0 25px rgb(144, 0, 255);
+}
+
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(144, 0, 255), 0 0 25px rgb(144, 0, 255),
+    0 0 50px rgb(144, 0, 255), 0 0 100px rgb(144, 0, 255);
+}
+
+.nuestros-artistas {
+color : white;
+
+
+}
+
+.shadow__btn1 {
+  margin-top: 100px;
+  margin-left: 0px;
+  margin-bottom: 100px;
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: #b046b4;
+  box-shadow: 0 0 25px rgb(144, 0, 255);
+}
+
+
+.shadow__btn1:hover {
+  box-shadow: 0 0 5px rgb(144, 0, 255), 0 0 25px rgb(144, 0, 255),
+    0 0 50px rgb(144, 0, 255), 0 0 100px rgb(144, 0, 255);
+}
+
+.cards{
+  display: flex;
+ 
+}
+.card {
+  width: 250px;
+  height: 454px;
+  margin-top: 50px;
+  margin-left: 250px;
+  background-image: url('https://i.pinimg.com/236x/41/38/b6/4138b6d05904e84dc82fab2811578035.jpg');
+  background-size: cover;
+  border-radius: 20px;
+  transition: all .3s;
+ }
+ 
+ 
+ .card:hover {
+  box-shadow: 0px 0px 30px 1px rgb(144, 0, 255);
+  width: 300px;
+  height: 500px;
+  background-image: url('https://i.pinimg.com/236x/af/cf/d6/afcfd6e0b2fa861b12bc9cf630ff4b80.jpg');
+
+ }
+
+ .card3 {
+  width: 250px;
+  height: 454px;
+  margin-top: 50px;
+  margin-left: 100px;
+  background-image: url('https://i.pinimg.com/236x/96/b8/ec/96b8ec95c2b02ad758d2854c27320c71.jpg');
+  background-size: cover;
+  border-radius: 20px;
+  transition: all .3s;
+ }
+ 
+ .card3:hover {
+  box-shadow: 0px 0px 30px 1px rgb(144, 0, 255);
+  width: 300px;
+  height: 500px;
+  background-image: url('https://i.pinimg.com/564x/80/91/93/80919311b65dee516ef2c704cf2e0ce6.jpg');
+ }
+
+ .card4 {
+  width: 250px;
+  height: 454px;
+  margin-top: 50px;
+  margin-left: 100px;
+  background-image: url('https://i.pinimg.com/236x/e2/2a/3b/e22a3be7353101d8f99bbf92e97d3903.jpg');
+  background-size: cover;
+  border-radius: 20px;
+  transition: all .3s;
+ }
+
+ .card4:hover {
+  box-shadow: 0px 0px 30px 1px rgb(144, 0, 255);
+  width: 300px;
+  height: 500px;
+  background-image: url('https://i.pinimg.com/236x/97/bb/72/97bb729714fdd94ed0bcd7fb2de83712.jpg');
+ }
+
+ .card5 {
+  width: 250px;
+  height: 454px;
+  margin-top: 50px;
+  margin-left: 100px;
+  background-image: url('https://i.pinimg.com/236x/17/07/d4/1707d44eb134c8c0fd61b1ea96db0e55.jpg');
+  background-size: cover;
+  border-radius: 20px;
+  transition: all .3s;
+ }
+
+ .card5:hover {
+  box-shadow: 0px 0px 30px 1px rgb(144, 0, 255);
+  width: 300px;
+  height: 500px;
+  background-image: url('https://i.pinimg.com/236x/26/4b/39/264b396a01bf41f444596517f5d485c9.jpg');
+ }
