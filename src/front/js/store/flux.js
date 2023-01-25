@@ -94,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ status: true });
         localStorage.setItem("token", token);
         localStorage.setItem("refreshToken", refreshToken);
-        let picResponse = await fetch(url + "/api/getphoto", {
+        let picResponse = await fetch(`${apiURL}/getphoto`, {
           method: "GET",
           headers: { Authorization: "Bearer " + token },
         });
