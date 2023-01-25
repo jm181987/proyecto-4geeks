@@ -4,8 +4,8 @@ db = SQLAlchemy()
 
 
 
-class Users(db.Model):
-    __tablename__="users"
+class User(db.Model):
+    __tablename__="user"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(1000), unique=False, nullable=False)
@@ -95,8 +95,8 @@ class Posts(db.Model):
     price = db.Column(db.Integer, unique=False, nullable=False)
     description = db.Column(db.String(240), unique=False, nullable=False)
     #photo = ??
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    user = db.relationship(Users)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship(User)
 
     def __repr__(self):
         return f'<Post: {self.id}>'
@@ -133,8 +133,8 @@ class Fav_posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post_id=db.Column(db.Integer, db.ForeignKey("posts.id"))
     post=db.relationship(Posts)
-    user_id=db.Column(db.Integer, db.ForeignKey("users.id"))
-    user=db.relationship(Users)
+    user_id=db.Column(db.Integer, db.ForeignKey("user.id"))
+    user=db.relationship(User)
 
     def __repr__(self):
         return '<Fav_posts %r>' %self.id

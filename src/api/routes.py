@@ -24,7 +24,7 @@ cripto=Bcrypt(Flask(__name__))
 # Traer todos los Usuarios
 @api.route('/users', methods=['GET'])
 def get_user():
-    user=Users.query.all()
+    user=User.query.all()
     return list(map(lambda item: item.serialize(),user)), 200
    
 # traer los favoritos
@@ -174,7 +174,7 @@ def delete_post(post_param):
 def update_user_password():
     new_password=request.json.get("password")
     user_id=get_jwt_identity()
-    user=Users.query.get(user_id)
+    user=User.query.get(user_id)
     user.password=cripto.generate_password_hash(new_password)
     db.session.add(user)
     db.session.commit()
