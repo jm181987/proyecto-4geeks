@@ -11,12 +11,12 @@ class User(db.Model):
     password = db.Column(db.String(1000), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     is_admin = db.Column(db.Boolean(), unique=False, nullable=True)
-    firstname = db.Column(db.String(40), unique=False, nullable=False)
-    lastname = db.Column(db.String(120), unique=False, nullable=False)
-    telnumber = db.Column(db.String(120), unique=True, nullable=False)
-    address = db.Column(db.String(120), unique=False, nullable=False)
-    country = db.Column(db.String(120), unique=False, nullable=False)
-    age = db.Column(db.String(120), unique=False, nullable=False)
+    firstname = db.Column(db.String(40), unique=False, nullable=True)
+    lastname = db.Column(db.String(120), unique=False, nullable=True)
+    telnumber = db.Column(db.String(120), unique=False, nullable=True)
+    address = db.Column(db.String(120), unique=False, nullable=True)
+    country = db.Column(db.String(120), unique=False, nullable=True)
+    age = db.Column(db.String(120), unique=False, nullable=True)
     profile_picture_id = db.Column(db.Integer, db.ForeignKey("imagen.id"))
     profile_picture = db.relationship("Imagen")
 
@@ -40,7 +40,7 @@ class User(db.Model):
         }
 
 class TokenBlockedList(db.Model):
-    id=db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     token=db.Column(db.String(200), unique=True, nullable=False)
     email=db.Column(db.String(200), nullable=False, index=True)
     created_at = db.Column(db.DateTime, nullable=False)

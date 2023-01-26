@@ -218,7 +218,7 @@ def login():
 @api.route('/verify-token',methods=['POST'])
 @jwt_required()
 def verifyToken():    
-    userEmail=get_jwt_identity()
+    userEmail = get_jwt_identity()
     if not userEmail:
         return "Token invalido", 401
     return "Token correcto", 200
