@@ -12,7 +12,7 @@ export const Home = () => {
       <div>
       <section id="sect1" class="sect">
           <video
-            className="banner vw-100 vh-150 my-0 py-0"
+            className="banner sm vw-100 vh-150 my-0 py-0"
             src=""
             autoplay="true"
             muted="true"
@@ -22,7 +22,7 @@ export const Home = () => {
         </section>
       </div>
 
-      <div className="Info">
+      <div className="Info sm">
           <div>
             <h1 className="nosotros">
             Sobre Nosotros
@@ -30,20 +30,20 @@ export const Home = () => {
           </div>
           <div className="about-us">
             <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
-               para tu fiesta de cumpelaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p> 
+               para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p> 
           
             <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
           </div>
       </div>
 
-      <div className="Info">
+      <div className="Info sm">
           <div>
             <h1 className="artistas">
             Nuestros Artistas
             </h1>
           </div>
           <div className="nuestros-artistas">
-            <p>Aqui puedes reservar a tu artista favorito<br></br></p>
+            <p>  Aqui puedes reservar a tu artista favorito  <br></br></p>
           </div>
           <div className="cards">
             <div className="card">
