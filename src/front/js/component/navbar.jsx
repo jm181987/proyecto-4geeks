@@ -30,7 +30,7 @@ export const Navbar = () => {
   
 
   return (
-    <nav className="navbar navbar-dark bg-dark mb-3 ">
+    <nav className="navbar sm navbar-dark bg-dark mb-3 ">
       <a className="navbar-brand" href="/" ><img src={logo} /></a>
       
       <nav className="navbar navbar-expand-md bg-dark">
