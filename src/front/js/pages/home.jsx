@@ -13,11 +13,11 @@ export const Home = () => {
       <section id="sect1" class="sect">
           <video
             className="banner vw-100 vh-150 my-0 py-0"
-            src="https://drive.google.com/u/0/uc?id=1ns0hg4L0PF1jyXBWl1e2dZioBb4uk4Vp&export=download"
+            src=""
             autoplay="true"
             muted="true"
             loop="true"
-            poster="https://carontestudio.com/img/contacto.jpg"
+            poster="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?cs=srgb&dl=pexels-wendy-wei-1190298.jpg&fm=jpg"
           ></video>
         </section>
       </div>
