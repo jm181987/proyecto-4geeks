@@ -26,6 +26,11 @@ cripto=Bcrypt(Flask(__name__))
 def get_user():
     user=User.query.all()
     return list(map(lambda item: item.serialize(),user)), 200
+
+@api.route('/artists', methods=['GET'])
+def get_user():
+    artist = Artists.query.all()
+    return list(map(lambda item: item.serialize(),user)), 200
    
 # traer los favoritos
 @api.route('/favorites', methods=['GET'])
