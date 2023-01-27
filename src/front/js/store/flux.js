@@ -145,12 +145,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getArtists: async () => {
-				const settings = {
+				const params = {
 					method: "GET",
 					headers: { "Content-Type": "application/json" }
 				}
 
-				const request = await fetch(`${apiURL}/artists`, settings)
+				const request = await fetch(`${apiURL}/artists`, params)
 				const json = await request.json()
 				const data = json
 				setStore({ artists: data.results })

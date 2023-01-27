@@ -22,7 +22,7 @@ export default function Mision() {
 					<h1>
 						<br></br>Vision
 					</h1>
-					<div className="col md text-white ">
+					<div className="col md mb-3 text-white ">
 						<h5 >
 							Visión: Ser el líder en la industria de contratación de artistas en línea, brindando una experiencia excepcional a ambos artistas y clientes a través de un servicio personalizado y tecnología innovadora.
 						</h5><br/>
