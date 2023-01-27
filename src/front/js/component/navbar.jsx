@@ -5,9 +5,7 @@ export const Navbar = () => {
 
 	const [links, setLinks] = useState ([
     {text: "Artistas", href: "/artistas" },
-    {text: "Quienes somos", href: "/quienes"}, 
-    {text: "Caracteristicas", href: "/caracteristicas"},
-    {text: "Terminos y Condiciones", href: "/terminos"},
+
     {text: "Inicio de sesion", href: "/login"},
     {text: "Registrarse", href: "/signup"},
     {text: "Cerrar sesion", href: "/logout"}
@@ -30,10 +28,10 @@ export const Navbar = () => {
   
 
   return (
-    <nav className="navbar sm navbar-dark bg-dark mb-3 ">
+    <nav className="navbar sm navbar-dark bg-black  sticky-top ">
       <a className="navbar-brand" href="/" ><img src={logo} /></a>
       
-      <nav className="navbar navbar-expand-md bg-dark">
+      <nav className="navbar navbar-expand-md bg-black">
         <div className="container-fluid ">
           <a className="navbar-brand" href="#"></a>
           

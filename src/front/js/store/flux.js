@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   const apiURL = process.env.BACKEND_URL + "/api";
   return {
     store: {
+      artists: [],
       message: null,
       demo: [
         {
@@ -142,6 +143,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         return { code: 200, msg: "Sesion cerrada" };
       },
+
+      getArtists: async () => {
+				const params = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				}
+
+				const request = await fetch(`${apiURL}/artists`, params)
+				const json = await request.json()
+				const data = json
+				setStore({ artists: data })
+			},
     },
   };
 };

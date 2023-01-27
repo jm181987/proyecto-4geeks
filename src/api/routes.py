@@ -5,7 +5,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 import os
 from datetime import datetime, timezone, timedelta
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, TokenBlockedList, Imagen, Posts, Fav_posts
+from api.models import db, User, TokenBlockedList, Imagen, Posts, Fav_posts, Artist
 from api.utils import generate_sitemap, APIException
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity,get_jwt
@@ -26,6 +26,11 @@ cripto=Bcrypt(Flask(__name__))
 def get_user():
     user=User.query.all()
     return list(map(lambda item: item.serialize(),user)), 200
+
+@api.route('/artists', methods=['GET'])
+def get_artist():
+    artist = Artist.query.all()
+    return list(map(lambda item: item.serialize(),artist)), 200
    
 # traer los favoritos
 @api.route('/favorites', methods=['GET'])
