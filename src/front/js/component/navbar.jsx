@@ -5,9 +5,7 @@ export const Navbar = () => {
 
 	const [links, setLinks] = useState ([
     {text: "Artistas", href: "/artistas" },
-    {text: "Quienes somos", href: "/quienes"}, 
-    {text: "Caracteristicas", href: "/caracteristicas"},
-    {text: "Terminos y Condiciones", href: "/terminos"},
+
     {text: "Inicio de sesion", href: "/login"},
     {text: "Registrarse", href: "/signup"},
     {text: "Cerrar sesion", href: "/logout"}

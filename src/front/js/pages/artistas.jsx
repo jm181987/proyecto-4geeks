@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from "react";
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import { ArtistCard } from '../component/artistcard.jsx'
 import { Context } from '../store/appContext.js'
 
 export const Artistas = () => {
     const { store, actions } = useContext(Context)
+
+
     return (
         <Container>
             <div className='my-2'>
@@ -16,8 +18,8 @@ export const Artistas = () => {
                 <Button variant="secondary" size="lg">Estilo</Button>{' '}
             </div>
             <div className='d-flex my-2'>
-                {store.planets.map((elem, index)=>(
-					<ArtistCard key={index} id={++index} type={"artist"} planet={elem} />
+                {store.artists.map((elem, index)=>(
+					<ArtistCard key={index} id={++index} type={"artist"} artist={elem} />
 					))}
             </div>
         </Container>

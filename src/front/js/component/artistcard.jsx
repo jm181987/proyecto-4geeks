@@ -10,9 +10,8 @@ function imgError(e){
 
 export const ArtistCard = (props) =>{
     const { store, actions } = useContext(Context)
-	const ArtistStore = store.artist.filter(char => char.name == props.artist.name)
+	const ArtistStore = store.artists.filter(art => art.name == props.artist.name)
 	
-
     return(
         <div className="card ms-1 my-2" >
 					<img src={"https://starwars-visualguide.com/assets/img/characters/"+ props.id +".jpg"} className="card-img-top" alt="..." onError={(e)=>imgError(e)}/>

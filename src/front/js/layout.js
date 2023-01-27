@@ -43,7 +43,8 @@ const Layout = () => {
             <Route element={<Artistas />} path="/artistas" />
             <Route element={<Caracteristicas />} path="/caracteristicas" />
             
-           
+            <Route element={<Quienes />} path="/quienes" />
+          <Route element={<Mision />} path="/mision" />
             <Route element={<Terminos />} path="/terminos" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
@@ -59,8 +60,7 @@ const Layout = () => {
           </Routes>
           <Footer />
           <Routes>
-          <Route element={<Quienes />} path="/quienes" />
-          <Route element={<Mision />} path="/mision" />
+          
           </Routes>
           
         </ScrollToTop>

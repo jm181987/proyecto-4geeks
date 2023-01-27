@@ -8,12 +8,12 @@ export const Footer = () => (
 	//	</p>
 	//</footer>
 
-	<footer className="text-center text-lg-start bg-white text-muted">
+	<footer className="text-center text-lg-start bg-white text-muted ">
 
 
-		<section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+		<section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom ">
 
-			<div className="me-5 d-none d-lg-block">
+			<div className="me-5 d-none d-lg-block ">
 				<span> <strong>Encuentrenos en las siguientes redes sociales</strong></span>
 			</div>
 
@@ -56,11 +56,15 @@ export const Footer = () => (
 							Nosotros
 						</h6>
 						<p>
-							<a href="/quienes" className="text-reset">  Quienes somos</a>
+							<a href="/quienes" className="text-reset">Quienes somos</a>
 						</p>
 						<p>
 							<a href="/mision" className="text-reset">Mision y Vision</a>
+												</p>
+												<p>
+							<a href="/terminos" className="text-reset">Terminos y condiciones</a>
 						</p>
+												
 
 					</div>
 
@@ -75,6 +79,17 @@ export const Footer = () => (
 							iconsproject@gmail.com
 						</p>
 						<p><i className="fas fa-phone me-3 text-secondary"></i> + 598 93 867 429</p>
+						<p className="what">
+            Contactenos Via {" "}
+        <a href="https://api.whatsapp.com/send?phone=59893867429">
+          {" "}
+          <img
+            className="whatlogo"
+            src="https://i.imgur.com/9HKrmqj.png"
+            alt="w"
+          />
+        </a>
+      </p>
 					</div>
 
 				</div>

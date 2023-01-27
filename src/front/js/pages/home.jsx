@@ -69,17 +69,7 @@ export const Home = () => {
 
 
 
-      <p className="what">
-        Contactenos Via {" "}
-        <a href="https://api.whatsapp.com/send?phone=59893867429">
-          {" "}
-          <img
-            className="whatlogo"
-            src="https://i.imgur.com/9HKrmqj.png"
-            alt="w"
-          />
-        </a>
-      </p>
+      
     </div>
   );
 };

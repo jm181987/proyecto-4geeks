@@ -153,7 +153,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const request = await fetch(`${apiURL}/artists`, params)
 				const json = await request.json()
 				const data = json
-				setStore({ artists: data.results })
+				setStore({ artists: data })
 			},
     },
   };
