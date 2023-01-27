@@ -291,7 +291,7 @@ def handle_hello_protected():
     response_body = {
         "message": "token válido",
         "user_id": get_jwt_identity(),
-        "role":claims["role"],
+        #"role":claims["role"],
         "user_email": user.email
     }
 
