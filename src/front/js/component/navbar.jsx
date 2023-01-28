@@ -6,9 +6,9 @@ export const Navbar = () => {
 	const [links, setLinks] = useState ([
     {text: "Artistas", href: "/artistas" },
 
-    {text: "Inicio de sesion", href: "/login"},
+    {text: "Inicio de sesión", href: "/login"},
     {text: "Registrarse", href: "/signup"},
-    {text: "Cerrar sesion", href: "/logout"}
+    {text: "Cerrar sesión", href: "/logout"}
   ])
 	
   const [isLoggedIn, setIsLoggedIn] = useState(false);
