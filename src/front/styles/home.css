@@ -58,20 +58,21 @@ h1 {
   color: white;
   font-weight: bold;
   text-align: justify;
-  margin-left: 150px;
-  margin-top: 50px;
+  margin-left: 4rem;
+  margin-top: 7rem;
 }
 
 .about-us img {
   float: right;
-  width: 500px;
+  width: 30rem;
   height: 350px;
   border-radius: 50px;
+  margin-left: 1rem;
 }
 
 .shadow__btn {
   margin-top: 50px;
-  margin-left: 150px;
+  margin-left: 10rem;
   padding: 10px 20px;
   border: none;
   font-size: 17px;
@@ -136,20 +137,24 @@ h1 {
 }
 
 .cardhome{
-  width: 250px;
-  height: 454px;
+  width: 14rem;
+  height: 28rem;
   margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 3rem;
   background-size: cover;
   border-radius: 20px;
   transition: all 0.3s;
   
 }
 
+#cards{
+  margin-left: 6rem;
+}
+
 .cardhome:hover{
   box-shadow: 0px 0px 30px 1px rgb(144, 0, 255);
-  width: 300px;
-  height: 500px;
+  width: 16rem;
+  height: 28rem;
 }
 
 .card1 {
