@@ -12,7 +12,7 @@ export const Home = () => {
       <div>
         <section id="sect1" class="sect">
           <video
-            className="banner sm vw-100 vh-150 my-0 py-0"
+            className="banner sm vw-10 vh-150 my-0 py-0"
             src=""
             autoplay="true"
             muted="true"

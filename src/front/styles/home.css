@@ -10,8 +10,9 @@ body {
   background-color: black;
 }
 
-:root {
-  background-color: black;
+video{
+  height: 50rem;
+  width: 100rem;
 }
 
 .whatlogo {

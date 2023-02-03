@@ -8,27 +8,27 @@ export const Footer = () => (
 	//	</p>
 	//</footer>
 
-	<footer className="text-center text-lg-start bg-white text-muted ">
+	<footer className="text-center text-lg-start bg-black text-muted ">
 
 
 		<section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom ">
 
-			<div className="me-5 d-none d-lg-block ">
+			<div className="me-5 d-none d-lg-block text-light ">
 				<span> <strong>Encuentrenos en las siguientes redes sociales</strong></span>
 			</div>
 
 			<div>
-				<a href="https://github.com/luisferdonoso" className="me-4 link-secondary">
+				<a href="https://github.com/luisferdonoso" className="me-4 link-secondary text-light">
 					<i className="fab fa-github"></i>
 				</a>
 
-				<a href="https://github.com/jougarcia" className="me-4 link-secondary">
+				<a href="https://github.com/jougarcia" className="me-4 link-secondary text-light">
 					<i className="fab fa-github"></i>
 				</a>
-				<a href="https://github.com/afantiniv" className="me-4 link-secondary">
+				<a href="https://github.com/afantiniv" className="me-4 link-secondary text-light">
 					<i className="fab fa-github"></i>
 				</a>
-				<a href="https://github.com/jm181987" className="me-4 link-secondary">
+				<a href="https://github.com/jm181987" className="me-4 link-secondary text-light">
 					<i className="fab fa-github"></i>
 				</a>
 			</div>
@@ -36,7 +36,7 @@ export const Footer = () => (
 		</section>
 
 		<section className="">
-			<div className="container text-center text-md-start mt-5">
+			<div className="container text-center text-md-start mt-5 text-light">
 
 				<div className="row mt-3">
 
@@ -73,12 +73,12 @@ export const Footer = () => (
 					<div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
 						<h6 className="text-uppercase fw-bold mb-4">Contacto</h6>
-						<p><i className="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
+						<p><i className="fas fa-home me-3 text-secondary text-light"></i> New York, NY 10012, US</p>
 						<p>
-							<i className="fas fa-envelope me-3 text-secondary"></i>
+							<i className="fas fa-envelope me-3 text-secondary text-light"></i>
 							iconsproject@gmail.com
 						</p>
-						<p><i className="fas fa-phone me-3 text-secondary"></i> + 598 93 867 429</p>
+						<p><i className="fas fa-phone me-3 text-secondary text-light"></i> + 598 93 867 429</p>
 						<p className="what">
             Contactenos Via {" "}
         <a href="https://api.whatsapp.com/send?phone=59893867429">
