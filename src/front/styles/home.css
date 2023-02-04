@@ -58,15 +58,19 @@ h1 {
   color: white;
   font-weight: bold;
   text-align: justify;
-  margin-left: 150px;
+  margin-left: 50px;
   margin-top: 50px;
 }
 
 .about-us img {
   float: right;
-  width: 500px;
-  height: 350px;
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+  object-position: left;
+  margin-left: 50px;
   border-radius: 50px;
+
 }
 
 .shadow__btn {
@@ -120,6 +124,7 @@ h1 {
 
 .cards {
   display: flex;
+
 }
 
 
@@ -144,6 +149,8 @@ h1 {
   border-radius: 20px;
   transition: all 0.3s;
   
+  
+  
 }
 
 .cardhome:hover{
@@ -154,6 +161,11 @@ h1 {
 
 .card1 {
   background-image: url("https://i.pinimg.com/236x/41/38/b6/4138b6d05904e84dc82fab2811578035.jpg");
+  @media only screen and (max-width: 480px) {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .card1:hover {
@@ -214,3 +226,4 @@ h1 {
   font-weight: bold;
   text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
 }
+

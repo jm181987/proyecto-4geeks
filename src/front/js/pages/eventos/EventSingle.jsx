@@ -97,16 +97,17 @@ export const EventSingle = () => {
                         <Card className='mb-4'>
                             <div className='p-1'>
                                 <div
-                                    className='d-flex justify-content-center position-relative bg-cover'
+                                    className='d-flex justify-content-center position-relative rounded py-10 border-white border rounded-3 bg-cover'
                                     style={{
                                         background: `url(${EventPoster})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'top center'
+                                        backgroundSize: '500px',
+                                        backgroundPosition: 'top center',
+                                        backgroundRepeat: 'no-repeat'
 
                                     }}
                                 >
-                                    <Link to='d-flex justify-content-center'>
-                                         ICONO AQUI
+                                    <Link to='popup-youtube icon-shape rounded-circle btn-play icon-xl text-decoration-none'>
+                                         PLAY
                                     </Link>
                                 </div>
                             </div>

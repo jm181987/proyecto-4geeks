@@ -9,7 +9,7 @@ import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 const HeroTyped = () => {
 	return (
 		<div
-			className="py-lg-18 py-10 bg-auto"
+			className="imagen_head py-lg-18 py-10 bg-auto"
 			style={{
 				background: `url(https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?cs=srgb&dl=pexels-wendy-wei-1190298.jpg&fm=jpg), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), rgba(221, 218, 255, 0.3)`,
 				backgroundRepeat: 'no-repeat',

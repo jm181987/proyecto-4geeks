@@ -26,7 +26,7 @@ export const Home = () => {
 
       <div className="Info sm">
         <div>
-          <h1 className="nosotros">
+          <h1 className="nosotros mt-5">
             Sobre Nosotros
           </h1>
         </div>
@@ -59,7 +59,7 @@ export const Home = () => {
         </div>
 
 
-        <button class="shadow__btn1" href="" >Ver Artistas</button>
+        <button class="shadow__btn1 mb-5" href="" >Ver Artistas</button>
 
       </div>
 
