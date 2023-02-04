@@ -21,8 +21,8 @@ const HeroTyped = () => {
 				<Row className="justify-content-center">
 					<Col xl={7} lg={7} md={12}>
 						<div className="py-8 py-lg-0 text-center">
-							<h1 className="display-2 fw-bold mb-3 text-primary">
-								<span className="text-white px-3 px-md-0">Mejores</span>
+							<h1 className="display-2 fw-bold mb-5  text-primary">
+								<span className="text-white px-3 mt-5 px-md-0">Mejores</span>
 								<span className="text-white ms-2">
 									<Typed
 										strings={['Eventos', 'Artistas', 'Precios', 'Fiestas', 'Momentos']}
@@ -32,23 +32,23 @@ const HeroTyped = () => {
 									/>
 								</span>
 							</h1>
-							<p className="seg_titulo mb-6 h2 text-light ">
+							<p className="seg_titulo mb-5 h2 text-light ">
 								Artistas talentosos y profesionales, aseguramos un espectáculo!
 							</p>
 							<Link
 								to="/marketing/pages/pricing"
-								className="boton_header btn btn-primary me-2"
+								className="boton_header btn btn-primary me-2 mb-5"
 							>
 								Ver Artistas
 							</Link>
 							<Link
 								to="/authentication/sign-up"
-								className="boton_header2 btn btn-outline-primary"
+								className="boton_header2 btn btn-outline-primary mb-5"
 							>
 								Registrate
 							</Link>
 
-							<div className="mt-8 mb-0">
+							<div className="mt-8 mb-5">
 								<ListGroup as="ul" bsPrefix="list-inline">
 									<ListGroup.Item
 										as="li"
@@ -59,16 +59,16 @@ const HeroTyped = () => {
 									</ListGroup.Item>
 									<ListGroup.Item
 										as="li"
-										bsPrefix="list-inline-item  fw-semi-bold lh-1 fs-4 me-3 mb-2 mb-md-0"
+										bsPrefix="list-inline-item  fw-semi-bold lh-1 fs-4 me-3 mb-5 mb-md-0"
 									>
 										
 										</ListGroup.Item>
 									<ListGroup.Item
 										as="li"
-										bsPrefix="list-inline-item  fw-semi-bold lh-1 fs-4"
+										bsPrefix="list-inline-item  fw-semi-bold lh-1 fs-4 mb-5"
 									>
 									
-										<span className="titu_prof align-middle">Piensalo, Agendalo, Vivelo...</span>
+										<span className="titu_prof align-middle mb-5">Piensalo, Agendalo, Vivelo...</span>
 									</ListGroup.Item>
 								</ListGroup>
 							</div>
