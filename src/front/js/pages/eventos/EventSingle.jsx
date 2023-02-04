@@ -118,15 +118,15 @@ export const EventSingle = () => {
 
                             <Card.Body>
                                 {/* AQUI VA EL PRECIO */}
-                                <div>
-                                    <span>$200</span>
-                                    <del>$450</del>
+                                <div className='mb-3'>
+                                    <span className='text-dark fw-bold h2 me-2'>$200</span>
+                                    <del className='fs-4 text-muted'>$450</del>
                                 </div>
-                                <div>
-                                    <Link to='#'>
+                                <div className='d-grid'> 
+                                    <Link to='#' className='btn btn-outline-primary mb-2'>
                                         Contratar evento
                                     </Link>
-                                    <Link to='#'>
+                                    <Link to='#' className='btn btn-outline-primary'>
                                         Ver Perfil
                                     </Link>
                                 </div>
@@ -134,10 +134,10 @@ export const EventSingle = () => {
                         </Card>
                         <Card className='mb-4'>
                             <Card.Header>
-                                <h3>Que esta incluido?</h3>
+                                <h4 className='mb-0'>Que esta incluido?</h4>
                             </Card.Header>
-                            <Card.Body>
-                                <ListGroup>
+                            <Card.Body className='p-0'>
+                                <ListGroup className='flush'>
                                     <ListGroup.Item>
                                         X Horas de musica en vivo
                                     </ListGroup.Item>

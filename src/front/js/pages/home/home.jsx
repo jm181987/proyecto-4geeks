@@ -9,7 +9,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center">
+    <div className="text-center sm">
       <div>
       <HeroTyped/>
         {/*<section id="sect1" class="sect">
@@ -25,27 +25,25 @@ export const Home = () => {
       </div>
 
       <div className="Info sm">
-        <div>
-          <h1 className="nosotros mt-5">
-            Sobre Nosotros
-          </h1>
-        </div>
-        <div className="about-us">
-          <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
-            para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p>
+        
+          <h1 className="nosotros mt-5 px-5">
+          Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+            para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras!
+          </h1>        
+           
+            
 
-          <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
-        </div>
+        
       </div>
 
       <div className="Info sm">
         <div>
-          <h1 className="artistas">
+          <h1 className="animated-shadow">
             Nuestros Artistas
           </h1>
         </div>
-        <div className="nuestros-artistas">
-          <p>  Aqui puedes reservar a tu artista favorito  <br></br></p>
+        <div className="nuestros-artistas mb-1">
+          <p>  </p>
         </div>
         <div className="cards">
           <div className="cardhome card1">
