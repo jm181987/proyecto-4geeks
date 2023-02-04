@@ -3,11 +3,10 @@ import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 import { Toaster, toast } from "react-hot-toast";
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row, Card, Form, Button, Image } from 'react-bootstrap';
 
-
-import { Card, Row, Container, Column } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 const notify = () => toast.success('Registro exitoso!');
 
@@ -51,71 +50,137 @@ export const SignUp = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Card>
-          <h1>Registro</h1>
-          <Form onSubmit={signUpUser}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>E-mail</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Correo electrónico"
-                name="email"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Contraseña</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Contraseña"
-                name="password"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Confirmar contraseña</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirme su contraseña"
-                name="confirm"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label># WhatsApp</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Su número de WhatsApp"
-                name="phone-number"
-              />
-              <Form.Text className="text-muted">
-                No compartiremos ninguno de sus datos con terceros.
-              </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label="Acepto los terminos y condiciones"
-                required
-                name="check"
-              />
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Registrarse
-            </Button>
-          </Form>
-        </Card>
-      </Row>
+    <Fragment>
+			<Row className="align-items-center justify-content-center g-0 min-vh-100">
+				<Col lg={5} md={5} className="py-8 py-xl-0">
+					<Card>
+						<Card.Body className="p-6">
+							<div className="mb-4">
+								<Link to="/">
+									<Image src="" className="mb-4" alt="" />
+								</Link>
+								<h1 className="mb-1 fw-bold">Registro</h1>
+								<span>
+									Ya tienes un usuario?{' '}
+									<Link to="/authentication/sign-in" className="ms-1">
+										Login
+									</Link>
+								</span>
+							</div>
+							{/* Form */}
+							<Form onSubmit={signUpUser}>
+								<Row>
+									<Col lg={12} md={12} className="mb-3">
+										{/* email */}
+										<Form.Label>Correo Eléctronico </Form.Label>
+										<Form.Control
+											type="email"
+											id="email"
+											placeholder="Email address here"
+											name="email"
+											required
+										/>
+									</Col>
+									<Col lg={12} md={12} className="mb-3">
+										{/* Password */}
+										<Form.Label>Contraseña </Form.Label>
+										<Form.Control
+											type="password"
+											id="password"
+											placeholder="**************"
+											name="password"
+											required
+										/>
+									</Col>
+									<Col lg={12} md={12} className="mb-3">
+										{/* Password */}
+										<Form.Label>Confirmar contraseña </Form.Label>
+										<Form.Control
+											type="password"
+											id="confirm"
+											placeholder="**************"
+											name="confirm"
+											required
+										/>
+									</Col>
+									<Col lg={12} md={12} className="mb-3">
+										{/* Password */}
+										<Form.Label>WhatsApp </Form.Label>
+										<Form.Control
+											type="text"
+											id="whatsappnumber"
+											placeholder="WhastApp"
+											name="phone-number"
+											required
+										/>
+									</Col>
+									<Col lg={12} md={12} className="mb-3">
+										{/* Checkbox */}
+										<Form.Check type="checkbox" id="check-api-checkbox">
+											<Form.Check.Input 
+												type="checkbox"
+												id="check" 
+												name="check"
+											/>
+											<Form.Check.Label>
+												Estoy de acuerdo con los
+												<Link to="/pages/terms-and-conditions">
+													Terminos de servicio{' '}
+												</Link>{' '}
+												y{' '}
+												<Link to="/pages/terms-and-conditions">
+													Política de privacidad.
+												</Link>
+											</Form.Check.Label>
+										</Form.Check>
+									</Col>
+									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
+										{/* Button */}
+										<Button variant="primary" type="submit">
+											Registrarse
+										</Button>
+									</Col>
+								</Row>
+							</Form>
+							<hr className="my-4" />
+							<div className="mt-4 text-center">
+								{/* Facebook */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-facebook"
+								>
+									<i className="fab fa-facebook"></i>
+								</Link>{' '}
+								{/* Twitter */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-twitter"
+								>
+									<i className="fab fa-twitter"></i>
+								</Link>{' '}
+								{/* LinkedIn */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-linkedin"
+								>
+									<i className="fab fa-linkedin"></i>
+								</Link>{' '}
+								{/* GitHub */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-github"
+								>
+									<i className="fab fa-github"></i>
+								</Link>
+							</div>
+						</Card.Body>
+					</Card>
+				</Col>
+			</Row>
       <Toaster
         position="top-right"
         reverseOrder={false}
       />
-    </Container>
+		</Fragment>
   );
 };

@@ -183,3 +183,35 @@ h1 {
 .card4:hover {
   background-image: url("https://i.pinimg.com/236x/26/4b/39/264b396a01bf41f444596517f5d485c9.jpg");
 }
+.seg_titulo{
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.terc_titulo{
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 255, 255), 0 0 0.2em blue;
+  font-weight: 800;
+}
+.icon-shape{
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  font-weight: 800;
+}
+
+.titu_exp {
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  font-weight: 800;
+}
+.titu_prof {
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  font-weight: 800;
+}
+.boton_header  {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 12px 16px 20px 0 rgba(0, 0, 0, 0.19)9);
+  color: white;
+  font-weight: bold;
+  
+}
+.boton_header2  {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 12px 16px 20px 0 rgba(0, 0, 0, 0.19)9);
+  color: ;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+}
