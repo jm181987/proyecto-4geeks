@@ -1,0 +1,31 @@
+//
+// Extended from switches
+//
+
+// Switch for pricing
+.form-check{
+  margin-bottom: 0px;
+}
+
+.form-switch-price {
+  .form-check-input {
+    width: 2.5em;
+    height: 1.5em;
+
+  }
+  .form-check-input:checked {
+    background-color: $dark-primary;
+    border-color: $dark-primary;
+  }
+}
+
+.form-switch {
+  padding-left: $form-switch-padding-start;
+
+  .form-check-input {
+    height: 1.6em;
+    width: 3em;
+    border-color: $gray-200;
+
+  }
+}

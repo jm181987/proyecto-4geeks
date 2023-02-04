@@ -8,7 +8,7 @@ function imgError(e){
     e.target.src = "https://i.pinimg.com/originals/e8/63/92/e863927635dc1c5aba5663e8dd33efa0.jpg";
 }
 
-export const ArtistCard = (props) =>{
+export const ArtistCardv = (props) =>{
     const { store, actions } = useContext(Context)
 	const ArtistStore = store.artists.filter(art => art.name == props.artist.name)
 	

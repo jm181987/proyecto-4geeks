@@ -1,7 +1,7 @@
 {
 	"name": "react-hello-webapp",
 	"engines": {
-		"node": "16.x"
+		"node": "18.x"
 	},
 	"version": "1.0.1",
 	"description": "",
@@ -11,8 +11,8 @@
 		"build": "webpack --config webpack.prod.js"
 	},
 	"author": {
-		"name": "Alejandro Sanchez",
-		"url": "http://alesanchezr.com/"
+		"name": "Alejandro Fantini",
+		"url": "http://alejandrofantini.com/"
 	},
 	"contributors": [
 		{
@@ -48,9 +48,11 @@
 		"gh-pages": "^3.2.3",
 		"html-loader": "^3.0.1",
 		"html-webpack-plugin": "^5.5.0",
+		"node-sass": "^7.0.3",
 		"parse-github-url": "^1.0.2",
 		"prettier": "^2.5.1",
 		"remote-origin-url": "^2.0.0",
+		"sass-loader": "^13.2.0",
 		"style-loader": "^3.3.1",
 		"tailwindcss": "^3.2.4",
 		"webpack": "^5.65.0",
@@ -74,20 +76,48 @@
 		]
 	},
 	"dependencies": {
-
-		"@headlessui/react": "^1.7.7",
-		"@heroicons/react": "^2.0.13",
-		"bootstrap": "^5.2.3",
-
 		"@auth0/auth0-react": "^1.12.1",
+		"@headlessui/react": "^1.7.7",
+		"@mdi/js": "^7.1.96",
+		"@mdi/react": "^1.6.1",
+		"@tippyjs/react": "^4.2.6",
+		"bootstrap": "^5.2.3",
+		"bootstrap-icons": "^1.10.3",
 		"firebase": "^9.15.0",
-
+		"flatpickr": "^4.6.13",
+		"formik": "^2.2.9",
+		"mdi-react": "^9.1.0",
+		"prism-react-renderer": "^1.3.5",
 		"prop-types": "^15.6.1",
-		"react": "^16.8.4",
+		"react": "^18.2.0",
+		"react-apexcharts": "^1.4.0",
+		"react-beautiful-dnd": "^13.1.1",
 		"react-bootstrap": "^2.7.0",
-		"react-dom": "^16.8.4",
+		"react-bootstrap-icons": "^1.10.2",
+		"react-copy-to-clipboard": "^5.1.0",
+		"react-dom": "^18.2.0",
+		"react-dropzone": "^14.2.3",
+		"react-feather": "^2.0.10",
+		"react-flatpickr": "^3.10.13",
 		"react-hot-toast": "^2.4.0",
+		"react-input-mask": "^2.0.4",
+		"react-modal-video": "^1.2.10",
+		"react-odometerjs": "^3.1.0",
+		"react-paginate": "^8.1.4",
 		"react-polyfills": "0.0.1",
-		"react-router-dom": "^6.3.0"
+		"react-quill": "^2.0.0",
+		"react-responsive": "^9.0.2",
+		"react-router-dom": "^6.8.0",
+		"react-scripts": "^5.0.1",
+		"react-simple-maps": "^1.0.0",
+		"react-slick": "^0.29.0",
+		"react-table": "^7.8.0",
+		"react-to-print": "^2.14.11",
+		"react-toastify": "^9.1.1",
+		"react-typed": "^1.2.0",
+		"react-youtube": "^10.1.0",
+		"sass": "^1.57.1",
+		"simplebar-react": "^3.2.0",
+		"uuidv4": "^6.2.13"
 	}
 }
