@@ -30,10 +30,7 @@ export const Home = () => {
           Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
             para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras!
           </h1>        
-           
-            
-
-        
+                 
       </div>
 
       <div className="Info sm">
@@ -45,31 +42,21 @@ export const Home = () => {
         <div className="nuestros-artistas mb-1">
           <p>  </p>
         </div>
-        <div className="cards">
-          <div className="cardhome card1">
-          </div>
-          <div className="cardhome card2">
-          </div>
-          <div className="cardhome card3">
-          </div>
-          <div className="cardhome card4">
-          </div>
+        <div id="cardsHomeContainer" className="row d-flex align-items-center ">
+          
+            <div className=" col-md-3 cardhome card1">
+            </div>
+            <div className="col-md-3  cardhome card2">
+            </div>
+            <div className=" col-md-3 cardhome card3">
+            </div>
+            <div className="col-md-3 cardhome card4">
+            </div>
+        
         </div>
-
-
-        <button class="shadow__btn1 mb-5" href="" >Ver Artistas</button>
+        <button class="shadow__btn1 mb-5" href="/artistas" >Ver Artistas</button>
 
       </div>
-
-
-
-
-
-
-
-
-
-      
     </div>
   );
 };

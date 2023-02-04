@@ -43,7 +43,7 @@ const HeroTyped = () => {
 							</Link>
 							<Link
 								to="/authentication/sign-up"
-								className="boton_header2 btn btn-outline-primary mb-5"
+								className="boton_header btn btn-primary me-2 mb-5"
 							>
 								Registrate
 							</Link>
