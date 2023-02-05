@@ -42,7 +42,7 @@ export const Home = () => {
         <div className="nuestros-artistas">
           <p>  </p>
         </div>
-        <div id="cardsHomeContainer" className="row  sm-d-flex justify-content-center md-d-flex ml-1">
+        <div id="cardsHomeContainer" className="row  d-flex justify-content-center">
           
             <div className="  cardhome card1">
             </div>
@@ -54,7 +54,7 @@ export const Home = () => {
             </div>
         
         </div>
-        <button class="shadow__btn1 mb-5" href="/artistas" >Ver Artistas</button>
+        <button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button>
 
       </div>
     </div>
