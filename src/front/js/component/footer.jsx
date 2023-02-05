@@ -33,7 +33,7 @@ export const Footer = () => (
   <section className="">
 	  <div className="container text-center text-md-start mt-5">
 		  <div className="row mt-3">
-			  <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+			  <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 d-flex align-items-center flex-column bd-highlight mb-3">
 				  <h6 className="text-uppercase fw-bold mb-4">
 					  <a className="navbar-brand" href="/" ><img src={logo} /></a>
 				  </h6>
