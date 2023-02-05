@@ -68,7 +68,7 @@ const HeroTyped = () => {
 										bsPrefix="list-inline-item  fw-semi-bold lh-1 fs-4 mb-5"
 									>
 									
-										<span className="titu_prof align-middle mb-5">Piensalo, Agendalo, Vivelo...</span>
+										<span className="terc_titulo align-middle mb-5">Piensalo, Agendalo, Vivelo...</span>
 									</ListGroup.Item>
 								</ListGroup>
 							</div>

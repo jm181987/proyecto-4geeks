@@ -7,6 +7,10 @@ import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth } from '../firebase/firebase.js'
+import { GoogleAuthProvider } from 'firebase/auth';
+
 // import media files
 //import Logo from '';
 
@@ -14,7 +18,7 @@ export const Login = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  function login(event) {
+  async function login(event) {
     // Previene el comportamiento por defecto, evitando que la pagina se recargue
     event.preventDefault();
     // Se crea un objeto "FormData" con los datos del formulario
@@ -22,16 +26,30 @@ export const Login = () => {
     // Se obtiene el nuevo item del formulario
     let email = data.get("email");
     let password = data.get("password");
+	try {
+		const credentials = await signInWithEmailAndPassword( auth, email, password)
+		console.log(credentials)
+	} catch (error) {
+		if (error.code === 'auth/wrong-password') {
+			toast.error("Contrase;a incorrecta", "error")
+		  } else if (error.code === 'auth/user-not-found') {
+			toast.error("Usuario no encontrado", "error")
+		  } else {
+			toast.error("Algo salio mal...", "error")
+		  }
+	}
+  }
 
-    actions
-      .login(email, password)
-      .then((resp) => {
-        if (resp.code == 200) navigate("/");
-        else console.log("Problema en el acceso de usuario: ", resp);
-      })
-      .catch((error) => {
-        console.log("Error en el registro: ", error);
-      });
+  async function googleLogin(){
+	const provider = new GoogleAuthProvider
+
+	try {
+		const credentials = await signInWithPopup(auth, provider)
+		toast.success('Hola ' + credentials.user.displayName)
+	} catch (error) {
+		console.log(error)
+		
+	}
   }
 
 	return (
@@ -61,6 +79,7 @@ export const Login = () => {
 										<Form.Control
 											type="email"
 											id="email"
+											name='email'
 											placeholder="Correo eléctronico"
 											required
 										/>
@@ -71,6 +90,7 @@ export const Login = () => {
 										<Form.Control
 											type="password"
 											id="password"
+											name='password'
 											placeholder="**************"
 											required
 										/>
@@ -82,7 +102,7 @@ export const Login = () => {
 												className="mb-3 mb-md-0"
 												controlId="formBasicCheckbox"
 											>
-												<Form.Check type="checkbox" label="Remember me" />
+												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>
 											<Link to="/authentication/forget-password">
 												Olvidaste tu contraseña?
@@ -99,39 +119,22 @@ export const Login = () => {
 							</Form>
 							<hr className="my-4" />
 							<div className="mt-4 text-center">
-								{/* Facebook */}
-								<Link
-									to="#"
-									className="btn-social btn-social-outline btn-facebook"
+								{/* Google */}
+								<a
+									className="btn-social btn-social-outline btn-google"
+									onClick={googleLogin}
 								>
-									<i className="fab fa-facebook"></i>
-								</Link>{' '}
-								{/* Twitter */}
-								<Link
-									to="#"
-									className="btn-social btn-social-outline btn-twitter"
-								>
-									<i className="fab fa-twitter"></i>
-								</Link>{' '}
-								{/* LinkedIn */}
-								<Link
-									to="#"
-									className="btn-social btn-social-outline btn-linkedin"
-								>
-									<i className="fab fa-linkedin"></i>
-								</Link>{' '}
-								{/* GitHub */}
-								<Link
-									to="#"
-									className="btn-social btn-social-outline btn-github"
-								>
-									<i className="fab fa-github"></i>
-								</Link>
+									<i className="fab fa-google"></i>
+								</a>
 							</div>
 						</Card.Body>
 					</Card>
 				</Col>
 			</Row>
+			<Toaster
+				position="top-center"
+				reverseOrder={false}
+			/>
 		</Fragment>
 	);
 };
