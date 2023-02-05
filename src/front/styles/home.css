@@ -134,6 +134,7 @@ p {
 
 .cards {
   display: flex;
+ 
 
 }
 
@@ -158,15 +159,14 @@ width: 100%;
 }
 
 .cardhome{
- responsive: true;
-  
-  width: 250px;
-  height: 454px;
+ 
+  width: 200px;
+  height: 404px;
   margin-top: 5%;
   margin-left: 5%;
   background-size: cover;
   border-radius: 20px;
-  transition: all 0.3s;
+  transition: all 0.5s;
   
 }
 
@@ -183,6 +183,7 @@ width: 100%;
       width: 100%;
     }
   }
+  margin-left: -8% !important;
 }
 
 .card1:hover {

@@ -35,22 +35,22 @@ export const Home = () => {
 
       <div className="Info sm">
         <div>
-          <h1 className="animated-shadow sm-pb-5">
+          <h1 className="animated-shadow d-flex justify-content-center">
             Nuestros Artistas
           </h1>
         </div>
-        <div className="nuestros-artistas mb-1">
+        <div className="nuestros-artistas">
           <p>  </p>
         </div>
-        <div id="cardsHomeContainer" className="row d-flex align-items-center ">
+        <div id="cardsHomeContainer" className="row  sm-d-flex justify-content-center md-d-flex ml-1">
           
-            <div className=" col-md-3 cardhome card1">
+            <div className="  cardhome card1">
             </div>
-            <div className="col-md-3  cardhome card2">
+            <div className="  cardhome card2">
             </div>
-            <div className=" col-md-3 cardhome card3">
+            <div className="  cardhome card3">
             </div>
-            <div className="col-md-3 cardhome card4">
+            <div className=" cardhome card4">
             </div>
         
         </div>
