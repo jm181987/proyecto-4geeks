@@ -19,9 +19,8 @@ body {
 }
 
 .whatlogo:hover {
-  box-shadow: 0 0 5px rgb(144, 0, 255);
+ box-shadow: 0px 0px 5px #8e42b9;
 }
-
 .nav-item {
   margin-right: 45px;
 }
@@ -33,6 +32,11 @@ body {
   width: 100%;
   bottom: 0;
 }
+.head-footer {
+  color: #babcbd;
+  text-shadow: 0 0 15px rgb(144, 0, 255);
+}
+
 .h1-1 {
   margin-top: 100px;
   margin-bottom: 50px;
@@ -136,7 +140,7 @@ p {
 }
 
 .what {
-  color: rgb(144, 0, 255);
+  color: rgb(245, 245, 245);
 }
 
 .navbar:hover {
