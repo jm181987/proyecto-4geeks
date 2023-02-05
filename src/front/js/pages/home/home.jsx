@@ -35,7 +35,7 @@ export const Home = () => {
 
       <div className="Info sm">
         <div>
-          <h1 className="animated-shadow">
+          <h1 className="animated-shadow sm-pb-5">
             Nuestros Artistas
           </h1>
         </div>
