@@ -42,7 +42,7 @@ export const Home = () => {
         <div className="nuestros-artistas">
           <p>  </p>
         </div>
-        <div id="cardsHomeContainer" className="row  sm-d-flex justify-content-center md-d-flex ml-1">
+        <div id="cardsHomeContainer" className="row  d-flex justify-content-center">
           
             <div className="  cardhome card1">
             </div>

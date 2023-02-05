@@ -153,13 +153,14 @@ p {
 
 #cardsHomeContainer{
 
-margin-left: 3%;
+margin-left: 0%;
 width: 100%;
 
 }
 
 .cardhome{
- 
+display: flex;
+justify-content: center;
   width: 200px;
   height: 404px;
   margin-top: 5%;
@@ -178,12 +179,7 @@ width: 100%;
 
 .card1 {
   background-image: url("https://i.pinimg.com/236x/41/38/b6/4138b6d05904e84dc82fab2811578035.jpg");
-  @media only screen and (max-width: 480px) {
-    img {
-      width: 100%;
-    }
-  }
-  margin-left: -8% !important;
+   
 }
 
 .card1:hover {
