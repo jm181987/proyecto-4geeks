@@ -23,7 +23,7 @@ body {
 }
 
 .nav-item {
-  margin-right: 80px;
+  margin-right: 45px;
 }
 .navbar {
   padding-bottom: 0;
@@ -140,11 +140,14 @@ p {
 }
 
 .navbar:hover {
-  text-shadow: 0 0 15px rgb(144, 0, 255);
+  text-shadow: 0 0 15px rgb(111, 207, 252);
+
+
 }
 
 .navbar {
   font-weight: bold;
+  
 }
 
 #cardsHomeContainer {
@@ -201,15 +204,16 @@ p {
   background-image: url("https://i.pinimg.com/236x/26/4b/39/264b396a01bf41f444596517f5d485c9.jpg");
 }
 .seg_titulo {
-  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 4, 4), 0 0 0.2em rgb(0, 0, 0);
 }
 .terc_titulo {
-  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 255, 255),
-    0 0 0.2em blue;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0),
+    0 0 0.2em rgb(255, 0, 200);
   font-weight: 800;
+color: white;
 }
 .icon-shape {
-  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(92, 92, 99), 0 0 0.2em blue;
   font-weight: 800;
 }
 
@@ -217,10 +221,7 @@ p {
   text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
   font-weight: 800;
 }
-.titu_prof {
-  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
-  font-weight: 800;
-}
+
 .boton_header {
   box-shadow: 0 8px 16px 0 rgba(255, 0, 0, 0.836),
     12px 16px 20px 0 rgba(0, 0, 0, 0.19) 9;

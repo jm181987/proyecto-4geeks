@@ -45,7 +45,7 @@ export const Navbar = () => {
   ])
 
   return (
-    <nav className="navbar sm navbar-dark bg-black  sticky-top ">
+    <nav className="navbar  bg-black  sticky-top ">
       <a className="navbar-brand" href="/" ><img src={logo} /></a>
       
       <nav className="navbar navbar-expand-md bg-black">
