@@ -50,7 +50,6 @@ export const Artistanuevo = (props) => {
               placeholder="Nombre Artistico"
               id="Name"
               name="Name"
-			  
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -107,7 +106,7 @@ export const Artistanuevo = (props) => {
               especificando todo lo relevante de tu performance y del repertorio
               musical que manejas.
             </Form.Text>
-			<Form.Group className="mb-3">
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="courseTitle">Instagram</Form.Label>
               <Form.Control
                 type="text"
@@ -116,7 +115,7 @@ export const Artistanuevo = (props) => {
                 name="LinkIG"
               />
             </Form.Group>
-			<Form.Group className="mb-3">
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="courseTitle">Facebook</Form.Label>
               <Form.Control
                 type="text"
@@ -124,7 +123,17 @@ export const Artistanuevo = (props) => {
                 id="LinkFB"
                 name="LinkFB"
               />
-            </Form.Group> <Form.Group className="mb-3">
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="courseTitle">Youtube</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Link del perfil"
+                id="LinkYT"
+                name="LinkYT"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="courseTitle">Soundcloud</Form.Label>
               <Form.Control
                 type="text"
@@ -133,8 +142,8 @@ export const Artistanuevo = (props) => {
                 name="LinkSC"
               />
             </Form.Group>
-		  </Form.Group>
-		  
+            
+          </Form.Group>
         </Card.Body>
       </Card>
       {/* Button */}
