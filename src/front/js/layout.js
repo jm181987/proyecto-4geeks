@@ -25,7 +25,8 @@ import { Recovery } from "./auth/recovery.jsx";
 import { Profile } from "./auth/profile.jsx";
 import { ForgetPassword } from "./auth/password.jsx";
 import PageNotFound from "./component/PageNotFound.jsx";
-
+import { ArtistProfile } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/ArtistProfile.jsx";
+import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/artistanuevo.jsx";
 import ArtistCategory from "./pages/browse/ArtistCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
@@ -42,7 +43,7 @@ const Layout = () => {
         <ScrollToTop>
           <Navbar />
           <Routes>
-            
+            <Route element={<Artistanuevo />} path="/artistanuevo" />
             <Route element={<Home />} path="/" />
             <Route element={<ArtistCategory />} path="/artistas" />
             <Route element={<Caracteristicas />} path="/caracteristicas" />
@@ -51,7 +52,7 @@ const Layout = () => {
             <Route element={<Terminos />} path="/terminos" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
-            
+            <Route element={<ArtistProfile />} path="/artistprofile" />
             <Route element={<SignUp />} path="/signup" />
             <Route element={<Reset />} path="/reset" />
             <Route element={<Recovery />} path="/recovery" />
