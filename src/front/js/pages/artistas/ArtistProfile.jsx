@@ -17,14 +17,21 @@ export const ArtistProfile = () => {
         <Col lg={9}>
           <Card className="shadow-sm">
             <Card.Body>
+              <div>
+                <h5>Genero</h5>
+                <p>House</p>
+              </div>
+              <div>
               <h5>Descripcion</h5>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 vehicula odio a mauris tincidunt, at hendrerit tellus consequat.
               </p>
+              </div>
               <div>
-                <h5>Genero</h5>
-                <p>House</p>
+                <h5>Repertorio</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                vehicula odio a mauris tincidunt, at hendrerit tellus consequat.</p>
               </div>
               <div className="row">
                 <div className="col-1">
