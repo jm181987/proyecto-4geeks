@@ -18,7 +18,7 @@ export const Usuarioperfil = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <div>
-                <h5>Gustos musicales</h5>
+                <h5 class="h5usuario">Gustos musicales</h5>
                 <p>house, tech house </p>
               </div>
               <div>
