@@ -46,13 +46,13 @@ export const Footer = () => (
 					  Nosotros
 				  </h6>
 				  <p>
-					  <a href="/quienes" className="text-reset">Quienes somos</a>
+					  <a href="/quienes" className="footer-pages text-reset">Quienes somos</a>
 				  </p>
 				  <p>
-					  <a href="/mision" className="text-reset">Mision y Vision</a>
+					  <a href="/mision" className="footer-pages text-reset">Mision y Vision</a>
 										  </p>
 										  <p>
-					  <a href="/terminos" className="text-reset">Terminos y condiciones</a>
+					  <a href="/terminos" className="footer-pages text-reset">Terminos y condiciones</a>
 				  </p>
 										  
 			  </div>
