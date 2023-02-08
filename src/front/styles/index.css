@@ -1,6 +1,345 @@
-/* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("../fonts/feather/feather.css");
+ .card {
+	 border: 0rem;
+	 box-shadow: 0px 1px 3px rgba(3, 0, 71, 0.09);
+}
+ .img-left-rounded {
+	 border-radius: 0.5rem 0 0 0.5rem;
+}
+ @media (max-width: 768px) {
+	 .img-left-rounded {
+		 border-radius: 0.5rem 0.5rem 0 0;
+	}
+}
+ @media (min-width: 768px) and (max-width: 991.98px) {
+	 .img-left-rounded {
+		 border-radius: 0.5rem 0.5rem 0 0;
+	}
+}
+ .card-header-height {
+	 height: 3.75rem;
+}
+ .card-hover {
+	 transition: box-shadow 0.25s ease;
+}
+ .card-hover:hover, .card-hover:focus {
+	 box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+ .accordion > .card > .card-header {
+	 margin-bottom: 0rem;
+}
+ .card-img-size-600 {
+	 width: 100%;
+}
+ @media (min-width: 990px) {
+	 .card-img-size-600 {
+		 width: 600px;
+	}
+}
+ .card-bordered {
+	 border: 1px solid #ecebf1;
+	 box-shadow: none;
+}
+ .card-dashed-hover {
+	 border-style: dashed !important;
+	 transition: 0.5s ease;
+}
+ .card-dashed-hover:hover {
+	 border: 2px dashed #754ffe !important;
+}
+ .course-container {
+	 position: fixed;
+	 width: 100%;
+	 min-height: 100vh;
+}
+ @media (max-width: 576px) {
+	 .course-container {
+		 position: relative;
+		 min-height: inherit;
+	}
+}
+ @media (min-width: 768px) and (max-width: 991.98px) {
+	 .course-container {
+		 position: relative;
+		 min-height: inherit;
+	}
+}
+ .course-container .content {
+	 position: relative;
+	 left: 0;
+	 margin-left: 25.25rem;
+}
+ @media (max-width: 576px) {
+	 .course-container .content {
+		 margin-left: 0rem;
+	}
+}
+ @media (min-width: 768px) and (max-width: 991.98px) {
+	 .course-container .content {
+		 margin-left: 0rem;
+	}
+}
+ @media (min-width: 992px) and (max-width: 1199.98px) {
+	 .course-container .content {
+		 margin-left: 23.375rem;
+	}
+	 .course-container .content .embed-responsive {
+		 height: calc(95vh - 137px) !important;
+	}
+}
+ @media (min-width: 1200px) {
+	 .course-container .content {
+		 padding-right: 1.25rem;
+	}
+	 .course-container .content .embed-responsive {
+		 height: calc(95vh - 137px) !important;
+	}
+}
+ .course-sidebar {
+	 position: fixed;
+	 width: 23.75rem;
+	 min-height: 100vh;
+	 z-index: 1;
+	 top: 4.34rem;
+	 border-radius: 0px;
+}
+ @media (max-width: 576px) {
+	 .course-sidebar {
+		 top: 1.25rem;
+		 width: 100%;
+		 position: relative;
+	}
+}
+ @media (min-width: 768px) and (max-width: 991.98px) {
+	 .course-sidebar {
+		 top: 1.25rem;
+		 width: 100%;
+		 position: relative;
+	}
+}
+
+ .avatar-primary .avatar-initials {
+	 color: #fff;
+	 background-color: #754ffe;
+}
+ .avatar-secondary .avatar-initials {
+	 color: #fff;
+	 background-color: #79758f;
+}
+ .avatar-success .avatar-initials {
+	 color: #fff;
+	 background-color: #19cb98;
+}
+ .avatar-warning .avatar-initials {
+	 color: #fff;
+	 background-color: #ffaa46;
+}
+ .avatar-info .avatar-initials {
+	 color: #fff;
+	 background-color: #29baf9;
+}
+ .avatar-danger .avatar-initials {
+	 color: #fff;
+	 background-color: #e53f3c;
+}
+ .avatar-light .avatar-initials {
+	 color: #fff;
+	 background-color: #f5f4f8;
+}
+ .avatar-dark .avatar-initials {
+	 color: #fff;
+	 background-color: #18113c;
+}
+ .avatar-primary-soft .avatar-initials {
+	 color: #754ffe;
+	 background-color: #e3dcff;
+}
+ .avatar-secondary-soft .avatar-initials {
+	 color: #fff;
+	 background-color: #79758f;
+}
+ .avatar-success-soft .avatar-initials {
+	 color: #19cb98;
+	 background-color: #d1f5ea;
+}
+ .avatar-warning-soft .avatar-initials {
+	 color: #ffaa46;
+	 background-color: #ffeeda;
+}
+ .avatar-info-soft .avatar-initials {
+	 color: #29baf9;
+	 background-color: #e1f6ff;
+}
+ .avatar-danger-soft .avatar-initials {
+	 color: #e53f3c;
+	 background-color: #fad9d8;
+}
+ .avatar-dark-soft .avatar-initials {
+	 color: #fff;
+	 background-color: #d1cfd8;
+}
+ .avatar-light-soft .avatar-initials {
+	 color: #18113c;
+	 background-color: #f5f4f8;
+}
+ .avatar-group .avatar + .avatar {
+	 margin-left: -1.2rem;
+}
+ .avatar-group .avatar:hover {
+	 z-index: 2;
+}
+ .avatar-group img, .avatar-group .avatar .avatar-initials {
+	 border: 3px solid #fff;
+}
+ .img-4by3-xxl {
+	 width: 9rem;
+}
+ .img-4by3-xl {
+	 width: 7.75rem;
+}
+ .img-4by3-lg {
+	 width: 6.5rem;
+}
+ .img-4by3-md {
+	 width: 5.25rem;
+}
+ .img-4by3-sm {
+	 width: 4rem;
+}
+ .img-4by3-xs {
+	 width: 2.75rem;
+}
+ .text-truncate-line-2 {
+	 overflow: hidden;
+	 max-height: 3rem;
+}
+ .bg-cover {
+	 background: no-repeat center center / cover;
+}
+ .bg-grayscale {
+	 -webkit-filter: grayscale(100%);
+	 filter: grayscale(100%);
+}
+ .bg-colors-gradient {
+	 background: linear-gradient(280.04deg, #baa9fb 0%, #dbbeff 48.96%, #ffe0e0 100%);
+}
+ @media (max-width: 1200px) {
+	 .bg-auto {
+		 background-size: auto !important;
+	}
+}
+ .dot-pattern {
+	 position: relative;
+}
+ .dot-pattern:after {
+	 content: "";
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 top: 0;
+	 right: 0;
+}
+ .tippy-box[data-animation=fade][data-state=hidden] {
+	 opacity: 0;
+}
+ [data-tippy-root] {
+	 max-width: calc(100vw - 10px);
+}
+ .tippy-box {
+	 position: relative;
+	 background-color: #333;
+	 color: #fff;
+	 border-radius: 4px;
+	 font-size: 14px;
+	 line-height: 1.4;
+	 white-space: normal;
+	 outline: 0;
+	 transition-property: transform, visibility, opacity;
+}
+ .tippy-box[data-placement^=top] > .tippy-arrow {
+	 bottom: 0;
+}
+ .tippy-box[data-placement^=top] > .tippy-arrow:before {
+	 bottom: -7px;
+	 left: 0;
+	 border-width: 8px 8px 0;
+	 border-top-color: initial;
+	 transform-origin: center top;
+}
+ .tippy-box[data-placement^=bottom] > .tippy-arrow {
+	 top: 0;
+}
+ .tippy-box[data-placement^=bottom] > .tippy-arrow:before {
+	 top: -7px;
+	 left: 0;
+	 border-width: 0 8px 8px;
+	 border-bottom-color: initial;
+	 transform-origin: center bottom;
+}
+ .tippy-box[data-placement^=left] > .tippy-arrow {
+	 right: 0;
+}
+ .tippy-box[data-placement^=left] > .tippy-arrow:before {
+	 border-width: 8px 0 8px 8px;
+	 border-left-color: initial;
+	 right: -7px;
+	 transform-origin: center left;
+}
+ .tippy-box[data-placement^=right] > .tippy-arrow {
+	 left: 0;
+}
+ .tippy-box[data-placement^=right] > .tippy-arrow:before {
+	 left: -7px;
+	 border-width: 8px 8px 8px 0;
+	 border-right-color: initial;
+	 transform-origin: center right;
+}
+ .tippy-box[data-inertia][data-state=visible] {
+	 transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+ .tippy-arrow {
+	 width: 16px;
+	 height: 16px;
+	 color: #333;
+}
+ .tippy-arrow:before {
+	 content: "";
+	 position: absolute;
+	 border-color: transparent;
+	 border-style: solid;
+}
+ .tippy-content {
+	 position: relative;
+	 padding: 5px 9px;
+	 z-index: 1;
+}
+ .rounded-top-left-0 {
+	 border-top-left-radius: 0px !important;
+}
+ .rounded-top-end-0 {
+	 border-top-right-radius: 0px !important;
+}
+ @media (max-width: 576px) {
+	 .rounded-none.rounded-bottom-md {
+		 border-bottom-right-radius: 0rem !important;
+		 border-bottom-left-radius: 0rem !important;
+	}
+}
+ @media (min-width: 576px) and (max-width: 767.98px) {
+	 .rounded-none.rounded-bottom-md {
+		 border-bottom-right-radius: 0rem !important;
+		 border-bottom-left-radius: 0rem !important;
+	}
+}
+ .border-dashed {
+	 border: 2px dashed #ecebf1 !important;
+}
+ .list-timeline-activity .list-group-item:not(:last-child)::before {
+	 content: "";
+	 position: absolute;
+	 top: 1rem;
+	 left: 1.25rem;
+	 height: 100%;
+	 border-left: 1px solid #e8e7ed;
+}
+ 

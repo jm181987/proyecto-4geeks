@@ -3,12 +3,13 @@ import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
 import "../../styles/artists.css";
 
+
 function imgError(e){
     console.log("Error: " + e.target.src)
     e.target.src = "https://i.pinimg.com/originals/e8/63/92/e863927635dc1c5aba5663e8dd33efa0.jpg";
 }
 
-export const ArtistCard = (props) =>{
+export const ArtistCardv = (props) =>{
     const { store, actions } = useContext(Context)
 	const ArtistStore = store.artists.filter(art => art.name == props.artist.name)
 	
@@ -18,7 +19,8 @@ export const ArtistCard = (props) =>{
 			<div className="card-body">
 					  <h5 className="card-title">{props.artist.name}</h5>
                       {ArtistStore[0] ? ( <div><div><p>: {ArtistStore[0].name}</p></div></div>) : (	""	)}
-			</div>
+            </div>
 		</div>
     )
 }
+

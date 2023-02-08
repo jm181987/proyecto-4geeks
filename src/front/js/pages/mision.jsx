@@ -13,9 +13,9 @@ export default function Mision() {
 						<br></br>Mision
 					</h1>
 					<div className="col md text-white">
-						<h5>
-							Proporcionar una plataforma en línea confiable y accesible para conectar a los artistas con oportunidades de trabajo y proyectos en todas las industrias creativas.
-						</h5>
+					<h3 class="h3footer">Proporcionar una plataforma en línea confiable y accesible para conectar a los artistas con oportunidades de trabajo y proyectos en todas las industrias creativas.</h3>
+							
+						
 					</div>
 				
 				<div className="row md justify-content-center t-5 ">
@@ -23,9 +23,9 @@ export default function Mision() {
 						<br></br>Vision
 					</h1>
 					<div className="col md mb-3 text-white ">
-						<h5 >
+						<h3 >
 							Visión: Ser el líder en la industria de contratación de artistas en línea, brindando una experiencia excepcional a ambos artistas y clientes a través de un servicio personalizado y tecnología innovadora.
-						</h5><br/>
+						</h3><br/>
 					</div>
 				</div>
 			</div>
