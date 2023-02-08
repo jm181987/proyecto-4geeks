@@ -25,7 +25,7 @@ const PaypalButton = (props) => {
             window.alert("Pago Exitoso");
             setTimeout(() => {
               window.location.replace("https://www.youtube.com");
-            }, 1500);
+            }, 1400);
           });
         },
       }).render('#paypal-button-container');
