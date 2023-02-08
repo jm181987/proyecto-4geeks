@@ -33,6 +33,10 @@ export const ArtistProfile = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 vehicula odio a mauris tincidunt, at hendrerit tellus consequat.</p>
               </div>
+              <div>
+                <h5>Rating</h5>
+              <h5>10.0/10.0</h5>
+              </div>
               <div className="row">
                 <div className="col-1">
                   <a href="" className="me-4 link-secondary">

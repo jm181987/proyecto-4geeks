@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Card, icons } from "react-bootstrap";
 
-export const ArtistProfile = () => {
+export const Usuarioperfil = () => {
   return (
     <Container className="my-5">
       <Row>
@@ -11,27 +11,30 @@ export const ArtistProfile = () => {
             roundedCircle
             className="mb-3"
           />
-          <h3>Nombre artistico</h3>
-          <p>tipo de artista</p>
+          <h3>Nombre y apellido</h3>
+          
         </Col>
         <Col lg={9}>
           <Card className="shadow-sm">
             <Card.Body>
               <div>
-                <h5>Genero</h5>
-                <p>House</p>
+                <h5>Gustos musicales</h5>
+                <p>house, tech house </p>
               </div>
               <div>
-              <h5>Descripcion</h5>
+              <h5>Cantantes favoritos</h5>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 vehicula odio a mauris tincidunt, at hendrerit tellus consequat.
               </p>
               </div>
+              
               <div>
-                <h5>Repertorio</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                vehicula odio a mauris tincidunt, at hendrerit tellus consequat.</p>
+                <h5>Rating</h5>
+              <h5>10.0/10.0</h5>
+              </div>
+              <div>
+              <button class="shadow__btn1 mb-5" href="/artistanuevo" >Crear perfil de artista</button>
               </div>
               <div className="row">
                 <div className="col-1">
@@ -62,4 +65,4 @@ export const ArtistProfile = () => {
     </Container>
   );
 };
-export default ArtistProfile;
+export default Usuarioperfil;
