@@ -26,6 +26,7 @@ import EventPoster from '../../../img/poster/poster1.jpg'
 import CheckLabel from '../../../img/svg/checked-mark.svg'
 
 import ModalVideo from 'react-modal-video'
+import AllArtistData from '../../../data/slider/AllArtistData.jsx'
 
 export const EventSingle = () => {
     const [isOpen, setOpen] = useState(false);
@@ -43,6 +44,7 @@ export const EventSingle = () => {
                             <h1 className='display-4 fw-bold'>Revolution Event Title Example</h1>
                             <p className='text-white mb-6 lead'>
                                 Esto es un a descripcion del evento.
+                                {AllArtistData[0].price}
                             </p>
                             <div className='d-felx align-items-center'>
                                 <Tippy content="Agregar a Favoritos" animation={'scale'}>
@@ -67,7 +69,7 @@ export const EventSingle = () => {
             </Container>
         </div>
         {/* Page content */}
-        <div className='pb-10'>
+        <div className='pb-10'> 
             <Container>
                 <Row>
                     <Col lg={8} md={12} sm={12} className="mt-n8 mb-4 mb-lg-0">
