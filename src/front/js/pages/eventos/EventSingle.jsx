@@ -28,6 +28,8 @@ import CheckLabel from '../../../img/svg/checked-mark.svg'
 import ModalVideo from 'react-modal-video'
 import AllArtistData from '../../../data/slider/AllArtistData.jsx'
 
+import PaypalButton from "/workspace/proyecto-4geeks/src/paypal/paypalIntegration.jsx";
+
 export const EventSingle = () => {
     const [isOpen, setOpen] = useState(false);
 	const [YouTubeURL] = useState('JRzWRZahOVU');
@@ -139,12 +141,8 @@ export const EventSingle = () => {
                                     <del className='fs-4 text-danger text-muted'>$450</del>
                                 </div>
                                 <div className='d-grid'> 
-                                    <Link to='#' className='btn btn-outline-primary mb-2'>
-                                        Contratar evento
-                                    </Link>
-                                    <Link to='#' className='btn btn-outline-primary'>
-                                        Ver Perfil
-                                    </Link>
+                                <div className="paypalButton mt-3"><PaypalButton price={AllArtistData[0].price}/></div>
+
                                 </div>
                             </Card.Body>
                         </Card>
