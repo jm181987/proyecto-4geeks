@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/animations/scale.css'
-import AllArtistData from '../../../data/slider/AllArtistData.jsx'
+
 
 import Avatar1 from '../../../img/avatar/avatar-11.jpg'
 //Estrellas para ratings
 import Ratings from '../../component/common/ratings/Ratings.jsx'
-import PaypalButton from "/workspace/proyecto-4geeks/src/paypal/paypalsuccessfull.jsx";
+
 
 import { DescriptionTab } from './DescriptionTap.jsx'
 
