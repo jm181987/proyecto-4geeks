@@ -1,3 +1,5 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 const getState = ({ getStore, getActions, setStore }) => {
   const apiURL = process.env.BACKEND_URL + "/api";
   return {
@@ -50,25 +52,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
-      },
-
-      signUp: async (email, password, phoneNumber = "") => {
-        const params = {
-          method: "POST",
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-        const resp = await fetch(`${apiURL}/signup`, params);
-        if (resp.status !== 201) {
-          return { code: resp.status, msg: resp.statusText };
-        }
-
-        return { code: 201, msg: "Usuario registrado" };
       },
 
       login: async (email, password) => {

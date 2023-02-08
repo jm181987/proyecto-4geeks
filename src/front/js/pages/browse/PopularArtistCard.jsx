@@ -22,7 +22,7 @@ const PopularArtistCard = ({ item }) => {
 							className="rounded-circle avatar-xl mb-3"
 							alt=""
 						/>
-						<h4 className="mb-0">{item.name}</h4>
+						<h3 className="mb-0">{item.name}</h3>
 						<p className="mb-0 fs-6 text-muted">{item.topic}</p>
 					</div>
 					<div className="d-flex justify-content-between border-bottom py-2 mt-4">

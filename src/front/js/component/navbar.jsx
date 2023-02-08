@@ -1,34 +1,51 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
+import { Context } from "../store/appContext";
+import { signOut } from "firebase/auth"
+import { auth } from "../firebase/firebase.js"
+
+
+export function loginCheck(user){
+  const loggedOutLinks = document.querySelectorAll('.logged-out')
+  const loggedInLinks = document.querySelectorAll('.logged-in')
+  
+  if(user){
+    console.log('HOLAAAw222')
+    console.log(loggedOutLinks)
+    loggedOutLinks.forEach(link => link.style.display = 'none')
+    loggedInLinks.forEach(link => link.style.display = 'block')
+  } else {
+    loggedOutLinks.forEach(link => link.style.display = 'block')
+    loggedInLinks.forEach(link => link.style.display = 'none')
+  }
+
+}
+
 export const Navbar = () => {
+  const { store, actions } = useContext(Context)
+
+
+  async function loggingout (event) {
+    console.log('HOLA HOLA')
+    event.preventDefault();
+    try {
+      await signOut(auth)
+      console.log("signup out");
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
 
 	const [links, setLinks] = useState ([
-    {text: "Artistas", href: "/artistas" },
-
-    {text: "Inicio de sesion", href: "/login"},
-    {text: "Registrarse", href: "/signup"},
-    {text: "Cerrar sesion", href: "/logout"}
+    {text: "Artistas", href: "/artistas" }
   ])
-	
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add code to handle login here
-    setIsLoggedIn(true);
-    setUsername('John Doe');
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername('');
-  };
-  
 
   return (
-    <nav className="navbar sm navbar-dark bg-black  sticky-top ">
+    <nav className="navbar  bg-black  sticky-top ">
       <a className="navbar-brand" href="/" ><img src={logo} /></a>
       
       <nav className="navbar navbar-expand-md bg-black">
@@ -55,6 +72,19 @@ export const Navbar = () => {
                   </Link>
                 </li>
               ))}
+              <li className="nav-item">
+                <Link className="nav-link logged-out" to='/login'>
+                  Inicio de sesion
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link logged-out" to='/signup'>
+                  Registrarse
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link logged-in" id="logout" onClick={loggingout} href=''>Cerrar sesion</a>
+              </li>
             </ul>
           </div>
         </div>

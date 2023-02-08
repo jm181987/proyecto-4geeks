@@ -6,6 +6,8 @@ import { Toaster, toast } from "react-hot-toast";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row, Card, Form, Button, Image } from 'react-bootstrap';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase/firebase.js'
 
 
 const notify = () => toast.success('Registro exitoso!');
@@ -14,7 +16,8 @@ export const SignUp = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  function signUpUser(event) {
+
+  async function signUpUser(event){
     // Previene el comportamiento por defecto, evitando que la pagina se recargue
     event.preventDefault();
     // Se crea un objeto "FormData" con los datos del formulario
@@ -35,18 +38,21 @@ export const SignUp = () => {
       return;
     }
 
-    actions
-      .signUp(email, password, phoneNumber)
-      .then((resp) => {
-        if (resp.code == 201){
-          notify()
-          setTimeout(()=> navigate("/login"), 2500)
-          }
-        else console.log("Problema en el registro de usuario: ", resp);
-      })
-      .catch((error) => {
-        console.log("Error en el registro: ", error);
-      });
+	try{
+		const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+		toast.success(userCredentials.user.email + ' registrado correctamente!')
+	} catch (error){
+		console.log(error)
+		if (error.code === 'auth/email-already-in-use') {
+			toast.error("Correo ya registrado", "error")
+		  } else if (error.code === 'auth/invalid-email') {
+			toast.error("Correo invalido", "error")
+		  } else if (error.code === 'auth/weak-password') {
+			toast.error("Contrase;a debil", "error")
+		  } else if (error.code) {
+			toast.error("Algo salio mal", "error")
+		  }
+	}
   }
 
   return (
@@ -178,7 +184,7 @@ export const SignUp = () => {
 				</Col>
 			</Row>
       <Toaster
-        position="top-right"
+        position="top-center"
         reverseOrder={false}
       />
 		</Fragment>
