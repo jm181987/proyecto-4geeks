@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Card, icons } from "react-bootstrap";
-import ArtistCard from "/workspace/proyecto-4geeks/src/front/js/component/artists/ArtistCard.jsx"; 
 
-export const ArtistProfile = () => {
+export const Artistaview = () => {
   return (
     <Container className="my-5">
       <Row>
@@ -38,10 +37,6 @@ export const ArtistProfile = () => {
                 <h5 class="h5usuario">Rating</h5>
               <h5 class="h5usuario">10.0/10.0</h5>
               </div>
-              <div>
-                <h5 class="h5usuario">Eventos</h5>
-              
-              </div>
               <div className="row">
                 <div className="col-1">
                   <a href="" className="me-4 link-secondary">
@@ -71,4 +66,4 @@ export const ArtistProfile = () => {
     </Container>
   );
 };
-export default ArtistProfile;
+export default Artistaview;

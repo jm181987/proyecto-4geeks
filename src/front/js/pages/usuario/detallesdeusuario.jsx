@@ -49,7 +49,7 @@ export const Detallesdeusuario = (props) => {
         </Card.Body>
       </Card>
       {/* Button */}
-      <Button variant="primary" onClick={next}>
+      <Button variant="primary" onClick={next} href="/usuarioperfil">
         Siguiente
       </Button>
     </Form>
