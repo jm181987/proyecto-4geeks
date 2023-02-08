@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
+ 
 
 // import custom components
 import { FormSelect } from '../../../../component/forms/FormSelect.jsx';
 
 export const BasicInfo = (props) => {
-	const { next } = props;
+	const { next, handleChange } = props;
 
 	const categoryOptions = [
 		{ value: 'Tehcno', label: 'Tehcno' },
@@ -41,8 +42,9 @@ export const BasicInfo = (props) => {
 						<Form.Control
 							type="text"
 							placeholder="Nombre del evento"
-							id="course_title"
-							name="course_title"
+							id="event_title"
+							name="event_title"
+							onChange={e => handleChange(e)}
 						/>
 						<Form.Text className="text-muted">
 							Escribe un titulo de 60 palabras.
@@ -54,9 +56,10 @@ export const BasicInfo = (props) => {
 						<Form.Label>Categoria</Form.Label>
 						<FormSelect
 							options={categoryOptions}
-							id="category_category"
-							name="category_category"
+							id="event_category"
+							name="event_category"
 							placeholder="Elegir Categoria"
+							onChange={e => handleChange(e)}
 						/>
 						<Form.Text className="text-muted">
 							Ayuda a las personas a encontrar tu evento por medio de las categorias.
@@ -68,9 +71,10 @@ export const BasicInfo = (props) => {
 						<Form.Label>Ritmo</Form.Label>
 						<FormSelect
 							options={EventLevel}
-							id="courses_level"
-							name="courses_level"
+							id="event_level"
+							name="event_level"
 							placeholder="Nivel del evento (Ritmo)"
+							onChange={e => handleChange(e)}
 						/>
 					</Form.Group>
 
@@ -82,6 +86,7 @@ export const BasicInfo = (props) => {
 							placeholder="Descripcion del evento"
 							id="event_description"
 							name="event_description"
+							onChange={e => handleChange(e)}
 						/>
 						<Form.Text className="text-muted">
 							Promociona lo mejor que puedas tu evento.
@@ -90,7 +95,7 @@ export const BasicInfo = (props) => {
 				</Card.Body>
 			</Card>
 			{/* Button */}
-			<Button variant="primary" onClick={next}>
+			<Button variant="primary" onClick={next}  >
 				Siguiente
 			</Button>
 		</Form>
