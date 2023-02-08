@@ -19,7 +19,7 @@ body {
 }
 
 .whatlogo:hover {
- box-shadow: 0px 0px 5px #8e42b9;
+  box-shadow: 0px 0px 5px #8e42b9;
 }
 .nav-item {
   margin-right: 45px;
@@ -31,6 +31,9 @@ body {
   position: absolute;
   width: 100%;
   bottom: 0;
+}
+.footer-pages:hover {
+  text-emphasis-color: white;
 }
 .head-footer {
   color: #babcbd;
@@ -145,13 +148,10 @@ p {
 
 .navbar:hover {
   text-shadow: 0 0 15px rgb(111, 207, 252);
-
-
 }
 
 .navbar {
   font-weight: bold;
-  
 }
 
 #cardsHomeContainer {
@@ -208,16 +208,18 @@ p {
   background-image: url("https://i.pinimg.com/236x/26/4b/39/264b396a01bf41f444596517f5d485c9.jpg");
 }
 .seg_titulo {
-  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 4, 4), 0 0 0.2em rgb(0, 0, 0);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 4, 4),
+    0 0 0.2em rgb(0, 0, 0);
 }
 .terc_titulo {
   text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(0, 0, 0),
     0 0 0.2em rgb(255, 0, 200);
   font-weight: 800;
-color: white;
+  color: white;
 }
 .icon-shape {
-  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(92, 92, 99), 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(92, 92, 99),
+    0 0 0.2em blue;
   font-weight: 800;
 }
 
