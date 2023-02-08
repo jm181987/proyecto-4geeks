@@ -1,9 +1,18 @@
 // import node module libraries
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
+import { CheckLg } from 'react-bootstrap-icons';
+import { uploadFile } from '../../../../firebase/firebase.js'
 
 export const EventMedia = (props) => {
-	const { next, previous } = props;
+	const { previous, handleChange, handleAdd, handleFile } = props;
+	const [file, setFile] = useState(null)
+
+	async function rdyToUpload() {
+		const downloadUrl = await uploadFile(file);
+		console.log('File available at OTRO', downloadUrl);
+		handleFile(downloadUrl)
+	  }
 
 	return (
 		<Form>
@@ -15,19 +24,15 @@ export const EventMedia = (props) => {
 				{/* Card body */}
 				<Card.Body>
 					{/* Event cover image */}
-					<Form.Label>Porter del evento</Form.Label>
+					<Form.Label>Poster del evento</Form.Label>
 					<Form.Group className="mb-1 input-group">
 						<Form.Control
-							id="inputfavicon"
+							id="event_image"
+							name='event_image'
 							type="file"
 							className="form-control"
+							onChange={e => setFile(e.target.files[0])}
 						/>
-						<Form.Label
-							htmlFor="inputfavicon"
-							className="input-group-text mb-0"
-						>
-							Subir
-						</Form.Label>
 						<Form.Text className="text-muted">
                         Sube la imagen de tu curso aquí. Debe cumplir con la imagen de nuestro curso
                         estándares de calidad a ser aceptados. Pautas importantes: 750x440
@@ -36,8 +41,14 @@ export const EventMedia = (props) => {
 					</Form.Group>
 					{/* Video URL  */}
 					<Form.Group className="mb-3 mt-3">
-						<Form.Control type="text" placeholder="Video URL" id="VideoURL" />
-						<Form.Text className="text-muted">
+						<Form.Control 
+							type="text" 
+							placeholder="Video URL" 
+							id="event_video_url" 
+							name="event_video_url"
+							onChange={e => handleChange(e)} />
+						<Form.Text className="text-m
+						\\uted">
                         Introduce una URL de vídeo válida. Una promo bien hecha
                         video tienen 5 veces más probabilidades de comprar su evento.
 						</Form.Text>
@@ -50,9 +61,7 @@ export const EventMedia = (props) => {
 				<Button variant="secondary" onClick={previous}>
 					Anterior
 				</Button>
-				<Button variant="primary" onClick={next}>
-					Publicar
-				</Button>
+				<Button variant="danger" onClick={rdyToUpload}>Subir a revision</Button>
 			</div>
 		</Form>
 	);
