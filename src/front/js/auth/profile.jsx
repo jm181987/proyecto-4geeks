@@ -3,23 +3,42 @@ import { Container, Row, Col, Image, Card } from 'react-bootstrap';
 
 export const Profile = () => {
 
-
-
   return (
-    <Container>
+    <Container className="my-5">
       <Row>
-        <Col xs={12} md={4}>
-          <Image src="https://via.placeholder.com/300x300" roundedCircle />
+        <Col lg={3} className="text-center">
+          <Image
+            src="https://via.placeholder.com/150"
+            roundedCircle
+            className="mb-3"
+          />
+          <h3>Nombre y apellido</h3>
+          
         </Col>
-        <Col xs={12} md={8}>
-          <Card>
+        <Col lg={9}>
+          <Card className="shadow-sm">
             <Card.Body>
-              <Card.Title>John Doe</Card.Title>
-              <Card.Subtitle>Software Engineer</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                In quis ipsum euismod, placerat augue id, bibendum velit.
-              </Card.Text>
+              <div>
+                <h5 class="h5usuario">Gustos musicales</h5>
+                <p>house, tech house </p>
+              </div>
+              <div>
+              <h5 class="h5usuario">Cantantes favoritos</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                vehicula odio a mauris tincidunt, at hendrerit tellus consequat.
+              </p>
+              </div>
+              
+              <div>
+                <h5 class="h5usuario">Rating</h5>
+              <h5 class="h5usuario">10.0/10.0</h5>
+              </div>
+              <div>
+              <button className='btn btn-primary' href="" >Crear nuevo evento</button>
+              </div>
+              
+              
             </Card.Body>
           </Card>
         </Col>

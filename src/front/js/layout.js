@@ -31,6 +31,7 @@ import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/arti
 import ArtistCategory from "./pages/browse/ArtistCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
+//perfiles
 
 //create your first component
 const Layout = () => {
