@@ -26,7 +26,7 @@ const PaypalButton = (props) => {
            const transaction = orderData.purchase_units[0].payments.captures[0];
            window.alert("Pago Exitoso");
            setTimeout(() => {
-             window.location.replace("https://www.youtube.com");
+             window.location.replace("https://3000-jm181987-proyecto4geeks-7hhwm1kmoeu.ws-us86.gitpod.io/paypal/success");
            }, 1500);
          });
        },
