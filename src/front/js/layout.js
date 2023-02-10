@@ -9,6 +9,7 @@ import Terminos from "./pages/terminos.jsx";
 import { Home } from "./pages/home/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { SuccessPage } from "./pages/paypal/SuccessPage.jsx";
 
 //import { Artistas } from "./pages/artistas/artistas.jsx";
 
@@ -63,6 +64,7 @@ const Layout = () => {
             <Route element={<EventSingle />} path="/evento/:theid" />
             <Route element={<AddNewEvent/>} path="/evento/nuevo" />
             <Route element={<h1>Not found!</h1>} />
+            <Route element={<SuccessPage/>} path="/paypal/success"/>
           </Routes>
           <Footer />
           <Routes>
