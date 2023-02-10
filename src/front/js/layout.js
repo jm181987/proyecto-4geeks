@@ -64,7 +64,7 @@ const Layout = () => {
             <Route element={<EventSingle />} path="/evento/:theid" />
             <Route element={<AddNewEvent/>} path="/evento/nuevo" />
             <Route element={<h1>Not found!</h1>} />
-            <Route element={<SuccessPage/>} path="/paypal/success"/>
+            <Route element={<SuccessPage/>} path="evento/paypal/success"/>
           </Routes>
           <Footer />
           <Routes>
