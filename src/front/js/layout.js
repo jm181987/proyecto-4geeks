@@ -30,6 +30,7 @@ import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/arti
 import ArtistCategory from "./pages/browse/ArtistCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
+import { SuccessPage } from "./pages/paypal-success.jsx";
 
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
@@ -67,6 +68,7 @@ const Layout = () => {
               <Route element={<EventSingle />} path="/evento/:theid" />
               <Route element={<AddNewEvent/>} path="/evento/nuevo" />
               <Route element={<h1>Not found!</h1>} />
+              <Route element={<SuccessPage/>} path="evento/paypal/success"/>
             </Routes>
           </AuthProvider>
           <Footer />
