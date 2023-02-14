@@ -1,5 +1,6 @@
 // import node module libraries
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../../store/appContext.js';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -24,12 +25,18 @@ import LevelIcon from '../common/miscellaneous/LevelIcon.jsx';
 // import utility file
 import { numberWithCommas } from '../helper/utils.jsx';
 
-const ArtistCard = ({ item, free, viewby, showprogressbar, extraclass }) => {
-	/** Used in Course Index, Course Category, Course Filter Page, Student Dashboard etc...  */
+
+const ArtistCard = ({ item, free, viewby }) => {
+	/** Used in Event Index, Event Category, Event Filter Page, etc...  */
+	const { store, actions } = useContext(Context)
+
+
 	const GridView = () => {
 		return (
-			<Card className={`mb-4 card-hover ${extraclass}`}>
-				<Link to="#">
+			<Card className={'mb-4 card-hover'}>
+				<Link 
+				to={`/evento/${item.id}`}
+					> 
 					<Image
 						src={item.image}
 						alt=""
@@ -110,27 +117,18 @@ const ArtistCard = ({ item, free, viewby, showprogressbar, extraclass }) => {
 							</Tippy>
 						</Col>
 					</Row>
-					<span className={`${showprogressbar ? '' : 'd-none'}`}>
-						{' '}
-						<ProgressBar
-							variant="success"
-							now={item.progress}
-							className="mt-3"
-							style={{ height: '5px' }}
-						/>
-					</span>
 				</Card.Footer>
 			</Card>
 		);
 	};
 
-	/** Used in Course Filter Page  */
+	/** Used in Event Filter Page  */
 	const ListView = () => {
 		return (
 			<Card className="mb-4 card-hover">
 				<Row className="g-0">
 					<Link
-						to="#"
+						to=""
 						className="bg-cover img-left-rounded col-12 col-md-12 col-xl-3 col-lg-3 "
 						style={{
 							background: `url(${item.image})`,
@@ -201,7 +199,7 @@ const ArtistCard = ({ item, free, viewby, showprogressbar, extraclass }) => {
 		);
 	};
 
-	/** Used in Instructor Profile Page  */
+	/** Used in Event Profile Page  */
 	const ListGroupView = () => {
 		return (
 			<div className="d-lg-flex align-items-center">
