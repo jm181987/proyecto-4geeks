@@ -22,6 +22,7 @@ import 'tippy.js/animations/scale.css';
 import Ratings from '../common/ratings/Ratings.jsx';
 import LevelIcon from '../common/miscellaneous/LevelIcon.jsx';
 
+
 // import utility file
 import { numberWithCommas } from '../helper/utils.jsx';
 
@@ -94,6 +95,8 @@ const ArtistCard = ({ item, free, viewby }) => {
 							${item.price - item.discount}
 						</span>{' '}
 						<del className="fs-6 text-muted">${item.price}</del>
+						
+						
 					</div>
 				</Card.Body>
 				{/* Card Footer */}
@@ -171,6 +174,7 @@ const ArtistCard = ({ item, free, viewby }) => {
 										({numberWithCommas(item.ratingby)})
 									</span>
 								</ListGroup.Item>
+								
 							</ListGroup>
 							{/* <!-- Row --> */}
 							<Row className="align-items-center g-0">

@@ -113,15 +113,16 @@ export const Login = () => {
 											>
 												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>
-											<Link to="/authentication/forget-password">
-												Olvidaste tu contraseña?
-											</Link>
+											
 										</div>
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}
-										<Button variant="primary" type="submit">
-											Sign in
+										<Button  variant="primary" type="submit" >
+											Iniciar Sesion
+										</Button>
+										<Button  href="/password" >
+											Olvide Contraseña
 										</Button>
 									</Col>
 								</Row>

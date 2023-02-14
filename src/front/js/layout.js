@@ -10,6 +10,7 @@ import Terminos from "./pages/terminos.jsx";
 import { Home } from "./pages/home/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { SuccessPage } from "./pages/paypal/SuccessPage.jsx";
 
 //import { Artistas } from "./pages/artistas/artistas.jsx";
 
@@ -23,7 +24,7 @@ import { SignUp } from "./auth/signup.jsx";
 import { Reset } from "./auth/reset.jsx";
 import { Recovery } from "./auth/recovery.jsx";
 import { Profile } from "./auth/profile.jsx";
-import { ForgetPassword } from "./auth/password.jsx";
+import { ForgetPassword } from "/workspace/proyecto-4geeks/src/front/js/auth/password.jsx";
 import PageNotFound from "./component/PageNotFound.jsx";
 import { ArtistProfile } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/ArtistProfile.jsx";
 import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/artistanuevo.jsx";
@@ -46,30 +47,29 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <AuthProvider>
-            <Routes>
-              <Route element={<ProtectedRoute><Home /></ProtectedRoute>} path="/" />
-              <Route element={<Login />} path="/login" />
-              <Route element={<Artistanuevo />} path="/artistanuevo" />
-              <Route element={<ArtistCategory />} path="/artistas" />
-              <Route element={<Caracteristicas />} path="/caracteristicas" />
-              <Route element={<Quienes />} path="/quienes" />
-              <Route element={<Mision />} path="/mision" />
-              <Route element={<Terminos />} path="/terminos" />
-              <Route element={<Demo />} path="/demo" />
-              <Route element={<ArtistProfile />} path="/artistprofile" />
-              <Route element={<SignUp />} path="/signup" />
-              <Route element={<Reset />} path="/reset" />
-              <Route element={<Recovery />} path="/recovery" />
-              <Route element={<Profile />} path="/profile" />
-              <Route element={<ForgetPassword />} path="/password" />
-              <Route element={<PageNotFound />} path="*" />
-              <Route element={<Single />} path="/single/:theid" />
-              <Route element={<EventSingle />} path="/evento/:theid" />
-              <Route element={<AddNewEvent/>} path="/evento/nuevo" />
-              <Route element={<h1>Not found!</h1>} />
-            </Routes>
-          </AuthProvider>
+          <Routes>
+            <Route element={<Artistanuevo />} path="/artistanuevo" />
+            <Route element={<Home />} path="/" />
+            <Route element={<ArtistCategory />} path="/artistas" />
+            <Route element={<Caracteristicas />} path="/caracteristicas" />
+            <Route element={<Quienes />} path="/quienes" />
+            <Route element={<Mision />} path="/mision" />
+            <Route element={<Terminos />} path="/terminos" />
+            <Route element={<Demo />} path="/demo" />
+            <Route element={<Login />} path="/login" />
+            <Route element={<ArtistProfile />} path="/artistprofile" />
+            <Route element={<SignUp />} path="/signup" />
+            <Route element={<Reset />} path="/reset" />
+            <Route element={<Recovery />} path="/recovery" />
+            <Route element={<Profile />} path="/profile" />
+            <Route element={<ForgetPassword />} path="/password" />
+            <Route element={<PageNotFound />} path="*" />
+            <Route element={<Single />} path="/single/:theid" />
+            <Route element={<EventSingle />} path="/evento/:theid" />
+            <Route element={<AddNewEvent/>} path="/evento/nuevo" />
+            <Route element={<h1>Not found!</h1>} />
+            <Route element={<SuccessPage/>} path="evento/paypal/success"/>
+          </Routes>
           <Footer />
           <Routes>
           

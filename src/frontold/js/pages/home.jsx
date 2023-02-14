@@ -28,11 +28,11 @@ export const Home = () => {
             Sobre Nosotros
           </h1>
         </div>
-        <div className="about-us">
-          <p>Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+        <div className=" row d-felx about-us">
+          <p className="col-md-7"> Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
             para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras<br></br><button class="shadow__btn" href="" >Ver Artistas</button></p>
 
-          <img src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
+          <img className="col-md-5" src="https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
         </div>
       </div>
 
@@ -45,14 +45,16 @@ export const Home = () => {
         <div className="nuestros-artistas">
           <p>  Aqui puedes reservar a tu artista favorito  <br></br></p>
         </div>
-        <div className="cards">
-          <div className="cardhome card1">
-          </div>
-          <div className="cardhome card2">
-          </div>
-          <div className="cardhome card3">
-          </div>
-          <div className="cardhome card4">
+        <div className="container d-flex">
+          <div id="cards" className = "row">
+            <div className="col-md-3.5 cardhome card1">
+            </div>
+            <div className="col-md-3.5 cardhome card2">
+            </div>
+            <div className="col-md-3.5 cardhome card3">
+            </div>
+            <div className="col-md-3.5 cardhome card4">
+            </div>
           </div>
         </div>
 

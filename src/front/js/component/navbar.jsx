@@ -38,7 +38,11 @@ export const Navbar = () => {
 
 
 	const [links, setLinks] = useState ([
-    {text: "Artistas", href: "/artistas" }
+    {text: "Artistas", href: "/artistas" },
+
+    {text: "Inicio de sesión", href: "/login"},
+    {text: "Registrarse", href: "/signup"},
+    {text: "Cerrar sesión", href: "/logout"}
   ])
 
   return (
