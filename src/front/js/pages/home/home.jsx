@@ -55,7 +55,7 @@ export const Home = () => {
             </div>
         
         </div>
-        <button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button>
+        <a href="./artistas"><button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button></a>
 
       </div>
 
