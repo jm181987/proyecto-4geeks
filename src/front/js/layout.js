@@ -1,6 +1,7 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import { AuthProvider } from "./context/authContext.js";
 
 import Mision from "./pages/mision.jsx";
 import Caracteristicas from "./pages/caracteristicas.jsx";
@@ -9,10 +10,10 @@ import Terminos from "./pages/terminos.jsx";
 import { Home } from "./pages/home/home.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { SuccessPage } from "./pages/paypal/SuccessPage.jsx";
 
 //import { Artistas } from "./pages/artistas/artistas.jsx";
 
-import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -23,7 +24,7 @@ import { SignUp } from "./auth/signup.jsx";
 import { Reset } from "./auth/reset.jsx";
 import { Recovery } from "./auth/recovery.jsx";
 import { Profile } from "./auth/profile.jsx";
-import { ForgetPassword } from "./auth/password.jsx";
+import { ForgetPassword } from "/workspace/proyecto-4geeks/src/front/js/auth/password.jsx";
 import PageNotFound from "./component/PageNotFound.jsx";
 import { ArtistProfile } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/ArtistProfile.jsx";
 import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/artistanuevo.jsx";
@@ -32,11 +33,14 @@ import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
 //perfiles
 
+import injectContext from "./store/appContext";
+import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
+
 
   return (
     <div>
@@ -64,6 +68,7 @@ const Layout = () => {
             <Route element={<EventSingle />} path="/evento/:theid" />
             <Route element={<AddNewEvent/>} path="/evento/nuevo" />
             <Route element={<h1>Not found!</h1>} />
+            <Route element={<SuccessPage/>} path="evento/paypal/success"/>
           </Routes>
           <Footer />
           <Routes>

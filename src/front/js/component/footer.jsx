@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
+import "/workspace/proyecto-4geeks/src/front/styles/footer.css";
 export const Footer = () => (
   //<footer className="footer mt-auto py-3 text-center">
   //	<p className="what">
@@ -8,7 +9,7 @@ export const Footer = () => (
   //	</p>
   //</footer>
 
-  <footer  className="text-center text-lg-start bg-black text-muted ">
+	<footer  className="text-center text-lg-start bg-white text-muted ">
 
 
   <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom ">
@@ -46,13 +47,13 @@ export const Footer = () => (
 					  Nosotros
 				  </h6>
 				  <p>
-					  <a href="/quienes" className="text-reset">Quienes somos</a>
+					  <a href="/quienes" className="footer-pages text-reset">Quienes somos</a>
 				  </p>
 				  <p>
-					  <a href="/mision" className="text-reset">Mision y Vision</a>
+					  <a href="/mision" className="footer-pages text-reset">Mision y Vision</a>
 										  </p>
 										  <p>
-					  <a href="/terminos" className="text-reset">Terminos y condiciones</a>
+					  <a href="/terminos" className="footer-pages text-reset">Terminos y condiciones</a>
 				  </p>
 										  
 			  </div>

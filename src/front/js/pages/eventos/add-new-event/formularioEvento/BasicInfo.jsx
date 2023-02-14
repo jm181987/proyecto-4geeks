@@ -32,7 +32,7 @@ export const BasicInfo = (props) => {
 			{/* Card */}
 			<Card className="mb-3 ">
 				<Card.Header className="border-bottom px-4 py-3">
-					<h4 className="mb-0">Informacion Basica</h4>
+					<h4 className="mb-0 text-black">Informacion Basica</h4>
 				</Card.Header>
 				{/* Card body */}
 				<Card.Body>
@@ -42,8 +42,8 @@ export const BasicInfo = (props) => {
 						<Form.Control
 							type="text"
 							placeholder="Nombre del evento"
-							id="event_title"
-							name="event_title"
+							id="title"
+							name="title"
 							onChange={e => handleChange(e)}
 						/>
 						<Form.Text className="text-muted">
@@ -56,8 +56,8 @@ export const BasicInfo = (props) => {
 						<Form.Label>Categoria</Form.Label>
 						<FormSelect
 							options={categoryOptions}
-							id="event_category"
-							name="event_category"
+							id="category"
+							name="category"
 							placeholder="Elegir Categoria"
 							onChange={e => handleChange(e)}
 						/>
@@ -71,8 +71,8 @@ export const BasicInfo = (props) => {
 						<Form.Label>Ritmo</Form.Label>
 						<FormSelect
 							options={EventLevel}
-							id="event_level"
-							name="event_level"
+							id="level"
+							name="level"
 							placeholder="Nivel del evento (Ritmo)"
 							onChange={e => handleChange(e)}
 						/>
@@ -84,8 +84,8 @@ export const BasicInfo = (props) => {
 						<Form.Control
 							type="text-area"
 							placeholder="Descripcion del evento"
-							id="event_description"
-							name="event_description"
+							id="description"
+							name="description"
 							onChange={e => handleChange(e)}
 						/>
 						<Form.Text className="text-muted">

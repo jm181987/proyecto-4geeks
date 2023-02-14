@@ -11,8 +11,6 @@ export function loginCheck(user){
   const loggedInLinks = document.querySelectorAll('.logged-in')
   
   if(user){
-    console.log('HOLAAAw222')
-    console.log(loggedOutLinks)
     loggedOutLinks.forEach(link => link.style.display = 'none')
     loggedInLinks.forEach(link => link.style.display = 'block')
   } else {
@@ -27,7 +25,6 @@ export const Navbar = () => {
 
 
   async function loggingout (event) {
-    console.log('HOLA HOLA')
     event.preventDefault();
     try {
       await signOut(auth)
@@ -41,7 +38,11 @@ export const Navbar = () => {
 
 
 	const [links, setLinks] = useState ([
-    {text: "Artistas", href: "/artistas" }
+    {text: "Artistas", href: "/artistas" },
+
+    {text: "Inicio de sesión", href: "/login"},
+    {text: "Registrarse", href: "/signup"},
+    {text: "Cerrar sesión", href: "/logout"}
   ])
 
   return (

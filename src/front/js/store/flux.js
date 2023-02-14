@@ -1,10 +1,13 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../firebase/firebase.js'
 
 const getState = ({ getStore, getActions, setStore }) => {
   const apiURL = process.env.BACKEND_URL + "/api";
   return {
     store: {
       artists: [],
+      events: [],
       message: null,
       demo: [
         {
@@ -137,6 +140,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const json = await request.json()
 				const data = json
 				setStore({ artists: data })
+			},
+
+      getEvents: async () => {
+        console.log('getEvents...')
+        let list = []
+				const querySnapshot = await getDocs(collection(db, "eventos"));
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          list.push({id: doc.id, ...doc.data()})
+        });
+				//SetStore({ artists: data })
+        setStore({ events: list})
 			},
     },
   };
