@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
+import PaypalButton from "/workspace/proyecto-4geeks/src/paypal/paypalsuccessfull.jsx";
 
 import "/workspace/proyecto-4geeks/src/front/styles/home.css";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
@@ -57,6 +58,7 @@ export const Home = () => {
         <button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button>
 
       </div>
+
     </div>
   );
 };
