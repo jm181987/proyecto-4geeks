@@ -36,7 +36,7 @@ export const Login = () => {
 		navigate('/')
 	} catch (error) {
 		if (error.code === 'auth/wrong-password') {
-			toast.error("Contrase;a incorrecta", "error")
+			toast.error("Contraseña incorrecta", "error")
 		  } else if (error.code === 'auth/user-not-found') {
 			toast.error("Usuario no encontrado", "error")
 		  } else {
