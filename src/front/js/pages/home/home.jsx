@@ -27,7 +27,7 @@ export const Home = () => {
       <div className="Info sm">
         
           <h1 className="nosotros mt-5 px-5">
-          Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+          Somos  una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
             para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras!
           </h1>        
                  
