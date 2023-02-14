@@ -1,7 +1,8 @@
 // import node module libraries
-import React from 'react';
+import React, { useContext } from 'react';
 import { Fragment } from 'react';
 import { Col, Row, Nav, Tab, Container } from 'react-bootstrap';
+import { Context } from '../../store/appContext.js';
 
 // import custom components
 import PageHeadingBriefinfo from '../../component/common/page-headings/PageHeadingBriefinfo.jsx';
@@ -15,6 +16,11 @@ import AllArtistsData from '../../../data/slider/AllArtistData.jsx';
 import ArtistData from '../../../data/users/ArtistData.jsx';
 
 const ArtistCategory = () => {
+	const { store, actions } = useContext(Context)
+	
+
+
+
 	return (
 		<Fragment>
 			{/* Page header */}
@@ -64,7 +70,7 @@ const ArtistCategory = () => {
 										{/* end of most popular */}
 									</Tab.Pane>
 									<Tab.Pane eventKey="trending" className="pb-4 p-4 ps-0 pe-0">
-										{/* trending courses started */}
+										{/* trending events started */}
 										<Row>
 											{AllArtistsData.filter(function (datasource) {
 												return (
@@ -79,14 +85,14 @@ const ArtistCategory = () => {
 												</Col>
 											))}
 										</Row>
-										{/* end of trending courses */}
+										{/* end of trending events */}
 									</Tab.Pane>
 								</Tab.Content>
 							</Tab.Container>
 						</Col>
 					</Row>
 
-					{/* Popular Instructors start */}
+					{/* Popular Artists start */}
 					<Row>
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
@@ -106,9 +112,9 @@ const ArtistCategory = () => {
 							</Col>
 						))}
 					</Row>
-					{/* end of Popular Instructors */}
+					{/* end of Popular Artists */}
 
-					{/* Free JavaScript lessons start */}
+					{/*  start */}
 					<Row>
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
@@ -128,9 +134,9 @@ const ArtistCategory = () => {
 								</Col>
 							))}
 					</Row>
-					{/* end of Free JavaScript lessons */}
+					{/* end */}
 
-					{/* all javaScript courses start */}
+					{/* all  events start */}
 					<Row>
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
@@ -142,15 +148,13 @@ const ArtistCategory = () => {
 						</Col>
 					</Row>
 					<Row className="mb-6">
-						{AllArtistsData.filter(function (datasource) {
-							return datasource.id <= 8;
-						}).map((item, index) => (
+						{store.events.map((item, index) => (
 							<Col lg={3} md={6} sm={12} key={index}>
 								<ArtistCard item={item} free />
 							</Col>
 						))}
 					</Row>
-					{/* end of all javaScript courses */}
+					{/* end of all events */}
 				</Container>
 			</div>
 		</Fragment>
