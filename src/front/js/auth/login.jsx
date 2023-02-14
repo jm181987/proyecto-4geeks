@@ -11,12 +11,14 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase.js'
 import { GoogleAuthProvider } from 'firebase/auth';
 
+
 // import media files
 //import Logo from '';
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+
 
   async function login(event) {
     // Previene el comportamiento por defecto, evitando que la pagina se recargue
@@ -29,6 +31,9 @@ export const Login = () => {
 	try {
 		const credentials = await signInWithEmailAndPassword( auth, email, password)
 		console.log(credentials)
+		const user = credentials.user
+		dispatch({type:'LOGIN', payload: user})
+		navigate('/')
 	} catch (error) {
 		if (error.code === 'auth/wrong-password') {
 			toast.error("Contrase;a incorrecta", "error")
@@ -45,6 +50,10 @@ export const Login = () => {
 
 	try {
 		const credentials = await signInWithPopup(auth, provider)
+		console.log(credentials)
+		const user = credentials.user
+		dispatch({type:'LOGIN', payload: user})
+		navigate('/')
 		toast.success('Hola ' + credentials.user.displayName)
 	} catch (error) {
 		console.log(error)

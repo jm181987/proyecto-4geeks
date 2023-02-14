@@ -20,7 +20,6 @@ import 'tippy.js/animations/scale.css';
 import Layout from "./layout";
 
 onAuthStateChanged(auth, async (user) =>{
-    console.log(user)
     if(user){
         loginCheck(user)
     } else {
@@ -30,4 +29,6 @@ onAuthStateChanged(auth, async (user) =>{
 
 
 //render your react application
-ReactDOM.render(<Layout />, document.querySelector("#app"));
+ReactDOM.render(
+        <Layout />,
+ document.querySelector("#app"));

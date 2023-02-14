@@ -37,6 +37,7 @@ import Avatar15 from '../../img/avatar/avatar-15.jpg';
 
 export const AllArtistsData = [
 	{
+		
 		id: 1,
 		category: 'piano',
 		image: Poster1,

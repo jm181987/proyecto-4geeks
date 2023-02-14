@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
-import PaypalButton from "/workspace/proyecto-4geeks/src/paypal/paypalsuccessfull.jsx";
+import PaypalButton from "/workspace/proyecto-4geeks/src/paypal/paypal-integration.jsx";
 
 import "/workspace/proyecto-4geeks/src/front/styles/home.css";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
@@ -28,7 +28,7 @@ export const Home = () => {
       <div className="Info sm">
         
           <h1 className="nosotros mt-5 px-5">
-          Somos una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
+          Somos  una plataforma donde podrás encontrar y reservar a tu artista favorito ,<br></br>
             para tu fiesta de cumpleaños , boda o cualquier otro evento que quieras!
           </h1>        
                  
@@ -55,7 +55,7 @@ export const Home = () => {
             </div>
         
         </div>
-        <button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button>
+        <a href="./artistas"><button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button></a>
 
       </div>
 

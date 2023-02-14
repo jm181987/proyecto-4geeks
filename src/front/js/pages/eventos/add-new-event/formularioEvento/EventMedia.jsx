@@ -9,9 +9,12 @@ export const EventMedia = (props) => {
 	const [file, setFile] = useState(null)
 
 	async function rdyToUpload() {
-		const downloadUrl = await uploadFile(file);
-		console.log('File available at OTRO', downloadUrl);
-		handleFile(downloadUrl)
+		if(file != null){
+			const downloadUrl = await uploadFile(file)
+			console.log('File available at OTRO', downloadUrl)
+			const result = handleFile(downloadUrl)
+			console.log(result)
+		}
 	  }
 
 	return (
@@ -19,7 +22,7 @@ export const EventMedia = (props) => {
 			{/* Card */}
 			<Card className="mb-3  border-0">
 				<Card.Header className="border-bottom px-4 py-3">
-					<h4 className="mb-0">Multimedia</h4>
+					<h4 className="mb-0 text-black">Multimedia</h4>
 				</Card.Header>
 				{/* Card body */}
 				<Card.Body>
@@ -27,12 +30,15 @@ export const EventMedia = (props) => {
 					<Form.Label>Poster del evento</Form.Label>
 					<Form.Group className="mb-1 input-group">
 						<Form.Control
-							id="event_image"
-							name='event_image'
+							id="image"
+							name='image'
 							type="file"
 							className="form-control"
 							onChange={e => setFile(e.target.files[0])}
 						/>
+						<Button variant="primary" className="input-group-text mb-0" onClick={e => rdyToUpload()}  >
+				                Subir
+			            </Button>
 						<Form.Text className="text-muted">
                         Sube la imagen de tu curso aquí. Debe cumplir con la imagen de nuestro curso
                         estándares de calidad a ser aceptados. Pautas importantes: 750x440
@@ -44,8 +50,8 @@ export const EventMedia = (props) => {
 						<Form.Control 
 							type="text" 
 							placeholder="Video URL" 
-							id="event_video_url" 
-							name="event_video_url"
+							id="video_url" 
+							name="video_url"
 							onChange={e => handleChange(e)} />
 						<Form.Text className="text-m
 						\\uted">
@@ -61,7 +67,7 @@ export const EventMedia = (props) => {
 				<Button variant="secondary" onClick={previous}>
 					Anterior
 				</Button>
-				<Button variant="danger" onClick={rdyToUpload}>Subir a revision</Button>
+				<Button variant="danger" onClick={handleAdd}>Subir a revision</Button>
 			</div>
 		</Form>
 	);

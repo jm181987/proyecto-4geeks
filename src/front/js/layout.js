@@ -1,6 +1,7 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import { AuthProvider } from "./context/authContext.js";
 
 import Mision from "./pages/mision.jsx";
 import Caracteristicas from "./pages/caracteristicas.jsx";
@@ -13,7 +14,6 @@ import { SuccessPage } from "./pages/paypal/SuccessPage.jsx";
 
 //import { Artistas } from "./pages/artistas/artistas.jsx";
 
-import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -33,11 +33,14 @@ import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
 //perfiles
 
+import injectContext from "./store/appContext";
+import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
+
 
   return (
     <div>
