@@ -23,7 +23,7 @@ import { SignUp } from "./auth/signup.jsx";
 import { Reset } from "./auth/reset.jsx";
 import { Recovery } from "./auth/recovery.jsx";
 import { Profile } from "./auth/profile.jsx";
-import { ForgetPassword } from "./auth/password.jsx";
+import { ForgetPassword } from "/workspace/proyecto-4geeks/src/front/js/auth/password.jsx";
 import PageNotFound from "./component/PageNotFound.jsx";
 import { ArtistProfile } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/ArtistProfile.jsx";
 import { Artistanuevo } from "/workspace/proyecto-4geeks/src/front/js/pages/artistas/artistanuevo.jsx";
