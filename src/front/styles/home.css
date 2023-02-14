@@ -14,12 +14,19 @@ body {
   background-color: black;
 }
 
+
 .whatlogo {
   width: 40px;
+ 
+  
 }
 
 .whatlogo:hover {
  box-shadow: 0px 0px 5px #8e42b9;
+ border-radius:50%;
+ -webkit-border-radius:50%;
+ box-shadow: 0px 0px 15px 7px #63e76e;
+ -webkit-box-shadow: 0px 0px 15px 7px #63e76e;
 }
 .nav-item {
   margin-right: 45px;
@@ -182,6 +189,7 @@ p {
 
 .card1:hover {
   background-image: url("https://i.pinimg.com/236x/af/cf/d6/afcfd6e0b2fa861b12bc9cf630ff4b80.jpg");
+
 }
 
 .card2 {

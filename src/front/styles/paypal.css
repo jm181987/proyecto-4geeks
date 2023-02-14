@@ -1,0 +1,20 @@
+#titulo-success{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    
+    #texto-success{
+       display:flex;
+       align-items: center;
+       justify-content: center;
+    }
+    
+    
+    #boton-success{
+           display:flex;
+           align-items: center;
+           justify-content: center;
+    }
+    
