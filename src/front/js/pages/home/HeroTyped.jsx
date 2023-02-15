@@ -36,13 +36,13 @@ const HeroTyped = () => {
 								Artistas talentosos y profesionales, aseguramos un espectáculo!
 							</p>
 							<Link
-								to="/marketing/pages/pricing"
+								to="/artistas"
 								className="boton_header btn btn-primary me-2 mb-5"
 							>
 								Ver Artistas
 							</Link>
 							<Link
-								to="/authentication/sign-up"
+								to="/signup"
 								className="boton_header btn btn-primary me-2 mb-5"
 							>
 								Registrate
