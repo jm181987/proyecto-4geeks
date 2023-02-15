@@ -74,7 +74,7 @@ export const Login = () => {
 								<h1 className="mb-1 fw-bold">Ingresar</h1>
 								<span>
 									No tienes una cuenta?{' '}
-									<Link to="/authentication/sign-up" className="ms-1">
+									<Link to="/signup" className="ms-1">
 										Registrarse
 									</Link>
 								</span>
@@ -113,7 +113,7 @@ export const Login = () => {
 											>
 												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>
-											<Link to="/authentication/forget-password">
+											<Link to="/password">
 												Olvidaste tu contraseña?
 											</Link>
 										</div>

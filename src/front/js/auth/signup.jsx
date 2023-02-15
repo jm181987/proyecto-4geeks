@@ -68,7 +68,7 @@ export const SignUp = () => {
 								<h1 className="mb-1 fw-bold">Registro</h1>
 								<span>
 									Ya tienes un usuario?{' '}
-									<Link to="/authentication/sign-in" className="ms-1">
+									<Link to="/login" className="ms-1">
 										Login
 									</Link>
 								</span>
