@@ -19,7 +19,8 @@ body {
 }
 
 .whatlogo:hover {
- box-shadow: 0px 0px 5px #8e42b9;
+  border-radius: 20px;;
+ box-shadow: 0px 0px 15px #31da8b;
 }
 .nav-item {
   margin-right: 45px;
