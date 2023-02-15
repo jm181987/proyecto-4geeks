@@ -1,8 +1,9 @@
 // import node module libraries
 import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const PageHeadingBriefinfo = ({ pagetitle, briefinfo }) => {
+const PageHeadingBriefinfo = ({ pagetitle, briefinfo, tolink, buttontext }) => {
 	return (
 		<div className="bg-primary">
 			<Container>
@@ -11,6 +12,7 @@ const PageHeadingBriefinfo = ({ pagetitle, briefinfo }) => {
 						<div className="py-4 py-lg-6">
 							<h1 className="mb-1 text-white display-4">{pagetitle}</h1>
 							<p className="text-white mb-0 lead">{briefinfo}</p>
+							<Link to={tolink} className="btn btn-success mb-2">{buttontext}</Link>
 						</div>
 					</Col>
 				</Row>

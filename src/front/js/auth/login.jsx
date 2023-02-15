@@ -1,6 +1,6 @@
 import React from 'react';
-import { useContext } from 'react';
-import {  Fragment } from 'react';
+import { useState, useContext } from 'react';
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import { Context } from "../store/appContext";
@@ -9,6 +9,7 @@ import { Toaster, toast } from "react-hot-toast";
 
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase.js'
+import { useAuth } from '../context/authContext.js';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 
@@ -16,50 +17,76 @@ import { GoogleAuthProvider } from 'firebase/auth';
 //import Logo from '';
 
 export const Login = () => {
-  const { store, actions } = useContext(Context);
-  const navigate = useNavigate();
+	/*const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
+  
+  
+	async function login(event) {
+	  // Previene el comportamiento por defecto, evitando que la pagina se recargue
+	  event.preventDefault();
+	  // Se crea un objeto "FormData" con los datos del formulario
+	  let data = new FormData(event.target);
+	  // Se obtiene el nuevo item del formulario
+	  let email = data.get("email");
+	  let password = data.get("password");
+	  try {
+		  const credentials = await signInWithEmailAndPassword( auth, email, password)
+		  console.log(credentials)
+		  const user = credentials.user
+		  dispatch({type:'LOGIN', payload: user})
+		  navigate('/')
+	  } catch (error) {
+		  if (error.code === 'auth/wrong-password') {
+			  toast.error("Contrase;a incorrecta", "error")
+			} else if (error.code === 'auth/user-not-found') {
+			  toast.error("Usuario no encontrado", "error")
+			} else {
+			  toast.error("Algo salio mal...", "error")
+			}
+	  }
+	}*/
 
-
-  async function login(event) {
-    // Previene el comportamiento por defecto, evitando que la pagina se recargue
-    event.preventDefault();
-    // Se crea un objeto "FormData" con los datos del formulario
-    let data = new FormData(event.target);
-    // Se obtiene el nuevo item del formulario
-    let email = data.get("email");
-    let password = data.get("password");
-	try {
-		const credentials = await signInWithEmailAndPassword( auth, email, password)
-		console.log(credentials)
-		const user = credentials.user
-		dispatch({type:'LOGIN', payload: user})
-		navigate('/')
-	} catch (error) {
-		if (error.code === 'auth/wrong-password') {
-			toast.error("Contrase;a incorrecta", "error")
-		  } else if (error.code === 'auth/user-not-found') {
-			toast.error("Usuario no encontrado", "error")
-		  } else {
-			toast.error("Algo salio mal...", "error")
-		  }
-	}
-  }
-
-  async function googleLogin(){
-	const provider = new GoogleAuthProvider
-
-	try {
-		const credentials = await signInWithPopup(auth, provider)
-		console.log(credentials)
-		const user = credentials.user
-		dispatch({type:'LOGIN', payload: user})
-		navigate('/')
-		toast.success('Hola ' + credentials.user.displayName)
-	} catch (error) {
-		console.log(error)
-		
-	}
-  }
+	const [user, setUser] = useState({
+		email: "",
+		password: "",
+	  });
+	  const { login, loginWithGoogle, resetPassword } = useAuth();
+	  const [error, setError] = useState("");
+	  const navigate = useNavigate();
+	
+	  const handleSubmit = async (e) => {
+		e.preventDefault();
+		toast.error("");
+		try {
+		  await login(user.email, user.password);
+		  navigate("/");
+		} catch (error) {
+			toast.error(error.message);
+		}
+	  };
+	
+	  const handleChange = ({ target: { value, name } }) =>
+		setUser({ ...user, [name]: value });
+	
+	  const handleGoogleSignin = async () => {
+		try {
+		  await loginWithGoogle();
+		  navigate("/");
+		} catch (error) {
+			toast.error(error.message);
+		}
+	  };
+	
+	  const handleResetPassword = async (e) => {
+		e.preventDefault();
+		if (!user.email) return toast.error("Write an email to reset password");
+		try {
+		  await resetPassword(user.email);
+		  toast.error('We sent you an email. Check your inbox')
+		} catch (error) {
+		toast.error(error.message);
+		}
+	  };
 
 	return (
 		<Fragment>
@@ -80,15 +107,16 @@ export const Login = () => {
 								</span>
 							</div>
 							{/* Form */}
-							<Form onSubmit={login}>
+							<Form onSubmit={handleSubmit}>
 								<Row>
 									<Col lg={12} md={12} className="mb-3">
 										{/* Username or email */}
 										<Form.Label>Correo Eléctronico</Form.Label>
 										<Form.Control
 											type="email"
+											name="email"
 											id="email"
-											name='email'
+											onChange={handleChange}
 											placeholder="Correo eléctronico"
 											required
 										/>
@@ -98,8 +126,9 @@ export const Login = () => {
 										<Form.Label>Contraseña </Form.Label>
 										<Form.Control
 											type="password"
+											name="password"
 											id="password"
-											name='password'
+											onChange={handleChange}
 											placeholder="**************"
 											required
 										/>
@@ -113,15 +142,15 @@ export const Login = () => {
 											>
 												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>
-											<Link to="/authentication/forget-password">
+											<Button onClick={handleResetPassword}>
 												Olvidaste tu contraseña?
-											</Link>
+											</Button>
 										</div>
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}
 										<Button variant="primary" type="submit">
-											Sign in
+											Acceder
 										</Button>
 									</Col>
 								</Row>
@@ -131,7 +160,7 @@ export const Login = () => {
 								{/* Google */}
 								<a
 									className="btn-social btn-social-outline btn-google"
-									onClick={googleLogin}
+									onClick={handleGoogleSignin}
 								>
 									<i className="fab fa-google"></i>
 								</a>

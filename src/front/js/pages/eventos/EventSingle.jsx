@@ -9,12 +9,12 @@ import {
     Tab, 
     ListGroup,
     Image,
-    Modal,
-    ListGroupItem
+    ListGroupItem,
+    Button
 } from 'react-bootstrap'
 import { Context } from '../../store/appContext.js'
 
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/animations/scale.css'
@@ -31,14 +31,20 @@ import CheckLabel from '../../../img/svg/checked-mark.svg'
 
 import ModalVideo from 'react-modal-video'
 import AllArtistData from '../../../data/slider/AllArtistData.jsx'
+import PaypalButton from '../../component/paybuttons/paypalbutton.jsx';
 
 export const EventSingle = () => {
     const { store, actions } = useContext(Context);
     const [isOpen, setOpen] = useState(false);
-	const [YouTubeURL] = useState('JRzWRZahOVU');
     const params = useParams()
     let eventId = params.theid
     const [event, setEvent] = useState({})
+    const navigate = useNavigate()
+    const goBack = () =>{
+      navigate(-1)
+    }
+
+    const [artist, setArtist] = useState({})
     
     useEffect(() => {
         const eventStore = store.events.filter(evnt => evnt.id == eventId)
@@ -46,7 +52,14 @@ export const EventSingle = () => {
             setEvent(eventStore[0])
         }
     }, [store.events, eventId])
-
+    
+    useEffect(() => {
+        const artistStore = store.artists.filter(art => art.id == event.artist_id)
+        if (artistStore.length > 0) {
+            setArtist(artistStore[0])
+        }
+    }, [store.artists, event.artist_id])
+    
     return (
         <Fragment>
             {/* Page Header */}
@@ -61,19 +74,13 @@ export const EventSingle = () => {
                                     Esto es un a descripcion del evento.
                                 </p>
                                 <div className='d-felx align-items-center'>
-                                    <Tippy content="Agregar a Favoritos" animation={'scale'}>
-                                        <Link to='#' className='bookmark text-white text-decoration-none'>
-                                            <i className="fe fe-bookmark text-white-50 me-2"></i>
-                                            Agendar
-                                        </Link>
-                                    </Tippy>
                                     <span className='text-white ms-3'>
-                                        <i className='fe fe-user text-white-50'></i>10 Contratados 
+                                        <i className='fe fe-user text-white-50'></i>{event.booked} Contratados 
                                     </span>
                                     <span className='ms-4'>
                                         <span className='text-warning'>
-                                            <Ratings rating={4}/>
-                                            <span className='ms-1 text-white'>(5)</span>
+                                            <Ratings rating={event.rating}/>
+                                            <span className='ms-1 text-white'>({event.ratingby})</span>
                                         </span>
                                     </span>
                                 </div>
@@ -91,8 +98,7 @@ export const EventSingle = () => {
                                 <Card>
                                     <Nav className='nav-lb-tab'>
                                         {[
-                                            'Descripcion',
-                                            'FAQ'
+                                            'Descripcion'
                                         ].map((item, index) => (
                                             <Nav.Item key={index}>
                                                 <Nav.Link href={`#${item.toLowerCase()}`} eventKey={item.toLowerCase()}
@@ -122,41 +128,35 @@ export const EventSingle = () => {
                                     <div
                                         className='d-flex justify-content-center position-relative rounded py-20 border-white border rounded-3 bg-cover'
                                         style={{
-                                            background: `url({event.image})`,
+                                            background: `url(${event.image})`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundSize: 'contian',
                                             backgroundPosition: 'top center'
                                         
                                         }}
                                     >
-                                        <Link to='popup-youtube icon-shape rounded-circle btn-play icon-xl text-decoration-none'>
-                                            PLAY
-                                        </Link>
+                                        <Button className="popup-youtube  rounded-circle btn-play text-decoration-none" onClick={()=> setOpen(true)}>PLAY</Button>
                                     </div>
                                 </div>
 
                                 {/* AQUI EL PREVIEW DE MUSICA */}
-                                <ModalVideo
-                                        channel="youtube"
-                                        autoplay
-                                        isOpen={isOpen}
-                                        videoId={YouTubeURL}
-                                        onClose={() => setOpen(false)}
-                                    />
+                                
+                                    <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={event.video_url} onClose={() => setOpen(false)} />
 
                                 {/* AQUI TERMINA EL PREVIEW DE MUSICA */}
 
                                 <Card.Body>
                                     {/* AQUI VA EL PRECIO */}
                                     <div className='mb-3'>
-                                        <span className='text-dark fw-bold h2 me-2'>$200</span>
-                                        <del className='fs-4 text-danger text-muted'>$450</del>
+                                        <span className='text-dark fw-bold h2 me-2'>${event.price}</span>
+                                        {/* <del className='fs-4 text-danger text-muted'>$450</del>*/}
                                     </div>
                                     <div className='d-grid'> 
-                                        <Link to='#' className='btn btn-outline-primary mb-2'>
+                                        {/*<Link to='#' className='btn btn-outline-primary mb-2'>
                                             Contratar evento
-                                        </Link>
-                                        <Link to='#' className='btn btn-outline-primary'>
+                                    </Link>*/}
+                                        <PaypalButton price={event.price}/>
+                                        <Link to={'/artistas/' + event.artist_id} className='btn btn-outline-primary'>
                                             Ver Perfil
                                         </Link>
                                     </div>
@@ -167,27 +167,20 @@ export const EventSingle = () => {
                                     <h4 className='mb-0 text-black'>Que esta incluido?</h4>
                                 </Card.Header>
                                 <Card.Body className='p-0'>
-                                    <ListGroup className='flush'>
-                                        <ListGroup.Item className='align-middle me-2 text-primary'>
-                                            X Horas de musica en vivo
+                                <ListGroup className='flush'>
+                                    {event.features && Array.isArray(event.features) && event.features.map((item, index) => (
+                                        <ListGroup.Item key={index} className='align-middle me-2 text-primary'>
+                                            {item}
                                         </ListGroup.Item>
-                                        <ListGroup.Item className='align-middle me-2 text-primary'>
-                                            Juego de polvora al finalizar
-                                        </ListGroup.Item>
-                                        <ListGroup.Item className='align-middle me-2 text-primary'>
-                                            Set de DJ profesional
-                                        </ListGroup.Item>
-                                        <ListGroup.Item className='align-middle me-2 text-primary'>
-                                            Pantalla con animaciones
-                                        </ListGroup.Item>
-                                    </ListGroup>
+                                    ))}
+                                </ListGroup>
                                 </Card.Body>
                             </Card>
                             <Card className='mb-4'>
                                 <Card.Body>
                                     <div className='d-flex flex-row'>
                                         <div className='position-relative'>
-                                            <Image src={event.artist_image} className='rounded-circle avatar-xl'/>
+                                            <Image src={artist.image} className='rounded-circle avatar-xl'/>
                                             <Link
                                                     to="#"
                                                     className="position-absolute mt-2 ms-n3"
@@ -204,8 +197,8 @@ export const EventSingle = () => {
                                                 </Link>
                                         </div>
                                         <div className='ms-4'>
-                                            <h4 className='mb-1 text-black'>Alejandro Fantini</h4>
-                                            <p className='mb-1 fs-6'>DJ, Tehcno</p>
+                                            <h4 className='mb-1 text-black'>{artist.name}</h4>
+                                            <p className='mb-1 fs-6'>{artist.topic}</p>
                                             <span className='fs-6'>
                                                 <span className='text-warning'>4,5</span>
                                                 <span className='mdi mdi-star text-warning me-2'></span>
@@ -216,30 +209,32 @@ export const EventSingle = () => {
                                     <Row className='border-top mt-3 border-bottom mb-3 g-0'>
                                         <Col>
                                             <div className='pe-1 ps-3 py-3'>
-                                                <h5 className='mb-0 text-black'>677</h5>
+                                                <h5 className='mb-0 text-black'>{artist.hoursbook}</h5>
                                                 <span>Horas</span>
                                             </div>
                                         </Col>
                                         <Col className='border-start'>
                                             <div className='pe-1 ps-3 py-3'>
-                                                <h5 className='mb-0 text-black'>11</h5>
+                                                <h5 className='mb-0 text-black'>{artist.events}</h5>
                                                 <span>Eventos</span>
                                             </div>
                                         </Col>
                                         <Col className='border-start'>
                                             <div className='pe-1 ps-3 py-3'>
-                                                <h5 className='mb-0 text-black'>143</h5>
+                                                <h5 className='mb-0 text-black'>{artist.reviews}</h5>
                                                 <span>Opiniones</span>
                                             </div>
                                         </Col>
                                     </Row>
-                                    <p>Soy un apasionado de la musica electronica....ChatGPT AQUI</p>
-                                    <Link to='' className='btn btn-primary btn-outline-white btn-sm text-white'>
+                                    <p>{artist.about}</p>
+                                    <Link to={`/artistas/${event.artist_id}`} className='btn btn-primary btn-outline-white btn-sm text-white'>
                                         Ver Perfil
                                     </Link>
                                 </Card.Body>
                             </Card>
-                            
+                            <Button onClick={goBack} className='btn btn-danger'>
+                                &larr; Volver
+                            </Button>
 
 
                         </Col>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
@@ -9,38 +9,7 @@ import { Col, Container, Row, Card, Form, Button, Image } from 'react-bootstrap'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/firebase.js'
 import { useAuth } from "../context/authContext.js";
-import { FormSelect } from "../component/forms/FormSelect.jsx";
 
-
-
-export const SignUp = () => {
-    const { signup } = useAuth();
-
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-		role: "",
-    });
-
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const credentials = await signup(user.email, user.password, user.role);
-            console.log(credentials)
-        navigate("/");
-        } catch (error) {
-        toast.error(error.message);
-        }
-    };
-
-	const UserRole = [
-		{ value: 'Artista', label: 'Artista'  },
-		{ value: 'Usuario', label: 'Usuario' }
-	];
-/*
 
 const notify = () => toast.success('Registro exitoso!');
 
@@ -85,7 +54,7 @@ export const SignUp = () => {
 			toast.error("Algo salio mal", "error")
 		  }
 	}
-  }*/
+  }
 
   return (
     <Fragment>
@@ -100,20 +69,19 @@ export const SignUp = () => {
 								<h1 className="mb-1 fw-bold">Registro</h1>
 								<span>
 									Ya tienes un usuario?{' '}
-									<Link to="/login" className="ms-1">
+									<Link to="/authentication/sign-in" className="ms-1">
 										Login
 									</Link>
 								</span>
 							</div>
 							{/* Form */}
-							<Form onSubmit={handleSubmit}>
+							<Form onSubmit={signUpUser}>
 								<Row>
 									<Col lg={12} md={12} className="mb-3">
 										{/* email */}
 										<Form.Label>Correo Eléctronico </Form.Label>
 										<Form.Control
 											type="email"
-                                            onChange={(e) => setUser({ ...user, email: e.target.value })}
 											id="email"
 											placeholder="Email address here"
 											name="email"
@@ -125,7 +93,6 @@ export const SignUp = () => {
 										<Form.Label>Contraseña </Form.Label>
 										<Form.Control
 											type="password"
-                                            onChange={(e) => setUser({ ...user, password: e.target.value })}
 											id="password"
 											placeholder="**************"
 											name="password"
@@ -133,20 +100,26 @@ export const SignUp = () => {
 										/>
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
-										<Form.Group className="mb-3">
-											<Form.Label>Rol</Form.Label>
-											<FormSelect
-												className="text-dark"
-												options={UserRole}
-												id="role"
-												name="role"
-												placeholder="Elegir Rol"
-												onChange={(e) => setUser({ ...user, role: e.target.value })}
-											/>
-											<Form.Text className="text-muted">
-												Quieres contratar o publicar eventos?
-											</Form.Text>
-										</Form.Group>
+										{/* Password */}
+										<Form.Label>Confirmar contraseña </Form.Label>
+										<Form.Control
+											type="password"
+											id="confirm"
+											placeholder="**************"
+											name="confirm"
+											required
+										/>
+									</Col>
+									<Col lg={12} md={12} className="mb-3">
+										{/* Password */}
+										<Form.Label>WhatsApp </Form.Label>
+										<Form.Control
+											type="text"
+											id="whatsappnumber"
+											placeholder="WhastApp"
+											name="phone-number"
+											required
+										/>
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
 										{/* Checkbox */}
@@ -178,11 +151,33 @@ export const SignUp = () => {
 							</Form>
 							<hr className="my-4" />
 							<div className="mt-4 text-center">
-								
+								{/* Facebook */}
 								<Link
-									to="/login"
+									to="#"
+									className="btn-social btn-social-outline btn-facebook"
 								>
-									Ya tienes cuenta?
+									<i className="fab fa-facebook"></i>
+								</Link>{' '}
+								{/* Twitter */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-twitter"
+								>
+									<i className="fab fa-twitter"></i>
+								</Link>{' '}
+								{/* LinkedIn */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-linkedin"
+								>
+									<i className="fab fa-linkedin"></i>
+								</Link>{' '}
+								{/* GitHub */}
+								<Link
+									to="#"
+									className="btn-social btn-social-outline btn-github"
+								>
+									<i className="fab fa-github"></i>
 								</Link>
 							</div>
 						</Card.Body>

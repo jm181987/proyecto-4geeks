@@ -38,7 +38,8 @@ export const Navbar = () => {
 
 
 	const [links, setLinks] = useState ([
-    {text: "Artistas", href: "/artistas" }
+    {text: "Artistas", href: "/artistas" },
+    {text: "Eventos", href: "/eventos" }
   ])
 
   return (

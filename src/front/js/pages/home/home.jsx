@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
+import { Link } from "react-router-dom";
 
 import "/workspace/proyecto-4geeks/src/front/styles/home.css";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
@@ -54,7 +55,8 @@ export const Home = () => {
             </div>
         
         </div>
-        <button class="shadow__btn1 mb-5" href="/Artistas" >Ver Artistas</button>
+        <Link to='/artistas' className="shadow__btn1 mb-5">Ver Artistas</Link>
+      
 
       </div>
     </div>

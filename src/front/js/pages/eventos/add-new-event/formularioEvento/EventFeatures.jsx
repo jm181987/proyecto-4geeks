@@ -62,8 +62,8 @@ export const EventFeatures = (props) => {
                         <Form.Control
                             type="number"
                             placeholder="Precio del evento"
-                            id="event_price"
-                            name="event_price"
+                            id="price"
+                            name="price"
                             onChange={e => handleChange(e)}
                         />
                         <Form.Text className="text-muted">

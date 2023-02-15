@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Fragment } from 'react';
 import { Col, Row, Nav, Tab, Container } from 'react-bootstrap';
 import { Context } from '../../store/appContext.js';
+import { Link } from 'react-router-dom';
 
 // import custom components
 import PageHeadingBriefinfo from '../../component/common/page-headings/PageHeadingBriefinfo.jsx';
@@ -15,7 +16,7 @@ import ArtistCard from '../../component/artists/ArtistCard.jsx';
 import AllArtistsData from '../../../data/slider/AllArtistData.jsx';
 import ArtistData from '../../../data/users/ArtistData.jsx';
 
-const ArtistCategory = () => {
+const EventsCategory = () => {
 	const { store, actions } = useContext(Context)
 	
 
@@ -25,10 +26,12 @@ const ArtistCategory = () => {
 		<Fragment>
 			{/* Page header */}
 			<PageHeadingBriefinfo
-				pagetitle="Artistas"
+				pagetitle="Eventos"
 				briefinfo="Todo tipo de música para tus eventos"
+				tolink='/eventos/nuevo'
+				buttontext='Publicar Evento Nuevo'
 			/>
-
+			
 			<div className="py-6">
 				<Container>
 					<Row className="mb-6">
@@ -104,9 +107,10 @@ const ArtistCategory = () => {
 						</Col>
 					</Row>
 					<Row className="mb-6">
-						{ArtistData.filter(function (datasource) {
+						{/*{ArtistData.filter(function (datasource) {
 							return datasource.hoursbook > 26000;
-						}).map((item, index) => (
+						}).map((item, index) => */}
+						{store.artists.map((item, index) => (
 							<Col lg={3} md={6} sm={12} key={index}>
 								<PopularArtistCard item={item} />
 							</Col>
@@ -161,4 +165,4 @@ const ArtistCategory = () => {
 	);
 };
 
-export default ArtistCategory;
+export default EventsCategory;
