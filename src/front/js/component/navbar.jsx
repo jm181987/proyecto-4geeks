@@ -4,6 +4,7 @@ import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
 import { Context } from "../store/appContext";
 import { signOut } from "firebase/auth"
 import { auth } from "../firebase/firebase.js"
+import { Toaster, toast } from "react-hot-toast";
 
 
 export function loginCheck(user){
@@ -29,6 +30,9 @@ export const Navbar = () => {
     try {
       await signOut(auth)
       console.log("signup out");
+      toast('Hasta la proxima!', {
+        icon: '👋🏻',
+      });
     } catch (error) {
       console.log(error)
     }
@@ -38,7 +42,8 @@ export const Navbar = () => {
 
 
 	const [links, setLinks] = useState ([
-    {text: "Artistas", href: "/artistas" }
+    {text: "Artistas", href: "/artistas" },
+    {text: "Eventos", href: "/eventos" }
   ])
 
   return (
@@ -86,6 +91,10 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+      <Toaster
+				position="top-center"
+				reverseOrder={false}
+			/>
     </nav>
   );
 };

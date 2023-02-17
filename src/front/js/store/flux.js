@@ -9,18 +9,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       artists: [],
       events: [],
       message: null,
-      demo: [
-        {
-          title: "FIRST",
-          background: "white",
-          initial: "white",
-        },
-        {
-          title: "SECOND",
-          background: "white",
-          initial: "white",
-        },
-      ],
       token: "",
       refreshToken: "",
       profilePic: "",
@@ -152,6 +140,17 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
 				//SetStore({ artists: data })
         setStore({ events: list})
+			},
+      getArtists: async () => {
+        console.log('getArtist...')
+        let list = []
+				const querySnapshot = await getDocs(collection(db, "artistas"));
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          list.push({id: doc.id, ...doc.data()})
+        });
+				//SetStore({ artists: data })
+        setStore({ artists: list})
 			},
     },
   };

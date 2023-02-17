@@ -25,7 +25,7 @@ export const FormSelect = (props) => {
 				)}
 				{options.map((item, index) => {
 					return (
-						<option key={index} value={item.value} className="text-dark">
+						<option key={index} value={item.value} className="text-black">
 							{item.label}
 						</option>
 					);

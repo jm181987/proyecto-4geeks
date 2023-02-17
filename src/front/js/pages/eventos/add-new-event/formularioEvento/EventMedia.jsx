@@ -1,11 +1,12 @@
 // import node module libraries
 import React, { useState } from 'react';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Card, Form, Button, Image } from 'react-bootstrap';
 import { CheckLg } from 'react-bootstrap-icons';
 import { uploadFile } from '../../../../firebase/firebase.js'
+import Avatar from '../../../../../img/avatar/avatar.jpg'
 
 export const EventMedia = (props) => {
-	const { previous, handleChange, handleAdd, handleFile } = props;
+	const { previous, handleChange, handleAdd, handleFile, data } = props;
 	const [file, setFile] = useState(null)
 
 	async function rdyToUpload() {
@@ -28,6 +29,13 @@ export const EventMedia = (props) => {
 				<Card.Body>
 					{/* Event cover image */}
 					<Form.Label>Poster del evento</Form.Label>
+					<Image
+						src={data.image !== null ? data.image : Avatar}
+						alt=""
+						className="rounded-top-md"
+						height="50"
+						width="50"
+						/>
 					<Form.Group className="mb-1 input-group">
 						<Form.Control
 							id="image"

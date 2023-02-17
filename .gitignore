@@ -3,13 +3,13 @@
 
 #Credenciales firebase
 firebase-credentials.json
+firebase.js
 
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
 !.github
 php_errorlog
 .log
-
 # do not ignore gitpod and render files
 !.gitpod.Dockerfile
 !Dockerfile.render

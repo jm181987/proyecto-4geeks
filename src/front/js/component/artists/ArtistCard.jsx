@@ -1,5 +1,5 @@
 // import node module libraries
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../store/appContext.js';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
@@ -30,25 +30,30 @@ const ArtistCard = ({ item, free, viewby }) => {
 	/** Used in Event Index, Event Category, Event Filter Page, etc...  */
 	const { store, actions } = useContext(Context)
 
+	const [artist, setArtist] = useState({})
+    useEffect(() => {
+        const artistStore = store.artists.filter(art => art.id == item.artist_id)
+        if (artistStore.length > 0) {
+            setArtist(artistStore[0])
+        }
+    }, [store.artists, item.artist_id])
+
 
 	const GridView = () => {
 		return (
-			<Card className={'mb-4 card-hover'}>
-				<Link 
-				to={`/evento/${item.id}`}
+			<Link 
+				to={`/eventos/${item.id}`}
 					> 
+			<Card className={'mb-4 card-hover'}>
 					<Image
 						src={item.image}
 						alt=""
 						className="card-img-top rounded-top-md"
 					/>
-				</Link>
 				{/* Card body  */}
 				<Card.Body>
-					<h3 className="h4 mb-2 text-truncate-line-2 ">
-						<Link to="#" className="text-inherit">
-							{item.title}
-						</Link>
+					<h3 className="h4 mb-2 text-truncate-line-2 text-dark">
+						{item.title}
 					</h3>
 					<ListGroup as="ul" bsPrefix="list-inline" className="mb-3">
 						<ListGroup.Item as="li" bsPrefix="list-inline-item">
@@ -66,10 +71,10 @@ const ArtistCard = ({ item, free, viewby }) => {
 							item.price === undefined ||
 							item.price <= 0 ||
 							item.discount === undefined
-								? 'mb-5'
-								: ''
+							? 'mb-5'
+							: ''
 						}`}
-					>
+						>
 						<span className="text-warning me-1 mb-1">
 							{' '}
 							<Ratings rating={item.rating} />
@@ -86,10 +91,10 @@ const ArtistCard = ({ item, free, viewby }) => {
 							item.price === undefined ||
 							item.price <= 0 ||
 							item.discount === undefined
-								? 'd-none'
-								: ''
+							? 'd-none'
+							: ''
 						}`}
-					>
+						>
 						<span className="text-dark fw-bold">
 							${item.price - item.discount}
 						</span>{' '}
@@ -101,24 +106,25 @@ const ArtistCard = ({ item, free, viewby }) => {
 					<Row className="align-items-center g-0">
 						<Col className="col-auto">
 							<Image
-								src={item.artist_image}
+								src={artist.image}
 								className="rounded-circle avatar-xs"
 								alt=""
-							/>
+								/>
 						</Col>
 						<Col className="col ms-2">
-							<span>{item.artist_name}</span>
+							<span>{artist.name}</span>
 						</Col>
-						<Col className="col-auto">
+						{/*<Col className="col-auto">
 							<Tippy content="Add to Bookmarks" animation={'scale'}>
 								<Link to="#" className="text-muted bookmark">
 									<i className="fe fe-bookmark"></i>
 								</Link>
 							</Tippy>
-						</Col>
+					</Col>*/}
 					</Row>
 				</Card.Footer>
 			</Card>
+		</Link>
 		);
 	};
 
