@@ -34,6 +34,7 @@ import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
 
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
+import { ProtectedArtistsRoute } from "./auth/ProtectedArtistsRoute.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -50,7 +51,7 @@ const Layout = () => {
             <Routes>
               <Route element={<Home />} path="/" />
               <Route element={<Login />} path="/login" />
-              <Route element={<ProtectedRoute><NewArtist /></ProtectedRoute>} path="/artistas/nuevo" />
+              <Route element={<ProtectedArtistsRoute><NewArtist /></ProtectedArtistsRoute>} path="/artistas/nuevo" />
               <Route element={<ProtectedRoute><EventsCategory /></ProtectedRoute>} path="/eventos" />
               <Route element={<Caracteristicas />} path="/caracteristicas" />
               <Route element={<Quienes />} path="/quienes" />

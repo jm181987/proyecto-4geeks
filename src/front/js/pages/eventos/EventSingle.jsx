@@ -27,7 +27,7 @@ import { DescriptionTab } from './DescriptionTap.jsx'
 
 //Portada del evento
 import EventPoster from '../../../img/poster/poster1.jpg'
-import CheckLabel from '../../../img/svg/checked-mark.svg'
+import CheckLabel from '../../../img/check-mark.png'
 
 import ModalVideo from 'react-modal-video'
 import AllArtistData from '../../../data/slider/AllArtistData.jsx'
@@ -75,7 +75,7 @@ export const EventSingle = () => {
                                 </p>
                                 <div className='d-felx align-items-center'>
                                     <span className='text-white ms-3'>
-                                        <i className='fe fe-user text-white-50'></i>{event.booked} Contratados 
+                                        {event.booked} Contratados 
                                     </span>
                                     <span className='ms-4'>
                                         <span className='text-warning'>

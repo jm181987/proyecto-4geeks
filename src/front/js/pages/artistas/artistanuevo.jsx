@@ -7,13 +7,16 @@ import { uploadFile } from "../../firebase/firebase.js";
 import { v4 } from 'uuid';
 import { useAuth } from "../../context/authContext.js";
 import Avatar from '../../../img/avatar/avatar.jpg'
+import { Toaster, toast } from "react-hot-toast";
 
 // import custom components
 import { FormSelect } from "/workspace/proyecto-4geeks/src/front/js/component/forms/FormSelect.jsx";
+import { useNavigate } from "react-router-dom";
 
 export const NewArtist = (props) => {
   const { next } = props;
   const { user } = useAuth()
+  const navigate = useNavigate()
 
   const [file, setFile] = useState(null)
 
@@ -37,7 +40,7 @@ export const NewArtist = (props) => {
 		hoursbook: 0,
 		rating: 0,
 		reviews: 0,
-		status: 'status',
+		status: 'registrado',
 		about: 'about',
     phone: '',
     instagram: '',
@@ -61,8 +64,13 @@ export const NewArtist = (props) => {
     //formData.createdBy = user.uid;
     try {  
       await setDoc(doc(db, "artistas", user.uid), formData);
+      toast.success('Cambios realizados correctamente!')
+		  setTimeout(() => {
+			navigate(-1);
+		  }, 2000);
     } catch (error) {
       console.log(error)
+      toast.error('Error: no se logro realizar los cambios')
     }
   }
 

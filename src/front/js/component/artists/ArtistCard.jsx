@@ -52,7 +52,7 @@ const ArtistCard = ({ item, free, viewby }) => {
 					/>
 				{/* Card body  */}
 				<Card.Body>
-					<h3 className="h4 mb-2 text-truncate-line-2 ">
+					<h3 className="h4 mb-2 text-truncate-line-2 text-dark">
 						{item.title}
 					</h3>
 					<ListGroup as="ul" bsPrefix="list-inline" className="mb-3">

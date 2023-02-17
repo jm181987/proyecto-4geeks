@@ -50,8 +50,11 @@ const ArtistsGrid = () => {
 					<Row className="mb-6">
 						{/*{ArtistData.filter(function (datasource) {
 							return datasource.hoursbook > 26000;
-						}).map((item, index) => */}
-						{store.artists.map((item, index) => (
+						}).map((item, index) => *
+						{store.artists.map((item, index) => */}
+						{store.artists.filter(function (datasource) {
+							return datasource.status != 'nuevo';
+						}).map((item, index) =>(
 							<Col lg={3} md={6} sm={12} key={index}>
 								<PopularArtistCard item={item} />
 							</Col>

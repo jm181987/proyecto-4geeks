@@ -40,17 +40,17 @@ export const ArtistProfile = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <div>
-                <h5>Genero</h5>
+                <h5 className="text-dark">Genero</h5>
                 <p>House</p>
               </div>
               <div>
-              <h5>Descripcion</h5>
+              <h5 className="text-dark">Descripcion</h5>
               <p>
                 {artist.about}
               </p>
               </div>
               <div>
-                <h5>Repertorio</h5>
+                <h5 className="text-dark">Repertorio</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 vehicula odio a mauris tincidunt, at hendrerit tellus consequat.</p>
               </div>
@@ -58,8 +58,8 @@ export const ArtistProfile = () => {
                 &larr; Volver
               </Button>
               <div>
-                <h5>Rating</h5>
-              <h5>{artist.rating}/5.0</h5>
+                <h5 className="text-dark">Rating</h5>
+              <h5 className="text-dark">{artist.rating}/5.0</h5>
               </div>
               <div className="row">
                 <div className="col-1">

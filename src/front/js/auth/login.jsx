@@ -59,10 +59,19 @@ export const Login = () => {
 		e.preventDefault();
 		toast.error("");
 		try {
-		  await login(user.email, user.password);
-		  navigate("/");
+		  const credentials = await login(user.email, user.password);
+		  toast.success('Bienvenido ' + credentials.user.email + '!')
+		  setTimeout(() => {
+			navigate("/");
+		  }, 2000);
 		} catch (error) {
-			toast.error(error.message);
+			if (error.code === 'auth/wrong-password') {
+				toast.error("Contrase;a incorrecta", "error")
+			  } else if (error.code === 'auth/user-not-found') {
+				toast.error("Usuario no encontrado", "error")
+			  } else {
+				toast.error("Algo salio mal...", "error")
+			  }
 		}
 	  };
 	
@@ -71,8 +80,11 @@ export const Login = () => {
 	
 	  const handleGoogleSignin = async () => {
 		try {
-		  await loginWithGoogle();
-		  navigate("/");
+		  const credentials = await loginWithGoogle();
+		  toast.success('Bienvenido ' + credentials.user.displayName + '!')
+		  setTimeout(() => {
+			navigate("/");
+		  }, 2000);
 		} catch (error) {
 			toast.error(error.message);
 		}

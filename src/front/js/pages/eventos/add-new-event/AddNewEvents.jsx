@@ -4,7 +4,7 @@ import {
     Container,
     Row 
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Stepper } from "../../../component/forms/Stepper.jsx";
 
@@ -16,10 +16,13 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from '../../../firebase/firebase.js';
 import { useAuth } from "../../../context/authContext.js";
 
+import { Toaster, toast } from "react-hot-toast";
+
 
 import { v4 } from 'uuid';
 
 export const AddNewEvent = () => {
+	const navigate = useNavigate()
     const [currentStep, setCurrentStep] = useState(1);
 	const [ fileUrl, setFileUrl ] = useState(null)
 	const { user } = useAuth();
@@ -88,8 +91,13 @@ export const AddNewEvent = () => {
 			//formData.createdBy = user.uid;
 			try {
 				await setDoc(doc(db, "eventos", v4()), formData);
+				toast.success('Evento registrado!')
+				setTimeout(() => {
+					navigate(-1);
+				}, 2000);
 			} catch (error) {
 				console.log(error)
+				toast.error('Error: no se logro registrar el evento')
 			}
 	  }
 	

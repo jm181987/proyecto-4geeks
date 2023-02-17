@@ -31,9 +31,21 @@ export const SignUp = () => {
         try {
             const credentials = await signup(user.email, user.password, user.role);
             console.log(credentials)
-        navigate("/");
+			toast.success(credentials.user.email + ' registrado correctamente!')
+        	setTimeout(() => {
+				navigate("/");
+			  }, 2000);
         } catch (error) {
-        toast.error(error.message);
+			console.log(error)
+			if (error.code === 'auth/email-already-in-use') {
+				toast.error("Correo ya registrado", "error")
+			  } else if (error.code === 'auth/invalid-email') {
+				toast.error("Correo invalido", "error")
+			  } else if (error.code === 'auth/weak-password') {
+				toast.error("Contrase;a debil", "error")
+			  } else if (error.code) {
+				toast.error("Algo salio mal", "error")
+			  }
         }
     };
 
@@ -143,6 +155,7 @@ export const SignUp = () => {
 												name="role"
 												placeholder="Elegir Rol"
 												onChange={(e) => setUser({ ...user, role: e.target.value })}
+												required
 											/>
 											<Form.Text className="text-muted">
 												Quieres contratar o publicar eventos?
@@ -156,6 +169,7 @@ export const SignUp = () => {
 												type="checkbox"
 												id="check" 
 												name="check"
+												required
 											/>
 											<Form.Check.Label>
 												Estoy de acuerdo con los

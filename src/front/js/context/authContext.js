@@ -25,6 +25,7 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState(null)
 
   async function signup (email, password, role) {
     const credentials = await createUserWithEmailAndPassword(auth, email, password).then((usuarioFirebase) => {
@@ -72,6 +73,7 @@ export function AuthProvider({ children }) {
         user,
         logout,
         loading,
+        role,
         loginWithGoogle,
         resetPassword,
       }}
