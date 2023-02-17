@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/firebase.js'
 import { useAuth } from "../context/authContext.js";
 import { FormSelect } from "../component/forms/FormSelect.jsx";
+import Logo from '../../img/logo.png'
 
 
 
@@ -93,9 +94,9 @@ export const SignUp = () => {
 				<Col lg={5} md={5} className="py-8 py-xl-0">
 					<Card>
 						<Card.Body className="p-6">
-							<div className="mb-4">
+							<div className="mb-0">
 								<Link to="/">
-									<Image src="" className="mb-4" alt="" />
+									<Image src={Logo} className="mb-0" alt="" />
 								</Link>
 								<h1 className="mb-1 fw-bold">Registro</h1>
 								<span>

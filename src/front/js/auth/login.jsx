@@ -6,6 +6,7 @@ import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import Logo from '../../img/logo.png'
 
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase.js'
@@ -94,14 +95,14 @@ export const Login = () => {
 				<Col lg={5} md={5} className="py-8 py-xl-0">
 					<Card>
 						<Card.Body className="p-6">
-							<div className="mb-4">
+							<div className="mb-1">
 								<Link to="/">
-									<Image src="" className="mb-4" alt="" />
+									<Image src={Logo} className="mb-0" alt="" />
 								</Link>
 								<h1 className="mb-1 fw-bold">Ingresar</h1>
 								<span>
 									No tienes una cuenta?{' '}
-									<Link to="/authentication/sign-up" className="ms-1">
+									<Link to="/signup" className="ms-1">
 										Registrarse
 									</Link>
 								</span>
