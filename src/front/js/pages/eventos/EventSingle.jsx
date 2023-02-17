@@ -24,6 +24,7 @@ import Avatar1 from '../../../img/avatar/avatar-11.jpg'
 import Ratings from '../../component/common/ratings/Ratings.jsx'
 
 import { DescriptionTab } from './DescriptionTap.jsx'
+import PaypalButton from "/workspace/proyecto-4geeks/src/front/paypal/paypal-integration.jsx";
 
 //Portada del evento
 import EventPoster from '../../../img/poster/poster1.jpg'
@@ -152,6 +153,7 @@ export const EventSingle = () => {
                                         {/* <del className='fs-4 text-danger text-muted'>$450</del>*/}
                                     </div>
                                     <div className='d-grid'> 
+
                                         {/*<Link to='#' className='btn btn-outline-primary mb-2'>
                                             Contratar evento
                                     </Link>*/}
@@ -159,6 +161,9 @@ export const EventSingle = () => {
                                         <Link to={'/artistas/' + event.artist_id} className='btn btn-outline-primary'>
                                             Ver Perfil
                                         </Link>
+
+                                    <div className="paypalButton mt-3"><PaypalButton price={AllArtistData[0].price}/></div>
+
                                     </div>
                                 </Card.Body>
                             </Card>
