@@ -24,7 +24,7 @@ import Avatar1 from '../../../img/avatar/avatar-11.jpg'
 import Ratings from '../../component/common/ratings/Ratings.jsx'
 
 import { DescriptionTab } from './DescriptionTap.jsx'
-import PaypalButton from "/workspace/proyecto-4geeks/src/front/paypal/paypal-integration.jsx";
+
 
 //Portada del evento
 import EventPoster from '../../../img/poster/poster1.jpg'

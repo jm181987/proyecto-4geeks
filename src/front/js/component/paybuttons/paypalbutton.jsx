@@ -26,7 +26,7 @@ const PaypalButton = (props) => {
            const transaction = orderData.purchase_units[0].payments.captures[0];
            window.alert("Pago Exitoso");
            setTimeout(() => {
-             window.location.replace("https://www.youtube.com");
+             window.location.replace("./paypal/success");
            }, 1500);
          });
        },

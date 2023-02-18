@@ -160,6 +160,7 @@ export const Login = () => {
 											<Link to="/password">
 
 												Olvidaste tu contraseña?
+											</Link>
 											</Button>
 										</div>
 									</Col>
