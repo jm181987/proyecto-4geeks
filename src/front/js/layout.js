@@ -32,9 +32,7 @@ import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
 
 import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
-
-import { SuccessPage } from "./pages/paypal-success.jsx";
-
+import { SuccessPage } from "./paypal/paypal-success.jsx";
 
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
