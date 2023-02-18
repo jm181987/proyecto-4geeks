@@ -55,8 +55,10 @@ export const Home = () => {
             </div>
         
         </div>
+
         <Link to='/artistas' className="shadow__btn1 mb-5">Ver Artistas</Link>
       
+
 
       </div>
     </div>

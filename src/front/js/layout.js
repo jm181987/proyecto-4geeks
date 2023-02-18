@@ -30,7 +30,11 @@ import { NewArtist } from "./pages/artistas/artistanuevo.jsx";
 import EventsCategory from "./pages/browse/EventsCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
+
 import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
+
+import { SuccessPage } from "./pages/paypal-success.jsx";
+
 
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
@@ -70,6 +74,7 @@ const Layout = () => {
               <Route element={<ProtectedRoute><AddNewEvent/></ProtectedRoute>} path="/eventos/nuevo" />
               <Route element={<EventSingle />} path="/eventos/:theid" />
               <Route element={<h1>Not found!</h1>} />
+              <Route element={<SuccessPage/>} path="evento/paypal/success"/>
             </Routes>
           </AuthProvider>
           <Footer />
