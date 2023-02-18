@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '/workspace/proyecto-4geeks/src/front/js/firebase/firebase.js'
 
 const PaypalButton = (props) => {
  const {price} = props
@@ -20,10 +21,17 @@ const PaypalButton = (props) => {
            }],
          });
        },
-       onApprove: (data, actions) => {
-         return actions.order.capture().then((orderData) => {
-           console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+       onApprove:  (data, actions) => {
+
+         return actions.order.capture().then(async(orderData) => {
+           console.log('Captureresult', orderData, JSON.stringify(orderData, null, 2));
            const transaction = orderData.purchase_units[0].payments.captures[0];
+           const docRef = await  addDoc(collection(db, "orderData"), {
+            
+            ...orderData,
+            eventid:"prueba"
+        });
+        console.log("Document written with ID: ", docRef.id);
            window.alert("Pago Exitoso");
            setTimeout(() => {
              window.location.replace("https://www.youtube.com");

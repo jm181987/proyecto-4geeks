@@ -35,7 +35,7 @@ import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
 
 import { SuccessPage } from "./pages/paypal-success.jsx";
 
-
+import Ganancias from "/workspace/proyecto-4geeks/src/front/js/component/artists/ganancias/ganancias.jsx";
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
 import { ProtectedArtistsRoute } from "./auth/ProtectedArtistsRoute.jsx";
@@ -73,6 +73,7 @@ const Layout = () => {
               <Route element={<Single />} path="/single/:theid" />
               <Route element={<ProtectedRoute><AddNewEvent/></ProtectedRoute>} path="/eventos/nuevo" />
               <Route element={<EventSingle />} path="/eventos/:theid" />
+              <Route element={<Ganancias />} path="/ganancias" />
               <Route element={<h1>Not found!</h1>} />
               <Route element={<SuccessPage/>} path="evento/paypal/success"/>
             </Routes>
