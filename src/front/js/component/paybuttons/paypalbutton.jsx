@@ -24,7 +24,7 @@ const PaypalButton = (props) => {
          return actions.order.capture().then((orderData) => {
            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
            const transaction = orderData.purchase_units[0].payments.captures[0];
-           window.alert("Pago Exitoso");
+           alert.show("Pago Exitoso");
            setTimeout(() => {
              window.location.replace("./paypal/success");
            }, 1500);
