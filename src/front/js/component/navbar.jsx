@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
 import { Context } from "../store/appContext";
 import { signOut } from "firebase/auth"
@@ -23,12 +23,14 @@ export function loginCheck(user){
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context)
+  const navigate = useNavigate()
 
 
   async function loggingout (event) {
     event.preventDefault();
     try {
       await signOut(auth)
+      navigate("/")
       console.log("signup out");
       toast('Hasta la proxima!', {
         icon: '👋🏻',

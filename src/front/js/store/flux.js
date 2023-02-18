@@ -1,5 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
+import { object } from "prop-types";
+import { useAuth } from "../context/authContext.js";
 import { db } from '../firebase/firebase.js'
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -19,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
-
+      
       getMessage: () => {
         // fetching data from the backend
         fetch(process.env.BACKEND_URL + "/api/hello")
@@ -40,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (i === index) elm.background = color;
           return elm;
         });
-
+        
         //reset the global store
         setStore({ demo: demo });
       },
@@ -117,19 +119,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         return { code: 200, msg: "Sesion cerrada" };
       },
-
+      
       getArtists: async () => {
 				const params = {
 					method: "GET",
 					headers: { "Content-Type": "application/json" }
 				}
-
+        
 				const request = await fetch(`${apiURL}/artists`, params)
 				const json = await request.json()
 				const data = json
 				setStore({ artists: data })
 			},
-
+      
       getEvents: async () => {
         console.log('getEvents...')
         let list = []
