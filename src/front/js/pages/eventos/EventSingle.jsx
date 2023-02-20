@@ -162,7 +162,7 @@ export const EventSingle = () => {
                                             Ver Perfil
                                         </Link>
 
-                                    <div className="paypalButton mt-3"><PaypalButton price={AllArtistData[0].price}/></div>
+                                    <div className="paypalButton mt-3"><PaypalButton price={AllArtistData[0].price} /></div>
 
                                     </div>
                                 </Card.Body>

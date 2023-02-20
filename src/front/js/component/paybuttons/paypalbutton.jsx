@@ -3,7 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '/workspace/proyecto-4geeks/src/front/js/firebase/firebase.js'
 
 const PaypalButton = (props) => {
- const {price} = props
+ const {price,eventId} = props
  useEffect(() => {
    const paypalScript = document.createElement('script');
    paypalScript.src = 'https://www.paypal.com/sdk/js?client-id=AbvAplNYCEohTGENf1U8Zlp9pTEVN109zPktZ0jV2mfYDum91UpxAxUlrewDSbuHtiHw8MhCxQhBue9X&currency=USD';
@@ -18,6 +18,9 @@ const PaypalButton = (props) => {
              amount: {
                value: price ,
              },
+             Id:{
+              Event:eventId,
+             },
            }],
          });
        },
@@ -29,7 +32,7 @@ const PaypalButton = (props) => {
            const docRef = await  addDoc(collection(db, "orderData"), {
             
             ...orderData,
-            eventid:"prueba"
+            eventId
         });
         console.log("Document written with ID: ", docRef.id);
            window.alert("Pago Exitoso");
