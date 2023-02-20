@@ -2,8 +2,11 @@
 import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../../context/authContext.js';
 
 const PageHeadingBriefinfo = ({ pagetitle, briefinfo, tolink, buttontext }) => {
+	const { usuariodb } = useAuth()
+
 	return (
 		<div className="bg-primary">
 			<Container>
@@ -12,7 +15,9 @@ const PageHeadingBriefinfo = ({ pagetitle, briefinfo, tolink, buttontext }) => {
 						<div className="py-4 py-lg-6">
 							<h1 className="mb-1 text-white display-4">{pagetitle}</h1>
 							<p className="text-white mb-0 lead">{briefinfo}</p>
-							<Link to={tolink} className="btn btn-success mb-2">{buttontext}</Link>
+							{usuariodb && usuariodb.role === "Artista" && (
+								<Link to={tolink} className="artist-role btn btn-success mb-2">{buttontext}</Link>
+							)}
 						</div>
 					</Col>
 				</Row>

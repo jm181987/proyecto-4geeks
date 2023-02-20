@@ -6,7 +6,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase.js"
 import { loginCheck } from "./component/navbar.jsx";
 
-
 //include your index.scss file into the bundle
 //import "../styles/index.css";
 import '../scss/theme.scss'
@@ -18,6 +17,9 @@ import 'tippy.js/animations/scale.css';
 
 //import your own components
 import Layout from "./layout";
+
+
+
 
 onAuthStateChanged(auth, async (user) =>{
     if(user){

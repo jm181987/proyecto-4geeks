@@ -14,6 +14,7 @@ import { doc, serverTimestamp, setDoc, getDoc } from "firebase/firestore";
 import { db } from '../firebase/firebase.js';
 import { Context } from "../store/appContext.js";
 import { useNavigate } from "react-router-dom";
+import { RoleCheck } from "../component/navbar.jsx";
 
 const authContext = createContext();
 //const { store, actions } = useContext(Context)
@@ -55,14 +56,17 @@ export function AuthProvider({ children }) {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    setUsuariodb(null)
+    signOut(auth)
+  }
 
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
 
-  useEffect(() => {
+  /*useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log({ currentUser });
+      RoleCheck(usuariodb)
       setUser(currentUser);
       setLoading(false);
       if(currentUser){
@@ -82,13 +86,42 @@ export function AuthProvider({ children }) {
           .catch((error) => {
             console.log("Error al obtener el documento:", error);
           });
-          console.log(usuariodb)
-      }
+          console.log('usuariodb... ' + usuariodb)
+        }
+        console.log('pasando informacion RoleCheck... '+ usuariodb)
+        
       
     
 
     });
     return () => unsubuscribe();
+  }, []);*/
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      if (currentUser) {
+        const userid = currentUser.uid;
+        const docRef = doc(db, "usuarios", userid);
+        getDoc(docRef)
+          .then((doc) => {
+            if (doc.exists()) {
+              setUsuariodb(doc.data());
+              //RoleCheck(doc.data());
+            } else {
+              console.log("¡El documento no existe!");
+            }
+          })
+          .catch((error) => {
+            console.log("Error al obtener el documento:", error);
+          });
+      } else {
+        setUsuariodb(null);
+        //RoleCheck(null);
+      }
+    });
+    return () => unsubscribe();
   }, []);
 
   return (

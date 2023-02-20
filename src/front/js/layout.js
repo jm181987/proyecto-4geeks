@@ -30,6 +30,7 @@ import { NewArtist } from "./pages/artistas/artistanuevo.jsx";
 import EventsCategory from "./pages/browse/EventsCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
+import { MyProfile } from "./pages/profile/myprofile.jsx";
 
 import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
 import { SuccessPage } from "./paypal/paypal-success.jsx";
@@ -48,13 +49,14 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
           <AuthProvider>
+            <Navbar />
             <Routes>
               <Route element={<Home />} path="/" />
               <Route element={<Login />} path="/login" />
               <Route element={<ProtectedArtistsRoute><NewArtist /></ProtectedArtistsRoute>} path="/artistas/nuevo" />
               <Route element={<ProtectedRoute><EventsCategory /></ProtectedRoute>} path="/eventos" />
+              <Route element={<ProtectedRoute><MyProfile /></ProtectedRoute>} path="/perfil" />
               <Route element={<Caracteristicas />} path="/caracteristicas" />
               <Route element={<Quienes />} path="/quienes" />
               <Route element={<Mision />} path="/mision" />
