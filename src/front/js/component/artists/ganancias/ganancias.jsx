@@ -4,7 +4,7 @@ import {
   db,
   fetchData,
 } from "/workspace/proyecto-4geeks/src/front/js/firebase/firebase.js";
-
+import { useAuth } from "../../../context/authContext.js";
 function Table() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -12,7 +12,9 @@ function Table() {
   }, []);
 
   console.log("data", data);
-
+  const {user} = useAuth()
+  
+  
   return (
     <div className="table-container">
       <table className="table">
@@ -25,7 +27,10 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {data.map((data, index) => {
+
+{data
+    .filter((datasource) =>  datasource.artistId === user.uid )
+    .map((data, index) => {
             const payerName = data.payer?.name || {};
 
             const fullName = `${payerName.given_name || ""} ${
@@ -43,7 +48,7 @@ function Table() {
                 <td>{data.payer?.email_address}</td>
               </tr>
             );
-          })}
+        })}
         </tbody>
       </table>
     </div>
