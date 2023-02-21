@@ -34,11 +34,11 @@ export const ArtistProfile = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <div>
-                <h5 className="text-dark">Genero</h5>
+                <h5 className="text-dark">Género</h5>
                 <p>House</p>
               </div>
               <div>
-                <h5 className="text-dark">Descripcion</h5>
+                <h5 className="text-dark">Descripción</h5>
                 <p>{artist.about}</p>
               </div>
               <div>

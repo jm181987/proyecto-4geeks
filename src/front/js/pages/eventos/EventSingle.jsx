@@ -73,7 +73,7 @@ export const EventSingle = () => {
                                 <h1 className='display-4 fw-bold'>{event.title}</h1>
                                 <h4>{event.id}</h4>
                                 <p className='text-white mb-6 lead'>
-                                    Esto es un a descripcion del evento.
+                                    Esto es un a descripción del evento.
                                 </p>
                                 <div className='d-felx align-items-center'>
                                     <span className='text-white ms-3'>
@@ -172,7 +172,7 @@ export const EventSingle = () => {
                             </Card>
                             <Card className='mb-4'>
                                 <Card.Header>
-                                    <h4 className='mb-0 text-black'>Que esta incluido?</h4>
+                                    <h4 className='mb-0 text-black'>Que está incluido?</h4>
                                 </Card.Header>
                                 <Card.Body className='p-0'>
                                 <ListGroup className='flush'>

@@ -24,8 +24,9 @@ export const Usuarioperfil = () => {
               <div>
               <h5>Cantantes favoritos</h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                vehicula odio a mauris tincidunt, at hendrerit tellus consequat.
+              Mónica Naranjo. Álbum favorito: Tarántula. ...
+Beyoncé Álbum favorito: BEYONCÉ, Shakira Álbum favorito: SHAKIRA. 
+Lady Gaga. Álbum favorito: Born This Way. Kylie Minogue. Álbum favorito: Aphrodite. Rihanna. Britney Spears. Christina Aguilera.
               </p>
               </div>
               

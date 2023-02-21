@@ -8,11 +8,12 @@ export const DescriptionTab = () => {
 			<div className="mb-4">
 				<h3 className="mb-2 text-black">Descripcion del Evento</h3>
 				<p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
+				Te invitamos a disfrutar de la presentación, así como de un show de luces de colores que será acompañado de música.
+Cómo siempre de la mano de la Nuestro artista favorito, se vive una espectacular jornada.
+
+La fiesta que lucirá renovada. En esta ocasión, a partir de las 18.30 horas.				</p>
 				<p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
+                Te esperamos!</p>
 			</div>
 			<h4 className="mb-3">Experiencia</h4>
 			<Row className="mb-3">

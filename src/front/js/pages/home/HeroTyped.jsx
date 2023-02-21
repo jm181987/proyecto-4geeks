@@ -45,7 +45,7 @@ const HeroTyped = () => {
 								to="/signup"
 								className="boton_header btn btn-primary me-2 mb-5"
 							>
-								Registrate
+								Regístrate
 							</Link>
 
 							<div className="mt-8 mb-5">

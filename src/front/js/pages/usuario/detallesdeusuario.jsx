@@ -11,7 +11,7 @@ export const Detallesdeusuario = (props) => {
       {/* Card */}
       <Card className="mb-3 ">
         <Card.Header className="border-bottom px-4 py-3">
-          <h4 className="mb-0">Informacion de Perfil</h4>
+          <h4 className="mb-0">Información de perfil</h4>
         </Card.Header>
         {/* Card body */}
         <Card.Body>
@@ -26,7 +26,7 @@ export const Detallesdeusuario = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="courseTitle">Correo Electonico</Form.Label>
+            <Form.Label htmlFor="courseTitle">Correo electrónico</Form.Label>
             <Form.Control
               type="text"
               placeholder="Correo Electronico"
@@ -34,7 +34,7 @@ export const Detallesdeusuario = (props) => {
               name="Correo"
             />
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="courseTitle">Numero De Telefono</Form.Label>
+              <Form.Label htmlFor="courseTitle">Número de teléfono</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="+###-###-####"

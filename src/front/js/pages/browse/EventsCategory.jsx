@@ -120,7 +120,7 @@ const EventsCategory = () => {
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
 								<h2 className="mb-1">Primera hora gratis</h2>
-								<p className="mb-0">LA fiesta apenas empieza!</p>
+								<p className="mb-0">La fiesta apenas empieza!</p>
 							</div>
 						</Col>
 					</Row>
