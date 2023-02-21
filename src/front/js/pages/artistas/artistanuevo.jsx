@@ -197,6 +197,7 @@ export const NewArtist = (props) => {
               Coloca aqui una despcripcion detallada de ti como artista
               especificando todo lo relevante de tu performance.
             </Form.Text>
+            </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Repertorio</Form.Label>
               <Form.Control
@@ -251,7 +252,7 @@ export const NewArtist = (props) => {
                 onChange={e => handleChange(e)}
               />
             </Form.Group>
-          </Form.Group>
+         
         </Card.Body>
       </Card>
       <Button variant="primary" onClick={handleAdd}>

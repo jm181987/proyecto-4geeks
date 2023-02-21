@@ -31,6 +31,10 @@ import EventsCategory from "./pages/browse/EventsCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
 import { ViewProfile } from "./pages/artistas/profile/ViewProfile.jsx";
+import { SocialProfiles } from "./pages/artistas/dashboard/account-settings/SocialProfiles.jsx";
+import { EditProfile } from "./pages/artistas/dashboard/account-settings/EditProfile.jsx";
+import { MyEvents } from "./pages/artistas/dashboard/MyEvents.jsx";
+import { Orders } from "./pages/artistas/dashboard/Orders.jsx";
 
 import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
 
@@ -60,6 +64,10 @@ const Layout = () => {
               <Route element={<Login />} path="/login" />
               <Route element={<ProtectedArtistsRoute><NewArtist /></ProtectedArtistsRoute>} path="/artistas/nuevo" />
               <Route element={<ProtectedArtistsRoute><DashboardLayout /></ProtectedArtistsRoute>} path="/dashboard" />
+              <Route element={<ProtectedArtistsRoute><SocialProfiles /></ProtectedArtistsRoute>} path="/socialprofiles" />
+              <Route element={<ProtectedArtistsRoute><Orders /></ProtectedArtistsRoute>} path="/orders" />
+              <Route element={<ProtectedArtistsRoute><MyEvents /></ProtectedArtistsRoute>} path="/myevents" />
+              <Route element={<ProtectedArtistsRoute><EditProfile /></ProtectedArtistsRoute>} path="/editprofile" />
               <Route element={<ProtectedRoute><EventsCategory /></ProtectedRoute>} path="/eventos" />
               <Route element={<ProtectedRoute><ViewProfile /></ProtectedRoute>} path="/perfil" />
               <Route element={<Caracteristicas />} path="/caracteristicas" />
