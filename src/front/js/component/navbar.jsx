@@ -30,8 +30,8 @@ export const Navbar = () => {
   async function loggingout (event) {
     event.preventDefault();
     try {
-      await signOut(auth)
       navigate("/")
+      await signOut(auth)
       console.log("signup out");
       toast('Hasta la proxima!', {
         icon: '👋🏻',

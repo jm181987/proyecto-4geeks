@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Card, Form, Row, Col, Button, Image } from 'react-bootstrap';
 import { DashboardLayout } from '../DashboardLayout.jsx'
 import { FormSelect } from '../../../../component/forms/FormSelect.jsx';
 
 {/**IMPORTACION PARA SUBIDA DE DATOS A FIREBASE */ }
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, serverTimestamp, setDoc, updateDoc  } from "firebase/firestore";
 import { db } from '../../../../firebase/firebase.js';
 import { uploadFile } from '../../../../firebase/firebase.js';
 import { useAuth } from '../../../../context/authContext.js';
@@ -17,6 +17,7 @@ export const EditProfile = () => {
     const { store, actions } = useContext(Context)
     const { user } = useAuth()
     const navigate = useNavigate()
+    const [formData, setFormData] = useState({});
 
     const [file, setFile] = useState(null)
 
@@ -31,20 +32,15 @@ export const EditProfile = () => {
         }
     }
 
-    const [formData, setFormData] = useState({
-        name: 'artist_name',
-        workemail: 'email@example.com',
-        image: 'https://firebasestorage.googleapis.com/v0/b/geeks-e71e0.appspot.com/o/9d51f7f4-8d54-477b-9cab-45d40a79a3c1?alt=media&token=025d3f8d-8d24-4e9a-9acb-101d0e7b4c36',
-        topic: 'topic',
-        events: 0,
-        hoursbook: 0,
-        rating: 0,
-        reviews: 0,
-        status: 'registrado',
-        about: 'about',
-        phone: '',
-        joined: serverTimestamp(),
-    });
+
+    useEffect(() => {
+        const artistStore = store.artists.filter(art => art.id == user.uid)
+        if (artistStore.length > 0) {
+            setFormData(artistStore[0])
+        }
+        
+    }, [store.artists, user.uid])
+
 
     const handleChange = (event) => {
         setFormData({
@@ -59,7 +55,7 @@ export const EditProfile = () => {
         //const user = firebase.auth().currentUser;
         //formData.createdBy = user.uid;
         try {
-            await setDoc(doc(db, "artistas", user.uid), formData);
+            await updateDoc(doc(db, "artistas", user.uid), formData);
             toast.success('Cambios realizados correctamente!')
             actions.getArtists()
             setTimeout(() => {
@@ -75,6 +71,11 @@ export const EditProfile = () => {
         { value: "DJ", label: "DJ" },
         { value: "Cantante", label: "Cantante" },
         { value: "Banda Musical", label: "Banda Musical" },
+    ];
+
+    const status = [
+        { value: "available", label: "Disponible" },
+        { value: "nuevo", label: "No aparecer" },
     ];
 
     const Generomusical = [
@@ -197,18 +198,34 @@ export const EditProfile = () => {
                                             especificando todo lo relevante de tu performance.
                                         </Form.Text>
                                     </Form.Group>
+                                    </Col>
+                                    <Col md={6} sm={12} className="mb-3">
                                     <Form.Group className="mb-3" >
-                                        <Form.Label>Repertorio</Form.Label>
-                                        <Form.Control
-                                            type="text-area"
-                                            id="Repertorio"
-                                            name="Repertorio"
-                                            placeholder="Repertorio"
+                                        <Form.Label>Estado</Form.Label>
+                                        <FormSelect
+                                            options={status}
+                                            id="status"
+                                            name="status"
+                                            placeholder="Elegir Estado"
+                                            onChange={e => handleChange(e)}
                                         />
                                     </Form.Group>
                                 </Col>
 
-                                {/* State */}
+                                    <Col md={6} sm={12} className="mb-3">
+                                    <Form.Group className="mb-3" >
+                                        <Form.Label>Etiquetas</Form.Label>
+                                        <Form.Control
+                                            type="text-area"
+                                            id="topic"
+                                            name="topic"
+                                            placeholder="Etiquetas"
+                                            onChange={e => handleChange(e)}
+                                        />
+                                    </Form.Group>
+                                </Col>
+
+                                {/* Categoria */}
                                 <Col md={6} sm={12} className="mb-3">
                                     <Form.Group className="mb-3" >
                                         <Form.Label>Categoria</Form.Label>
@@ -217,11 +234,12 @@ export const EditProfile = () => {
                                             id="category_category"
                                             name="category_category"
                                             placeholder="Elegir Categoria"
+                                            onChange={e => handleChange(e)}
                                         />
                                     </Form.Group>
                                 </Col>
 
-                                {/* Country */}
+                                {/* Genero */}
                                 <Col md={6} sm={12} className="mb-3">
                                     <Form.Group className="mb-3" >
                                         <Form.Label>Genero</Form.Label>
@@ -230,6 +248,7 @@ export const EditProfile = () => {
                                             id="Genero"
                                             name="Genero"
                                             placeholder="Genero Musical"
+                                            onChange={e => handleChange(e)}
                                         />
                                     </Form.Group>
                                 </Col>

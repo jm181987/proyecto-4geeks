@@ -40,6 +40,7 @@ export function AuthProvider({ children }) {
     const datauser = {email: email, role: role}
     const artistuser = {
       email: email,
+      workemail: 'example@example.com',
       name: 'Nombre Artistico',
       image: 'https://firebasestorage.googleapis.com/v0/b/geeks-e71e0.appspot.com/o/9d51f7f4-8d54-477b-9cab-45d40a79a3c1?alt=media&token=025d3f8d-8d24-4e9a-9acb-101d0e7b4c36',
       topic: 'topic',

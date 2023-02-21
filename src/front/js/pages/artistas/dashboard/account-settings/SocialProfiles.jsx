@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   Card,
   Row,
@@ -11,18 +11,24 @@ import { DashboardLayout } from '../DashboardLayout.jsx'
 import { useAuth } from '../../../../context/authContext.js'
 import { Toaster, toast } from "react-hot-toast";
 import { Context } from '../../../../store/appContext.js'
+import { doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import { db } from '../../../../firebase/firebase.js'
 
 export const SocialProfiles = () => {
   const { store, actions } = useContext(Context)
   const { user } = useAuth()
   const navigate = useNavigate()
+  const [formData, setFormData] = useState({});
+  
 
-  const [formData, setFormData] = useState({
-    instagram: '/',
-    facebook: '/',
-    youtube: '/',
-    soundcloud: '/'
-  });
+  useEffect(() => {
+    const artistStore = store.artists.filter(art => art.id == user.uid)
+    if (artistStore.length > 0) {
+      setFormData(artistStore[0])
+    }
+  }, [store.artists, user.uid])
+
+
 
   const handleChange = (event) => {
     setFormData({
@@ -37,7 +43,7 @@ export const SocialProfiles = () => {
     //const user = firebase.auth().currentUser;
     //formData.createdBy = user.uid;
     try {
-      await setDoc(doc(db, "artistas", user.uid), formData);
+      await updateDoc(doc(db, "artistas", user.uid), formData);
       toast.success('Cambios realizados correctamente!')
       actions.getArtists()
       setTimeout(() => {
