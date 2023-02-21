@@ -41,6 +41,7 @@ import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
 import { ProtectedArtistsRoute } from "./auth/ProtectedArtistsRoute.jsx";
 import { DashboardLayout } from "./pages/artistas/dashboard/DashboardLayout.jsx";
+import Table from "./component/artists/ganancias/ganancias.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -77,7 +78,7 @@ const Layout = () => {
               <Route element={<Single />} path="/single/:theid" />
               <Route element={<ProtectedRoute><AddNewEvent/></ProtectedRoute>} path="/eventos/nuevo" />
               <Route element={<EventSingle />} path="/eventos/:theid" />
-              <Route element={<Ganancias />} path="/ganancias" />
+              <Route element={<Table />} path="/ganancias" />
               <Route element={<h1>Not found!</h1>} />
               <Route element={<SuccessPage/>} path="evento/paypal/success"/>
             </Routes>
