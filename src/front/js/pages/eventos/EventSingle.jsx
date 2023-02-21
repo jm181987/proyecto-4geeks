@@ -24,7 +24,9 @@ import Avatar1 from '../../../img/avatar/avatar-11.jpg'
 import Ratings from '../../component/common/ratings/Ratings.jsx'
 
 import { DescriptionTab } from './DescriptionTap.jsx'
+
 import PaypalButton from "../../paypal/paypal-integration.jsx";
+
 
 //Portada del evento
 import EventPoster from '../../../img/poster/poster1.jpg'
@@ -165,6 +167,7 @@ export const EventSingle = () => {
                                         <Link to={'/artistas/' + event.artist_id} className='btn btn-outline-primary'>
                                             Ver Perfil
                                         </Link>
+
 
 
                                     </div>
