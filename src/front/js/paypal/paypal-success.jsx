@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-import Navbar from '/workspace/proyecto-4geeks/src/front/js/component/navbar.jsx';
+import { Navbar } from '../component/navbar.jsx';
 
 
 
 
-import '/workspace/proyecto-4geeks/src/front/styles/paypal.css';
+import '../../styles/paypal.css';
 
 
 export const SuccessPage = (props) => {

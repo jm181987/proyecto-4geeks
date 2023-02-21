@@ -25,6 +25,8 @@ import Ratings from '../../component/common/ratings/Ratings.jsx'
 
 import { DescriptionTab } from './DescriptionTap.jsx'
 
+import PaypalButton from "../../paypal/paypal-integration.jsx";
+
 
 //Portada del evento
 import EventPoster from '../../../img/poster/poster1.jpg'
@@ -32,10 +34,11 @@ import CheckLabel from '../../../img/check-mark.png'
 
 import ModalVideo from 'react-modal-video'
 import AllArtistData from '../../../data/slider/AllArtistData.jsx'
-import PaypalButton from '../../component/paybuttons/paypalbutton.jsx';
+import { useAuth } from '../../context/authContext.js';
 
 export const EventSingle = () => {
     const { store, actions } = useContext(Context);
+    const { usuariodb } = useAuth()
     const [isOpen, setOpen] = useState(false);
     const params = useParams()
     let eventId = params.theid
@@ -157,12 +160,15 @@ export const EventSingle = () => {
                                         {/*<Link to='#' className='btn btn-outline-primary mb-2'>
                                             Contratar evento
                                     </Link>*/}
-                                        <PaypalButton price={event.price}/>
+                                        {usuariodb && usuariodb.role === "Usuario" && (
+    
+                                            <div className="paypalButton mt-3"><PaypalButton price={event.price}/></div>
+                                        )}
                                         <Link to={'/artistas/' + event.artist_id} className='btn btn-outline-primary'>
                                             Ver Perfil
                                         </Link>
 
-                                    <div className="paypalButton mt-3"><PaypalButton price={AllArtistData[0].price} /></div>
+
 
                                     </div>
                                 </Card.Body>

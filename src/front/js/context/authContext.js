@@ -10,22 +10,26 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from '../firebase/firebase.js'
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, serverTimestamp, setDoc, getDoc } from "firebase/firestore";
 import { db } from '../firebase/firebase.js';
-
+import { Context } from "../store/appContext.js";
+import { useNavigate } from "react-router-dom";
+import { RoleCheck } from "../component/navbar.jsx";
 
 const authContext = createContext();
+//const { store, actions } = useContext(Context)
 
 export const useAuth = () => {
-  const context = useContext(authContext);
-  if (!context) throw new Error("There is no Auth provider");
-  return context;
+  const acontext = useContext(authContext);
+  if (!acontext) throw new Error("There is no Auth provider");
+  return acontext;
 };
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [role, setRole] = useState(null)
+  const [usuariodb, setUsuariodb] = useState(null)
+  const navigate = useNavigate()
 
   async function signup (email, password, role) {
     const credentials = await createUserWithEmailAndPassword(auth, email, password).then((usuarioFirebase) => {
@@ -44,7 +48,7 @@ export function AuthProvider({ children }) {
   };
 
   const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password); 
   };
 
   const loginWithGoogle = () => {
@@ -52,17 +56,72 @@ export function AuthProvider({ children }) {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    setUsuariodb(null)
+    signOut(auth)
+  }
 
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
-  useEffect(() => {
+
+  /*useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log({ currentUser });
+      RoleCheck(usuariodb)
       setUser(currentUser);
       setLoading(false);
+      if(currentUser){
+        console.log(currentUser.uid)
+        const userid = currentUser.uid
+        const docRef = doc(db, "usuarios", userid);
+        // Obtenemos el documento usando el método get()
+        getDoc(docRef)
+          .then((doc) => {
+            if (doc.exists()) {
+              console.log("Datos del documento:", doc.data());
+              setUsuariodb(doc.data())
+            } else {
+              console.log("¡El documento no existe!");
+            }
+          })
+          .catch((error) => {
+            console.log("Error al obtener el documento:", error);
+          });
+          console.log('usuariodb... ' + usuariodb)
+        }
+        console.log('pasando informacion RoleCheck... '+ usuariodb)
+        
+      
+    
+
     });
     return () => unsubuscribe();
+  }, []);*/
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      if (currentUser) {
+        const userid = currentUser.uid;
+        const docRef = doc(db, "usuarios", userid);
+        getDoc(docRef)
+          .then((doc) => {
+            if (doc.exists()) {
+              setUsuariodb(doc.data());
+              //RoleCheck(doc.data());
+            } else {
+              console.log("¡El documento no existe!");
+            }
+          })
+          .catch((error) => {
+            console.log("Error al obtener el documento:", error);
+          });
+      } else {
+        setUsuariodb(null);
+        //RoleCheck(null);
+      }
+    });
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -73,7 +132,7 @@ export function AuthProvider({ children }) {
         user,
         logout,
         loading,
-        role,
+        usuariodb,
         loginWithGoogle,
         resetPassword,
       }}

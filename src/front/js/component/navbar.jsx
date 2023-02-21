@@ -1,16 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "/workspace/proyecto-4geeks/docs/assets/logo.png";
 import { Context } from "../store/appContext";
 import { signOut } from "firebase/auth"
 import { auth } from "../firebase/firebase.js"
 import { Toaster, toast } from "react-hot-toast";
+import { useAuth } from "../context/authContext.js";
 
 
 export function loginCheck(user){
   const loggedOutLinks = document.querySelectorAll('.logged-out')
   const loggedInLinks = document.querySelectorAll('.logged-in')
-  
   if(user){
     loggedOutLinks.forEach(link => link.style.display = 'none')
     loggedInLinks.forEach(link => link.style.display = 'block')
@@ -23,12 +23,15 @@ export function loginCheck(user){
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context)
+  const navigate = useNavigate()
+  const { user, usuariodb } = useAuth()
 
 
   async function loggingout (event) {
     event.preventDefault();
     try {
       await signOut(auth)
+      navigate("/")
       console.log("signup out");
       toast('Hasta la proxima!', {
         icon: '👋🏻',
@@ -74,19 +77,39 @@ export const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              <li className="nav-item">
-                <Link className="nav-link logged-out" to='/login'>
+              {user == null && (
+                <li className="nav-item logged-out">
+                  <Link className="nav-link " to='/login'>
                   Inicio de sesion
+                 </Link>
+                </li>
+              )}
+              <li className="nav-item">
+              {usuariodb && usuariodb.role === "Artista" && (
+								<Link className="nav-link artist-role" to='/perfil'>
+                Mi Perfil Artista
+                </Link>
+							)}
+              </li>
+              {usuariodb && usuariodb.role === "Usuario" && (
+              <li className="nav-item">
+								<Link className="nav-link user-role" to='/perfil'>
+                Mi Perfil Usuario
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link logged-out" to='/signup'>
-                  Registrarse
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link logged-in" id="logout" onClick={loggingout} href=''>Cerrar sesion</a>
-              </li>
+							)}
+              {user == null && (
+                <li className="nav-item logged-out">
+                  <Link className="nav-link" to="/signup">
+                    Registrarse
+                  </Link>
+                </li>
+              )}
+              {user &&(
+                <li className="nav-item logged-in">
+                  <a className="nav-link" id="logout" onClick={loggingout} href=''>Cerrar sesion</a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

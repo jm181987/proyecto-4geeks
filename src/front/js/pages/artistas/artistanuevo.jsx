@@ -109,25 +109,26 @@ export const NewArtist = (props) => {
         </Card.Header>
         {/* Card body */}
         <Card.Body>
+            
           <Form.Group className="mb-1 input-group">
-            <Image
+          <Form.Label htmlFor="image">Foto del Artista</Form.Label> 
+          <Image
               src={formData.image !== null ? formData.image : Avatar}
               alt=""
-              className="rounded-top-md"
+              className="rounded-top-md mb-1"
               height="50"
               width="50"
             />
-            <Form.Label htmlFor="name">Foto del Artista</Form.Label>
               <Form.Control
                 id="image"
                 name='image'
                 type="file"
-                className="form-control"
+                className="form-control w-50"
                 onChange={e => setFile(e.target.files[0])}
               />
               <Button variant="primary" className="input-group-text mb-0" onClick={e => rdyToUpload()}  >
-                          Subir
-                    </Button>
+                Subir
+              </Button>
 
             </Form.Group>
           <Form.Group className="mb-3">

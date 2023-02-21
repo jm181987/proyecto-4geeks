@@ -17,10 +17,7 @@ import AllArtistsData from '../../../data/slider/AllArtistData.jsx';
 import ArtistData from '../../../data/users/ArtistData.jsx';
 
 const EventsCategory = () => {
-	const { store, actions } = useContext(Context)
-	
-
-
+	const { store, actions } = useContext(Context)	  
 
 	return (
 		<Fragment>
