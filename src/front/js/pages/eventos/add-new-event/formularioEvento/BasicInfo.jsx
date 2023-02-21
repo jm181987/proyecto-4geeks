@@ -78,6 +78,18 @@ export const BasicInfo = (props) => {
 						/>
 					</Form.Group>
 
+					{/* Duracion */}
+					<Form.Group className="mb-3">
+						<Form.Label>Duracion del evento</Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Duracion del evento escribir en formato  #h ##m. ej: 1h 46m"
+							id="duration"
+							name="duration"
+							onChange={e => handleChange(e)}
+						/>
+					</Form.Group>
+
 					{/* Event Description*/}
 					<Form.Group className="mb-3">
 						<Form.Label>Descripcion del evento</Form.Label>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.js";
 import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 import { Toaster, toast } from "react-hot-toast";
@@ -16,6 +16,7 @@ import Logo from '../../img/logo.png'
 
 export const SignUp = () => {
     const { signup } = useAuth();
+	const { store, actions } = useContext(Context)
 
     const [user, setUser] = useState({
         email: "",
@@ -32,6 +33,7 @@ export const SignUp = () => {
             const credentials = await signup(user.email, user.password, user.role);
             console.log(credentials)
 			toast.success(credentials.user.email + ' registrado correctamente!')
+			actions.getArtists()
         	setTimeout(() => {
 				navigate("/");
 			  }, 2000);

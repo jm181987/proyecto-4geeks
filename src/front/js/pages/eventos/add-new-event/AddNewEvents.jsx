@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { 
     Col,
     Container,
-    Row 
+    Row,
+	Button
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -17,15 +18,19 @@ import { db } from '../../../firebase/firebase.js';
 import { useAuth } from "../../../context/authContext.js";
 
 import { Toaster, toast } from "react-hot-toast";
-
+import { Context } from "../../../store/appContext.js";
 
 import { v4 } from 'uuid';
 
 export const AddNewEvent = () => {
+	const { store, actions } = useContext(Context)
 	const navigate = useNavigate()
     const [currentStep, setCurrentStep] = useState(1);
 	const [ fileUrl, setFileUrl ] = useState(null)
 	const { user } = useAuth();
+	const goBack = () => {
+        navigate(-1)
+    }
 	const [formData, setFormData] = useState({
 		title: 'Event Title',
 		category: 'Event Category',
@@ -92,6 +97,7 @@ export const AddNewEvent = () => {
 			try {
 				await setDoc(doc(db, "eventos", v4()), formData);
 				toast.success('Evento registrado!')
+				actions.getEvents()
 				setTimeout(() => {
 					navigate(-1);
 				}, 2000);
@@ -170,7 +176,7 @@ export const AddNewEvent = () => {
                                     </p>
                                 </div>
                                 <div>
-                                    <Link to='/eventos' className="btn btn-success mb-2">Volver a los eventos</Link>
+                                    <Button onClick={goBack} className="btn btn-success mb-2">Volver</Button>
                                 </div>
                             </div>
                         </Col>

@@ -151,7 +151,7 @@ export const Login = () => {
 										<div className="d-md-flex justify-content-between align-items-center">
 											<Form.Group
 												className="mb-3 mb-md-0"
-												controlId="formBasicCheckbox"
+												
 											>
 												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>

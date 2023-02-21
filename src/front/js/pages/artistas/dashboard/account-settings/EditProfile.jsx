@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Card, Form, Row, Col, Button, Image } from 'react-bootstrap';
 import { DashboardLayout } from '../DashboardLayout.jsx'
 import { FormSelect } from '../../../../component/forms/FormSelect.jsx';
@@ -11,9 +11,10 @@ import { useAuth } from '../../../../context/authContext.js';
 import Avatar from '../../../../../img/avatar/avatar.jpg'
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Context } from '../../../../store/appContext.js';
 
 export const EditProfile = () => {
-
+    const { store, actions } = useContext(Context)
     const { user } = useAuth()
     const navigate = useNavigate()
 
@@ -32,7 +33,7 @@ export const EditProfile = () => {
 
     const [formData, setFormData] = useState({
         name: 'artist_name',
-        email: 'email@example.com',
+        workemail: 'email@example.com',
         image: 'https://firebasestorage.googleapis.com/v0/b/geeks-e71e0.appspot.com/o/9d51f7f4-8d54-477b-9cab-45d40a79a3c1?alt=media&token=025d3f8d-8d24-4e9a-9acb-101d0e7b4c36',
         topic: 'topic',
         events: 0,
@@ -42,10 +43,6 @@ export const EditProfile = () => {
         status: 'registrado',
         about: 'about',
         phone: '',
-        instagram: '',
-        facebook: '',
-        youtube: '',
-        soundcloud: '',
         joined: serverTimestamp(),
     });
 
@@ -64,6 +61,7 @@ export const EditProfile = () => {
         try {
             await setDoc(doc(db, "artistas", user.uid), formData);
             toast.success('Cambios realizados correctamente!')
+            actions.getArtists()
             setTimeout(() => {
                 navigate(-1);
             }, 2000);
@@ -111,9 +109,7 @@ export const EditProfile = () => {
                             <Image
                                 src={formData.image !== null ? formData.image : Avatar}
                                 alt=""
-                                className="rounded-top-md mb-1"
-                                height="50"
-                                width="50"
+                                className="avatar-xl rounded-circle"
                             />
                             <div className="ms-3">
                                 <h4 className="text-dark mb-0">Imagen de perfil</h4>
@@ -127,10 +123,10 @@ export const EditProfile = () => {
                                 id="image"
                                 name='image'
                                 type="file"
-                                className="form-control w-50"
+                                className="form-control mb-1"
                                 onChange={e => setFile(e.target.files[0])}
                                 size='sm'
-                            />{' '}
+                            />
                             <Button variant="primary" size='sm' className="input-group-text mb-0" onClick={e => rdyToUpload()}  >
                                 Subir
                             </Button>
@@ -145,7 +141,7 @@ export const EditProfile = () => {
                             <Row>
                                 {/* First name */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formNickname">
+                                    <Form.Group className="mb-3">
                                         <Form.Label htmlFor="name">Nombre Artistico</Form.Label>
                                         <Form.Control
                                             type="text"
@@ -159,13 +155,13 @@ export const EditProfile = () => {
 
                                 {/* Last name */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formEmail">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label htmlFor="email">Correo Electonico</Form.Label>
                                         <Form.Control
                                             type="email"
-                                            placeholder="Correo Electronico"
-                                            id="email"
-                                            name="email"
+                                            placeholder="Correo Electronico de Trabajo"
+                                            id="workemail"
+                                            name="workemail"
                                             onChange={e => handleChange(e)}
                                         />
                                     </Form.Group>
@@ -173,7 +169,7 @@ export const EditProfile = () => {
 
                                 {/* Phone */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formPhone">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label htmlFor="phone">Numero De Telefono</Form.Label>
                                         <Form.Control
                                             type="phone"
@@ -187,7 +183,7 @@ export const EditProfile = () => {
 
                                 {/* About */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formAbout">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label>Sobre ti</Form.Label>
                                         <Form.Control
                                             type="text-area"
@@ -201,7 +197,7 @@ export const EditProfile = () => {
                                             especificando todo lo relevante de tu performance.
                                         </Form.Text>
                                     </Form.Group>
-                                    <Form.Group className="mb-3" controlId="formMusic">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label>Repertorio</Form.Label>
                                         <Form.Control
                                             type="text-area"
@@ -214,7 +210,7 @@ export const EditProfile = () => {
 
                                 {/* State */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formCategory">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label>Categoria</Form.Label>
                                         <FormSelect
                                             options={categoryOptions}
@@ -227,7 +223,7 @@ export const EditProfile = () => {
 
                                 {/* Country */}
                                 <Col md={6} sm={12} className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formType">
+                                    <Form.Group className="mb-3" >
                                         <Form.Label>Genero</Form.Label>
                                         <FormSelect
                                             options={Generomusical}

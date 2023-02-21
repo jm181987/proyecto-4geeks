@@ -98,13 +98,6 @@ export const Navbar = () => {
                 </Link>
 							)}
               </li>
-              {usuariodb && usuariodb.role === "Usuario" && (
-              <li className="nav-item">
-								<Link className="nav-link user-role" to='/perfil'>
-                Mi Perfil Usuario
-                </Link>
-              </li>
-							)}
               {user == null && (
                 <li className="nav-item logged-out">
                   <Link className="nav-link" to="/signup">

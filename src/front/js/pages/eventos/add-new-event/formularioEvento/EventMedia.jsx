@@ -10,13 +10,13 @@ export const EventMedia = (props) => {
 	const [file, setFile] = useState(null)
 
 	async function rdyToUpload() {
-		if(file != null){
+		if (file != null) {
 			const downloadUrl = await uploadFile(file)
 			console.log('File available at OTRO', downloadUrl)
 			const result = handleFile(downloadUrl)
 			console.log(result)
 		}
-	  }
+	}
 
 	return (
 		<Form>
@@ -28,43 +28,52 @@ export const EventMedia = (props) => {
 				{/* Card body */}
 				<Card.Body>
 					{/* Event cover image */}
-					<Form.Label>Poster del evento</Form.Label>
-					<Image
-						src={data.image !== null ? data.image : Avatar}
-						alt=""
-						className="rounded-top-md"
-						height="50"
-						width="50"
-						/>
-					<Form.Group className="mb-1 input-group">
-						<Form.Control
-							id="image"
-							name='image'
-							type="file"
-							className="form-control"
-							onChange={e => setFile(e.target.files[0])}
-						/>
-						<Button variant="primary" className="input-group-text mb-0" onClick={e => rdyToUpload()}  >
-				                Subir
-			            </Button>
-						<Form.Text className="text-muted">
-                        Sube la imagen de tu curso aquí. Debe cumplir con la imagen de nuestro curso
-                        estándares de calidad a ser aceptados. Pautas importantes: 750x440
-                        píxeles; .jpg, .jpeg, . gif o .png. no hay texto en la imagen.
-						</Form.Text>
-					</Form.Group>
+					<div className="d-lg-flex align-items-center justify-content-between mb-3">
+						<div className="d-flex align-items-center mb-4 mb-lg-0">
+							<Image
+								src={data.image !== null ? data.image : Avatar}
+								alt=""
+								className="avatar-xl rounded-square"
+							/>
+							<div className="ms-3">
+								<h4 className="text-dark mb-0">Poster del Evento</h4>
+								<p className="mb-0">
+									PNG o JPG no mayor a 800px de ancho y alto.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<Form.Group className="mb-1 input-group">
+							<Form.Control
+								id="image"
+								name='image'
+								type="file"
+								className="form-control"
+								onChange={e => setFile(e.target.files[0])}
+							/>
+							<Button variant="primary" className="input-group-text mb-0" onClick={e => rdyToUpload()}  >
+								Subir
+							</Button>
+							<Form.Text className="text-muted">
+								Sube la imagen de tu curso aquí. Debe cumplir con la imagen de nuestro curso
+								estándares de calidad a ser aceptados. Pautas importantes: 750x440
+								píxeles; .jpg, .jpeg, . gif o .png. no hay texto en la imagen.
+							</Form.Text>
+						</Form.Group>
+					</div>
 					{/* Video URL  */}
 					<Form.Group className="mb-3 mt-3">
-						<Form.Control 
-							type="text" 
-							placeholder="Video URL" 
-							id="video_url" 
+						<Form.Control
+							type="text"
+							placeholder="Video URL"
+							id="video_url"
 							name="video_url"
 							onChange={e => handleChange(e)} />
 						<Form.Text className="text-m
 						\\uted">
-                        Introduce una URL de vídeo válida. Una promo bien hecha
-                        video tienen 5 veces más probabilidades de comprar su evento.
+							Introduce una URL de vídeo válida. Una promo bien hecha
+							video tienen 5 veces más probabilidades de comprar su evento.
 						</Form.Text>
 					</Form.Group>
 				</Card.Body>

@@ -28,8 +28,8 @@ const ArtistsGrid = () => {
 			<PageHeadingBriefinfo
 				pagetitle="Artistas"
 				briefinfo="Todo tipo de talento"
-				tolink='/artistas/nuevo'
-				buttontext='Registrar Nuevo Artista'
+				tolink='/editprofile'
+				buttontext='Editar mi perfil'
 			/>
 			
 			<div className="py-6">

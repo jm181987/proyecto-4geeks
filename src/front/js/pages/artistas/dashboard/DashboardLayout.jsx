@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card, Image, Navbar, Nav } from 'react-bootstrap'
-import { ProfileCover } from '../../../component/common/page-headings/ProfileCover.jsx'
+import { ProfileCoverDashboard } from '../../../component/common/page-headings/ProfileCoverDashboard.jsx'
 import { useAuth } from '../../../context/authContext.js'
 import { Context } from '../../../store/appContext.js'
 import { AccountSettingsMenu, DashboardMenu } from './DashboardMenu.js'
@@ -24,7 +24,7 @@ export const DashboardLayout = (props) => {
       <div className='pt-5 pb-5'>
         <Container>
           {/** Portada */}
-          <ProfileCover dashboardData={artist} />
+          <ProfileCoverDashboard dashboardData={artist} />
 
           {/** Contenido */}
           <Row className='mt-0 mt-md-4'>

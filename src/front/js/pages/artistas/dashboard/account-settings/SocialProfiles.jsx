@@ -1,14 +1,54 @@
-import React from 'react'
-import { 
+import React, { useContext, useState } from 'react'
+import {
   Card,
   Row,
   Col,
   Form,
-  Button } from 'react-bootstrap'
+  Button
+} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { DashboardLayout } from '../DashboardLayout.jsx'
-
+import { useAuth } from '../../../../context/authContext.js'
+import { Toaster, toast } from "react-hot-toast";
+import { Context } from '../../../../store/appContext.js'
 
 export const SocialProfiles = () => {
+  const { store, actions } = useContext(Context)
+  const { user } = useAuth()
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState({
+    instagram: '/',
+    facebook: '/',
+    youtube: '/',
+    soundcloud: '/'
+  });
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+    console.log('handleChange')
+  };
+
+  const handleAdd = async () => {
+    console.log('Activando handleAdd')
+    //const user = firebase.auth().currentUser;
+    //formData.createdBy = user.uid;
+    try {
+      await setDoc(doc(db, "artistas", user.uid), formData);
+      toast.success('Cambios realizados correctamente!')
+      actions.getArtists()
+      setTimeout(() => {
+        navigate(-1);
+      }, 2000);
+    } catch (error) {
+      console.log(error)
+      toast.error('Error: no se logro realizar los cambios')
+    }
+  }
+
   return (
     <DashboardLayout>
       <Card className='border-0'>
@@ -32,6 +72,9 @@ export const SocialProfiles = () => {
                   type='text'
                   placeholder='SoundCloud link'
                   className='form-control mb-1'
+                  id='soundcloud'
+                  name='soundcloud'
+                  onChange={e => handleChange(e)}
                 />
                 <Form.Text className='text-muted'>Agrega el URL de tu perfil de SoundCloud</Form.Text>
               </Col>
@@ -46,6 +89,9 @@ export const SocialProfiles = () => {
                   type='text'
                   placeholder='YouTube link'
                   className='form-control mb-1'
+                  id='youtube'
+                  name='youtube'
+                  onChange={e => handleChange(e)}
                 />
                 <Form.Text className='text-muted'>Agrega el URL de tu perfil de YouTube</Form.Text>
               </Col>
@@ -60,6 +106,9 @@ export const SocialProfiles = () => {
                   type='text'
                   placeholder='Facebook link'
                   className='form-control mb-1'
+                  id='facebook'
+                  name='facebook'
+                  onChange={e => handleChange(e)}
                 />
                 <Form.Text className='text-muted'>Agrega el URL de tu perfil de Facebook</Form.Text>
               </Col>
@@ -74,6 +123,9 @@ export const SocialProfiles = () => {
                   type='text'
                   placeholder='Instagram link'
                   className='form-control mb-1'
+                  id='instagram'
+                  name='instagram'
+                  onChange={e => handleChange(e)}
                 />
                 <Form.Text className='text-muted'>Agrega el URL de tu perfil de Instagram</Form.Text>
               </Col>
@@ -81,8 +133,8 @@ export const SocialProfiles = () => {
             {/** BOTON */}
             <Row>
               <Col>
-                <Button>
-                  Guardar Redes Sociales
+                <Button variant="primary" onClick={handleAdd}>
+                  Actualizar redes sociales
                 </Button>
               </Col>
             </Row>

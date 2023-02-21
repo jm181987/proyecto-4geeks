@@ -17,7 +17,7 @@ import AllArtistsData from '../../../data/slider/AllArtistData.jsx';
 import ArtistData from '../../../data/users/ArtistData.jsx';
 
 const EventsCategory = () => {
-	const { store, actions } = useContext(Context)	  
+	const { store, actions } = useContext(Context)
 
 	return (
 		<Fragment>
@@ -28,7 +28,7 @@ const EventsCategory = () => {
 				tolink='/eventos/nuevo'
 				buttontext='Publicar Evento Nuevo'
 			/>
-			
+
 			<div className="py-6">
 				<Container>
 					<Row className="mb-6">
@@ -57,8 +57,10 @@ const EventsCategory = () => {
 									>
 										{/* most popular started */}
 										<Row>
-											{AllArtistsData.filter(function (datasource) {
-												return datasource.category === 'techno';
+											{store.events.filter(function (datasource) {
+												return (
+													datasource.status === 'popular'
+												);
 											})
 												.slice(0, 4)
 												.map((item, index) => (
@@ -72,12 +74,9 @@ const EventsCategory = () => {
 									<Tab.Pane eventKey="trending" className="pb-4 p-4 ps-0 pe-0">
 										{/* trending events started */}
 										<Row>
-											{AllArtistsData.filter(function (datasource) {
+											{store.events.filter(function (datasource) {
 												return (
-													datasource.id === 1 ||
-													datasource.id === 2 ||
-													datasource.id === 3 ||
-													datasource.id === 4
+													datasource.status === 'trending'
 												);
 											}).map((item, index) => (
 												<Col lg={3} md={6} sm={12} key={index}>
@@ -107,7 +106,9 @@ const EventsCategory = () => {
 						{/*{ArtistData.filter(function (datasource) {
 							return datasource.hoursbook > 26000;
 						}).map((item, index) => */}
-						{store.artists.map((item, index) => (
+						{store.artists.filter(function (datasource) {
+							return datasource.status != 'nuevo';
+						}).map((item, index) => (
 							<Col lg={3} md={6} sm={12} key={index}>
 								<PopularArtistCard item={item} />
 							</Col>
@@ -119,14 +120,14 @@ const EventsCategory = () => {
 					<Row>
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
-								<h2 className="mb-1">Primera hora gratis</h2>
+								<h2 className="mb-1">Te gusta el techno?</h2>
 								<p className="mb-0">LA fiesta apenas empieza!</p>
 							</div>
 						</Col>
 					</Row>
 					<Row className="mb-6">
-						{AllArtistsData.filter(function (datasource) {
-							return datasource.category === 'javascript';
+						{store.events.filter(function (datasource) {
+							return datasource.category === 'Techno';
 						})
 							.slice(0, 4)
 							.map((item, index) => (
@@ -141,9 +142,9 @@ const EventsCategory = () => {
 					<Row>
 						<Col lg={12} md={12} sm={12}>
 							<div className="mb-5">
-								<h2 className="mb-1">Los mejores DJs de música eléctrocina</h2>
+								<h2 className="mb-1">TODOS LOS EVENTOS</h2>
 								<p className="mb-0">
-									Aquí encontraras los que más te gustan.
+									Aquí encontraras todos los eventos disponibles.
 								</p>
 							</div>
 						</Col>

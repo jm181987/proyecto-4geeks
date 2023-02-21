@@ -39,7 +39,7 @@ export const Login = () => {
         <Card>
           <h1>Acceso</h1>
           <Form onSubmit={login}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
               <Form.Label>E-mail</Form.Label>
               <Form.Control
                 type="email"
@@ -49,7 +49,7 @@ export const Login = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Contraseña</Form.Label>
               <Form.Control
                 type="password"

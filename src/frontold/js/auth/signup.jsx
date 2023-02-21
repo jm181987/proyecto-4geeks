@@ -56,7 +56,7 @@ export const SignUp = () => {
         <Card>
           <h1>Registro</h1>
           <Form onSubmit={signUpUser}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3">
               <Form.Label>E-mail</Form.Label>
               <Form.Control
                 type="email"
@@ -66,7 +66,7 @@ export const SignUp = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" >
               <Form.Label>Contraseña</Form.Label>
               <Form.Control
                 type="password"
@@ -76,7 +76,7 @@ export const SignUp = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label>Confirmar contraseña</Form.Label>
               <Form.Control
                 type="password"
@@ -97,7 +97,7 @@ export const SignUp = () => {
                 No compartiremos ninguno de sus datos con terceros.
               </Form.Text>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3">
               <Form.Check
                 type="checkbox"
                 label="Acepto los terminos y condiciones"
