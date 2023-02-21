@@ -8,7 +8,7 @@ import {
   uploadBytes,
   uploadBytesResumable,
 } from "firebase/storage";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import { v4 } from "uuid";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,10 +28,17 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 export const db = getFirestore(app);
+
 export const fetchData = async (tableName = "") => {
   const col = collection(db, tableName);
   const snapshot = await getDocs(col);
   return snapshot?.docs.map((d) => d.data()) || [];
+};
+
+export const addData = async (tableName = "", data) => {
+  const col = collection(db, tableName);
+  const doc = await addDoc(col, data);
+  return doc;
 };
 
 export function uploadFile(file) {
