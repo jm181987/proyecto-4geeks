@@ -160,7 +160,7 @@ export const EventSingle = () => {
                                     </Link>*/}
                                         {usuariodb && usuariodb.role === "Usuario" && (
     
-                                            <div className="paypalButton mt-3"><PaypalButton price={event.price}/></div>
+                                            <div className="paypalButton mt-3"><PaypalButton price={event.price} eventid={event.id} /></div>
                                         )}
                                         <Link to={'/artistas/' + event.artist_id} className='btn btn-outline-primary'>
                                             Ver Perfil

@@ -30,7 +30,7 @@ import { NewArtist } from "./pages/artistas/artistanuevo.jsx";
 import EventsCategory from "./pages/browse/EventsCategory.jsx";
 import { EventSingle } from "./pages/eventos/EventSingle.jsx";
 import { AddNewEvent } from "./pages/eventos/add-new-event/AddNewEvents.jsx";
-import { MyProfile } from "./pages/profile/myprofile.jsx";
+import { ViewProfile } from "./pages/artistas/profile/ViewProfile.jsx";
 
 import ArtistsGrid from "./pages/browse/ArtistsGrid.jsx";
 import { SuccessPage } from "./paypal/paypal-success.jsx";
@@ -38,6 +38,7 @@ import { SuccessPage } from "./paypal/paypal-success.jsx";
 import injectContext from "./store/appContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute.jsx";
 import { ProtectedArtistsRoute } from "./auth/ProtectedArtistsRoute.jsx";
+import { DashboardLayout } from "./pages/artistas/dashboard/DashboardLayout.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -55,8 +56,9 @@ const Layout = () => {
               <Route element={<Home />} path="/" />
               <Route element={<Login />} path="/login" />
               <Route element={<ProtectedArtistsRoute><NewArtist /></ProtectedArtistsRoute>} path="/artistas/nuevo" />
+              <Route element={<ProtectedArtistsRoute><DashboardLayout /></ProtectedArtistsRoute>} path="/dashboard" />
               <Route element={<ProtectedRoute><EventsCategory /></ProtectedRoute>} path="/eventos" />
-              <Route element={<ProtectedRoute><MyProfile /></ProtectedRoute>} path="/perfil" />
+              <Route element={<ProtectedRoute><ViewProfile /></ProtectedRoute>} path="/perfil" />
               <Route element={<Caracteristicas />} path="/caracteristicas" />
               <Route element={<Quienes />} path="/quienes" />
               <Route element={<Mision />} path="/mision" />

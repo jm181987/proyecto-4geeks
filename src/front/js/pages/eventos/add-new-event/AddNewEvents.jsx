@@ -48,7 +48,7 @@ export const AddNewEvent = () => {
 		trending: true,
 		new: true,
 		booked: 0,
-		createdBy: 'user_id',
+		createdBy: user.uid,
 	});
 
 	const handleChange = (event) => {

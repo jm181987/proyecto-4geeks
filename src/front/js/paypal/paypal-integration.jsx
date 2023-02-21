@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-
+import { useAuth } from '../context/authContext.js';
 
 const PaypalButton = (props) => {
- const {price} = props
+ const {price, eventid } = props
  useEffect(() => {
    const paypalScript = document.createElement('script');
    paypalScript.src = 'https://www.paypal.com/sdk/js?client-id=AbvAplNYCEohTGENf1U8Zlp9pTEVN109zPktZ0jV2mfYDum91UpxAxUlrewDSbuHtiHw8MhCxQhBue9X&currency=USD';

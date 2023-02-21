@@ -1,8 +1,44 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import { 
+  Container,
+  Navbar,
+  Col,
+  Row,
+ } from 'react-bootstrap'
+
+
+ import Avatar  from '../../../../img/avatar/avatar-1.jpg'
+
+const ProfileData = {
+  avatar: Avatar,
+  name: 'Alejandro Fantini',
+  username: '@afantiniv',
+  linkname: 'Crear un evento',
+  link: '/evento/nuevo'
+}
 
 export const MyProfile = () => {
+  
   return (
-    <div>myprofile</div>
+    <Fragment>
+      <div>
+        <Container>
+          <Row>
+            <Col>
+              <Navbar>
+                <Link to='/'>Menu</Link>  
+              </Navbar>
+              <Navbar.Toggle>
+                <span>
+                  ...
+                </span>
+              </Navbar.Toggle>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </Fragment>
   )
 }
 

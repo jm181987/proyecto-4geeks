@@ -91,6 +91,13 @@ export const Navbar = () => {
                 </Link>
 							)}
               </li>
+              <li className="nav-item">
+              {usuariodb && usuariodb.role === "Artista" && (
+								<Link className="nav-link artist-role" to='/dashboard'>
+                  Dashboard
+                </Link>
+							)}
+              </li>
               {usuariodb && usuariodb.role === "Usuario" && (
               <li className="nav-item">
 								<Link className="nav-link user-role" to='/perfil'>
