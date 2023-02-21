@@ -155,7 +155,9 @@ export const Login = () => {
 											>
 												<Form.Check type="checkbox" label="Recuerdame" />
 											</Form.Group>
+
 											<Button onClick={handleResetPassword}>
+
 												Olvidaste tu contraseña?
 											</Button>
 										</div>
