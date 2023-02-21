@@ -49,7 +49,7 @@ export const Footer = () => (
 					  <a href="/quienes" className="text-reset">Quienes somos</a>
 				  </p>
 				  <p>
-					  <a href="/mision" className="text-reset">Mision y Vision</a>
+					  <a href="/mision" className="text-reset">Misión y Visión</a>
 										  </p>
 										  <p>
 					  <a href="/terminos" className="text-reset">Terminos y condiciones</a>
