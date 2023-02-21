@@ -5,34 +5,28 @@ import { Context } from "../../store/appContext.js";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const ArtistProfile = () => {
   const { store, actions } = useContext(Context);
-    const params = useParams()
-    let artistId = params.theid
-    const [artist, setArtist] = useState({})
-    const navigate = useNavigate()
-    const goBack = () =>{
-      navigate(-1)
-    }
-     
-    useEffect(() => {
-        const artistStore = store.artists.filter(art => art.id == artistId)
-        if (artistStore.length > 0) {
-            setArtist(artistStore[0])
-        }
-    }, [store.artists, artistId])
+  const params = useParams();
+  let artistId = params.theid;
+  const [artist, setArtist] = useState({});
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
 
+  useEffect(() => {
+    const artistStore = store.artists.filter((art) => art.id == artistId);
+    if (artistStore.length > 0) {
+      setArtist(artistStore[0]);
+    }
+  }, [store.artists, artistId]);
 
   return (
     <Container className="my-5">
       <Row>
         <Col lg={3} className="text-center">
-          <Image
-            src={artist.image}
-            roundedCircle
-            className="mb-3"
-          />
+          <Image src={artist.image} roundedCircle className="mb-3" />
           <h3 className="text-white">{artist.name}</h3>
           <p>{artist.topic}</p>
         </Col>
@@ -44,22 +38,24 @@ export const ArtistProfile = () => {
                 <p>House</p>
               </div>
               <div>
-              <h5 className="text-dark">Descripcion</h5>
-              <p>
-                {artist.about}
-              </p>
+                <h5 className="text-dark">Descripcion</h5>
+                <p>{artist.about}</p>
               </div>
               <div>
                 <h5 className="text-dark">Repertorio</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                vehicula odio a mauris tincidunt, at hendrerit tellus consequat.</p>
+                <p>
+                  Este repertorio se caracteriza por su masiva difusión a través
+                  de la radio, televisión y tendencias. En este repertorio nos
+                  encontramos con los siguientes géneros musicales: Rock, Jazz,
+                  pop, hip- hop, etc..
+                </p>
               </div>
-              <Button onClick={goBack} className='btn btn-danger'>
+              <Button onClick={goBack} className="btn btn-danger">
                 &larr; Volver
               </Button>
               <div>
                 <h5 className="text-dark">Rating</h5>
-              <h5 className="text-dark">{artist.rating}/5.0</h5>
+                <h5 className="text-dark">{artist.rating}/5.0</h5>
               </div>
               <div className="row">
                 <div className="col-1">

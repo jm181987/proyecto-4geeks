@@ -10,7 +10,7 @@ export const Artistas = () => {
     return (
         <Container>
             <div className='my-2'>
-                <Button variant="secondary" size="lg">Ubicacion</Button>{' '}
+                <Button variant="secondary" size="lg">Ubicación</Button>{' '}
                 <Button variant="secondary" size="lg">Fecha</Button>{' '}
                 <Button variant="secondary" size="lg">Precio</Button>{' '}
             </div>
