@@ -102,9 +102,9 @@ export const MyEvents = () => {
 							bg={`${
 								value === 'Draft'
 									? 'info'
-									: value === 'Live'
+									: value === 'popular'
 									? 'success'
-									: value === 'Deleted'
+									: value === 'trending'
 									? 'danger'
 									: 'warning'
 							} `}

@@ -57,7 +57,6 @@ export const Login = () => {
 	
 	  const handleSubmit = async (e) => {
 		e.preventDefault();
-		toast.error("");
 		try {
 		  const credentials = await login(user.email, user.password);
 		  toast.success('Bienvenido ' + credentials.user.email + '!')

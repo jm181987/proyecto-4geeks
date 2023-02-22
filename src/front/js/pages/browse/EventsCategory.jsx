@@ -117,25 +117,7 @@ const EventsCategory = () => {
 					{/* end of Popular Artists */}
 
 					{/*  start */}
-					<Row>
-						<Col lg={12} md={12} sm={12}>
-							<div className="mb-5">
-								<h2 className="mb-1">Te gusta el techno?</h2>
-								<p className="mb-0">LA fiesta apenas empieza!</p>
-							</div>
-						</Col>
-					</Row>
-					<Row className="mb-6">
-						{store.events.filter(function (datasource) {
-							return datasource.category === 'Techno';
-						})
-							.slice(0, 4)
-							.map((item, index) => (
-								<Col lg={3} md={6} sm={12} key={index}>
-									<ArtistCard item={item} free />
-								</Col>
-							))}
-					</Row>
+					
 					{/* end */}
 
 					{/* all  events start */}
